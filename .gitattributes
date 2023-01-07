@@ -1,0 +1,36 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.go text
+*.mod text
+*.sum text
+
+# Declare files that will always have CRLF line endings on checkout.
+*.sln text eol=crlf
+TG*LF.ged eol=crlf
+
+# CR only for testing
+TGC55C.ged eol=cr
+TGC551.ged eol=cr
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.BMP binary
+*.bmp binary
+*.pcx binary
+*.psd binary
+*.mov binary
+*.DOC binary
+*.aif binary
+*.GIF binary
+*.wav binary
+*.MAC binary
+*.PCX binary
+*.PIC binary
+*.PNG binary
+*.PSD binary
+*.TIF binary
+*.mpg binary

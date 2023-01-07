@@ -1,0 +1,16 @@
+%YAML 1.2
+---
+lang: en-US
+
+type: month
+
+uri: https://gedcom.io/terms/v7/month-TSH
+
+standard tag: TSH
+
+specification:
+  - Tishrei (תִּשְׁרֵי)
+
+calendars:
+  - "https://gedcom.io/terms/v7/cal-HEBREW"
+...
