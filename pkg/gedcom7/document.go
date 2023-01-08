@@ -140,11 +140,11 @@ func (d *document) AddRecord(n *gedcom.Node) {
 func (d *document) AddWarning(src interface{}, msg string) {
 	var row string
 	var n *node
-	switch src.(type) {
+	switch data := src.(type) {
 	case string:
-		row = src.(string)
+		row = data
 	case *node:
-		n = src.(*node)
+		n = data
 		row = n.String()
 	default:
 		row = fmt.Sprintf("unknown src type %T", src)
@@ -243,7 +243,9 @@ func (d *document) exportGedcom7(w io.Writer) error {
 
 func (d *document) String() string {
 	buf := new(bytes.Buffer)
-	d.exportGedcom7(buf)
+	if err := d.exportGedcom7(buf); err != nil {
+		return ""
+	}
 
 	return buf.String()
 }

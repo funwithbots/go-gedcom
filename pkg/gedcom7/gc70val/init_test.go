@@ -29,7 +29,7 @@ func TestInit(t *testing.T) {
 
 	if len(baseline.enumsets) != esLen {
 		var keys string
-		for k, _ := range baseline.enumsets {
+		for k := range baseline.enumsets {
 			keys += k + " "
 		}
 		t.Errorf("enumsets length mismatch. Wanted %d; got %d\n%s", esLen, len(baseline.enumsets), keys)
