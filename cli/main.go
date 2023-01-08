@@ -1,5 +1,11 @@
 package main
 
+/********************************************************************************
+This, or any other application, should only read existing GEDCOM files. If any
+actions are taken to modify the input file, the output should be written to a
+new file. This will allow the original file to be preserved in case of errors.
+********************************************************************************/
+
 import (
 	"bufio"
 	"flag"
@@ -17,9 +23,10 @@ type logData struct {
 }
 
 func main() {
+	// docPath is overridden by the environment variable GEDCOM_DOC_PATH
 	docPath := "./"
 
-	if p, ok := os.LookupEnv("G7DOCPATH"); ok {
+	if p, ok := os.LookupEnv("GEDCOM_DOC_PATH"); ok {
 		docPath = p
 	}
 
@@ -50,7 +57,7 @@ func main() {
 func exitWithHelp() {
 	fmt.Println("expected command")
 	fmt.Println("Currently supported")
-	fmt.Println("\tinspect -input {gedfilename}")
+	fmt.Println("\tinspect -in {gedfilename}")
 	os.Exit(1)
 }
 

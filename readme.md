@@ -16,7 +16,9 @@ There are a few parts to this repository:
 
 1. CLI tool which uses the packages to provide functionality for manipulating GEDCOM files.
 2. Core packages to parse and manipulate GEDCOM files.
-   - `gedcom` - Interface definitions for gedcom documents and record structures.
+   - `gedcom` 
+     - Interface definition for gedcom documents.
+     - node.go provides the tree structure for records.
    - `gedcom7` - Implementation of the gedcom interface for GEDCOM v7 files.
      - `gedcom7/gc70val` - Validation rules for GEDCOM v7 files derived from the published abnf grammar.
 3. Supporting packages
@@ -65,6 +67,10 @@ To contribute to this project, fork the repository, create a new branch, and sub
 ## License
 
 This project is licensed under the [GNU General Public License v3.0] - see the LICENSE file for details
+
+## RELEASE OF LIABILITY
+
+This software is provided AS-IS without any warranty of any kind, either expressed or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The entire risk as to the quality and performance of the software is with you. Should the software prove defective, you assume the cost of all necessary servicing, repair, or correction.
 
 ## Acknowledgments
 

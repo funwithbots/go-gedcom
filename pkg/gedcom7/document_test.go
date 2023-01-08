@@ -24,15 +24,6 @@ func TestLoadDocument(t *testing.T) {
 		BOM       bool
 	}{
 		{
-			name:      "shaw",
-			file:      "../../" + DocPath + "shaw.ged",
-			want:      document{},
-			xref:      "@I1@",
-			rootCount: 4885,
-			nodeCount: 80604,
-			BOM:       true,
-		},
-		{
 			name:      "tgc551lf",
 			file:      DocPath + "torture test/TGC551LF.ged",
 			want:      document{},

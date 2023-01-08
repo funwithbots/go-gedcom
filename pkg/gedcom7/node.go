@@ -32,8 +32,9 @@ const (
 	g7Nonzero    = "1-9"
 	g7Underscore = "_"
 	g7Atsign     = "@"
-	voidXref     = "@VOID@"
 	g7Banned     = `\x{0}-\x{8}\x{B}-\x{C}\x{E}-\x{1F}\x{7F}\x{80}-\x{9F}\x{D800}-\x{DFFF}\x{FFFE}-\x{FFFF}`
+
+	voidXref = "@VOID@"
 
 	setFixAtsignStartLineVal = true
 	setFixAtsignAllLineVal   = false // no longer standard. @@ should not be used
@@ -56,9 +57,9 @@ type node struct {
 
 	// Deleted reflects if a node is flagged to be deleted.
 	Deleted bool
-	//
-	// Parent   *node
-	// Subnodes []*node
+
+	// Line is the original line of text extracted from the gedcom file.
+	Line string
 }
 
 type GTime node
@@ -97,10 +98,12 @@ func (n *node) String() string {
 // ToNode converts a gedcom file line to a Node structure and returns it.
 func ToNode(s string) (*node, error) {
 	var (
-		N      node
+		nod    node
 		err    error
 		marker = 1
 	)
+
+	nod.Line = s
 
 	// TODO Need to return a warning and still process the line. Let caller decide to throw it away.
 	if regBanned.MatchString(s) {
@@ -113,7 +116,7 @@ func ToNode(s string) (*node, error) {
 		return nil, errors.New("not enough tokens to parse line")
 	}
 
-	N.Level, err = strconv.Atoi(tokens[0])
+	nod.Level, err = strconv.Atoi(tokens[0])
 	if err != nil {
 		return nil, err
 	}
@@ -125,25 +128,25 @@ func ToNode(s string) (*node, error) {
 		if t == voidXref {
 			return nil, errors.New("xref cannot be void")
 		}
-		N.Xref = t
+		nod.Xref = t
 		marker++
 	case regTag.MatchString(t):
-		N.Tag = t
+		nod.Tag = t
 		marker++
 	default:
 		return nil, errors.New("missing or malformed xref/tag in second position")
 	}
 
-	if N.Tag == "" {
+	if nod.Tag == "" {
 		if !regTag.MatchString(tokens[marker]) {
 			return nil, errors.New("missing tag")
 		}
-		N.Tag = tokens[marker]
+		nod.Tag = tokens[marker]
 		marker++
 	}
 
-	skip := len(N.Xref) + 2
-	n := strings.Index(s[skip:], string(N.Tag)) + len(N.Tag) + 1 + skip
+	skip := len(nod.Xref) + 2
+	n := strings.Index(s[skip:], string(nod.Tag)) + len(nod.Tag) + 1 + skip
 	if len(s) > n {
 		lv := s[n:]
 		if setFixAtsignStartLineVal && lv[0:1] == "@" && !isXref(lv) {
@@ -151,10 +154,10 @@ func ToNode(s string) (*node, error) {
 				lv = fmt.Sprintf("@%s", lv)
 			}
 		}
-		N.Payload = lv
+		nod.Payload = lv
 	}
 
-	return &N, nil
+	return &nod, nil
 }
 
 // isXref validates that string segment is a validly formatted XRef.
