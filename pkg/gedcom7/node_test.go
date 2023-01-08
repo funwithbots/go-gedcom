@@ -230,13 +230,24 @@ func TestToNode(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
+			if tt.want != nil {
+				tt.want.Line = tt.s
+			}
 			got, err := ToNode(tt.s)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ToLine() error = %v, wantErr %v\n%+v", err, tt.wantErr, got)
 				return
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("ToLine() got = %v, want %+v", got, tt.want)
+				t.Errorf("ToLine() got = '%+v', want '%+v'", got, tt.want)
+				t.Logf("%d\t%d\n'%s'\t'%s'\n'%s'\t'%s'\n'%s'\t'%s'\n'%s'\t'%s'\n%t\t%t\n\n",
+					got.Level, tt.want.Level,
+					got.Xref, tt.want.Xref,
+					got.Tag, tt.want.Tag,
+					got.Payload, tt.want.Payload,
+					got.Line, tt.want.Line,
+					got.Deleted, tt.want.Deleted,
+				)
 			}
 		})
 	}
