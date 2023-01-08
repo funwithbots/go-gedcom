@@ -16,12 +16,6 @@ import (
 	"go-gedcom/pkg/gedcom7"
 )
 
-type logData struct {
-	lineNo int
-	line   string
-	err    string
-}
-
 func main() {
 	// docPath is overridden by the environment variable GEDCOM_DOC_PATH
 	docPath := "./"
@@ -42,10 +36,14 @@ func main() {
 
 	switch os.Args[1] {
 	case "inspect":
-		inspectCmd.Parse(os.Args[2:])
+		if err := inspectCmd.Parse(os.Args[2:]); err != nil {
+			log.Fatal(err)
+		}
 		inspect(docPath, *in)
 	case "records":
-		recordsCmd.Parse(os.Args[2:])
+		if err := recordsCmd.Parse(os.Args[2:]); err != nil {
+			log.Fatal(err)
+		}
 		recordCount(docPath, *rec)
 	default:
 		exitWithHelp()

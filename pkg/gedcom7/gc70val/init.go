@@ -7,7 +7,6 @@ import (
 	"io"
 	"log"
 	"os"
-	"regexp"
 	"strings"
 
 	"gopkg.in/yaml.v3"
@@ -26,11 +25,6 @@ const (
 )
 
 var (
-	regXref   = regexp.MustCompile(fmt.Sprintf("%s[%s%s%s]+%s", g7Atsign, g7Underscore, g7UCLetter, g7Digit, g7Atsign))
-	regLevel  = regexp.MustCompile(fmt.Sprintf("[0%s]+", g7Nonzero))
-	regTag    = regexp.MustCompile(fmt.Sprintf("^%s?[%s%s]{1,}$", g7Underscore, g7UCLetter, g7Digit))
-	regBanned = regexp.MustCompile(fmt.Sprintf("[%s]+", g7Banned))
-
 	logFile  *os.File
 	baseline = struct {
 		tags      map[string]tagDef

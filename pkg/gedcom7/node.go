@@ -41,8 +41,8 @@ const (
 )
 
 var (
-	regXref   = regexp.MustCompile(fmt.Sprintf("%s[%s%s%s]+%s", g7Atsign, g7Underscore, g7UCLetter, g7Digit, g7Atsign))
-	regLevel  = regexp.MustCompile(fmt.Sprintf("[0%s]+", g7Nonzero))
+	regXref = regexp.MustCompile(fmt.Sprintf("%s[%s%s%s]+%s", g7Atsign, g7Underscore, g7UCLetter, g7Digit, g7Atsign))
+	// regLevel  = regexp.MustCompile(fmt.Sprintf("[0%s]+", g7Nonzero))
 	regTag    = regexp.MustCompile(fmt.Sprintf("^%s?[%s%s]{1,}$", g7Underscore, g7UCLetter, g7Digit))
 	regBanned = regexp.MustCompile(fmt.Sprintf("[%s]+", g7Banned))
 )
@@ -71,14 +71,14 @@ func (n *node) String() string {
 		return ""
 	}
 	lines := strings.Split(n.Payload, "\n")
-	out := fmt.Sprintf("%s", strconv.Itoa(n.Level))
+	out := strconv.Itoa(n.Level)
 
 	if n.Xref != "" {
 		out += " " + n.Xref
 	}
 
 	if n.Tag != "" {
-		out += " " + string(n.Tag)
+		out += " " + n.Tag
 	}
 
 	if strings.TrimSpace(n.Payload) != "" {
@@ -142,7 +142,6 @@ func ToNode(s string) (*node, error) {
 			return nil, errors.New("missing tag")
 		}
 		nod.Tag = tokens[marker]
-		marker++
 	}
 
 	skip := len(nod.Xref) + 2

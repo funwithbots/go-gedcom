@@ -4,7 +4,6 @@ import (
 	_ "embed"
 	"errors"
 	"strings"
-	"unicode"
 
 	"github.com/funwithbots/go-abnf/operators"
 	"golang.org/x/text/cases"
@@ -39,21 +38,24 @@ func IsValidTag(tag string) bool {
 	return false
 }
 
-type cardinality int
-
-const (
-	CardinalityZeroToOne cardinality = iota
-	CardinalityZeroToMany
-	CardinalityOneToOne
-	CardinalityOneToMany
-)
-
-var cardinalityMap = map[string]cardinality{
-	"{0:1}": CardinalityZeroToOne,
-	"{0:M}": CardinalityZeroToMany,
-	"{1:1}": CardinalityOneToOne,
-	"{1:M}": CardinalityOneToMany,
-}
+// TODO Implement this with validation of gedcom documents
+// type cardinality int
+//
+// const (
+//
+//	CardinalityZeroToOne cardinality = iota
+//	CardinalityZeroToMany
+//	CardinalityOneToOne
+//	CardinalityOneToMany
+//
+// )
+//
+//	var cardinalityMap = map[string]cardinality{
+//		"{0:1}": CardinalityZeroToOne,
+//		"{0:M}": CardinalityZeroToMany,
+//		"{1:1}": CardinalityOneToOne,
+//		"{1:M}": CardinalityOneToMany,
+//	}
 
 var (
 	URIPrefixes = map[string]string{
@@ -153,18 +155,12 @@ func (t *tagDef) InferRule() {
 			t.Rule = abnf.Validation[uc]
 		}
 	}
-	// if t.Rule == nil {
-	// 	t.Rule = abnf.Validation["Anychar"]
-	// }
 }
 
 // Validate checks if the tag's payload conforms to the ABNF definition.
 func (t *tagDef) Validate() bool {
 	v := t.Rule([]byte(t.Payload))
-	if v != nil {
-		return false
-	}
-	return true
+	return v == nil
 }
 
 // loadTag returns a tagDef for the provided yaml.
@@ -212,16 +208,6 @@ func extractFullTag(u string) string {
 	return key
 }
 
-func isASCII(s string) bool {
-	for _, c := range s {
-		if c > unicode.MaxASCII {
-			return false
-		}
-	}
-
-	return true
-}
-
 // toUpperCamel converts strings with hyphens and underscores to UpperCamelCase
 func toUpperCamel(in string) string {
 	caser := cases.Title(language.English)
@@ -229,10 +215,7 @@ func toUpperCamel(in string) string {
 	mid := make([]string, 0)
 	parts := strings.Split(in, "-")
 	for _, part := range parts {
-		moreParts := strings.Split(part, "_")
-		for _, v := range moreParts {
-			mid = append(mid, v)
-		}
+		mid = append(mid, strings.Split(part, "_")...)
 	}
 	for _, v := range mid {
 		out += caser.String(v)
