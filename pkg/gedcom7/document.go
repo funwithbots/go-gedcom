@@ -24,13 +24,24 @@ type document struct {
 	bom     string // Byte Order Mark
 	header  *gedcom.Node
 	records []*gedcom.Node
-	trailer *node
+	trailer *Node
 
 	Warnings  []Warning
 	XRefCache *sync.Map
 	Validator *gc70val.Specs
 
 	options docOptions
+}
+
+func NewDocumentFromFile(name string, options ...DocOptions) (*document, error) {
+	f, err := os.Open(name)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	s := bufio.NewScanner(f)
+	doc := NewDocument(s, WithMaxDeprecatedTags("5.5.1"))
+	return doc, nil
 }
 
 // NewDocument accepts a buffer and converts it into a structured gedcom document.
@@ -56,7 +67,7 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 		doc.Validator.SetDeprecatedTags(opts.maxDeprecatedTagVersion)
 	}
 
-	doc.XRefCache.Store(voidXref, &node{})
+	doc.XRefCache.Store(voidXref, &Node{})
 	var i int
 
 	for s.Scan() {
@@ -91,7 +102,7 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 			// parent = nod
 		default:
 			last := nodeStack.Peek().(*gedcom.Node)
-			parent := last.GetNode().(*node)
+			parent := last.GetNode().(*Node)
 			if nod.Level > parent.Level+1 {
 				doc.AddWarning(v, fmt.Sprintf("Level jumped from %d to %d.", parent.Level, nod.Level))
 			}
@@ -114,7 +125,7 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 				for parent.Level >= nod.Level {
 					nodeStack.Pop()
 					last = nodeStack.Peek().(*gedcom.Node)
-					parent = last.GetNode().(*node)
+					parent = last.GetNode().(*Node)
 				}
 				sn := last.AddSubnode(nod)
 				nodeStack.Push(sn)
@@ -128,7 +139,7 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 // AddRecord adds a primary record to the document.
 func (d *document) AddRecord(n *gedcom.Node) {
 	d.records = append(d.records, n)
-	nod := n.GetNode().(*node)
+	nod := n.GetNode().(*Node)
 	if nod.Xref != "" {
 		d.XRefCache.Store(nod.Xref, n)
 	}
@@ -139,11 +150,11 @@ func (d *document) AddRecord(n *gedcom.Node) {
 // Batch operations should check for warnings after processing.
 func (d *document) AddWarning(src interface{}, msg string) {
 	var row string
-	var n *node
+	var n *Node
 	switch data := src.(type) {
 	case string:
 		row = data
-	case *node:
+	case *Node:
 		n = data
 		row = n.String()
 	default:
@@ -161,15 +172,15 @@ func (d *document) GetWarnings() []Warning {
 	return d.Warnings
 }
 
-// GetFamily returns a family node by xref
-func (d *document) GetFamily(xref string) *node {
+// GetFamily returns a family Node by xref
+func (d *document) GetFamily(xref string) *Node {
 	return nil
 }
 
-// GetXRef returns a node by its xref value.
-func (d *document) GetXRef(xref string) *node {
+// GetXRef returns a Node by its xref value.
+func (d *document) GetXRef(xref string) *Node {
 	if n, ok := d.XRefCache.Load(xref); ok {
-		return n.(*gedcom.Node).GetNode().(*node)
+		return n.(*gedcom.Node).GetNode().(*Node)
 	}
 
 	return nil
@@ -179,7 +190,7 @@ func (d *document) GetXRef(xref string) *node {
 // Birth and death dates can be inexact +/- the provided durations.
 // Name can be varied to allow looser matches. e.g. Soundex, different given names, etc.
 // Each set of matches are returned in a slice of slices.
-func (d *document) FindDuplicateIndividuals(person node, birthDate, deathDate time.Duration, nameVariations bool) ([][]*node, error) {
+func (d *document) FindDuplicateIndividuals(person Node, birthDate, deathDate time.Duration, nameVariations bool) ([][]*Node, error) {
 	return nil, fmt.Errorf("not implemented")
 }
 
@@ -199,9 +210,9 @@ func (d *document) ExportToFile(filename string) error {
 	return nil
 }
 
-// exportNodeTree recursively writes out a node and its subnodes and returns them as a multi-line string.
+// exportNodeTree recursively writes out a Node and its subnodes and returns them as a multi-line string.
 func exportNodeTree(n *gedcom.Node) string {
-	out := n.GetNode().(*node).String() + "\n"
+	out := n.GetNode().(*Node).String() + "\n"
 
 	for _, v := range n.GetSubnodes() {
 		out += exportNodeTree(v)
@@ -223,7 +234,7 @@ func (d *document) exportGedcom7(w io.Writer) error {
 	}
 
 	for _, v := range d.records {
-		n := v.GetNode().(*node)
+		n := v.GetNode().(*Node)
 		if n.Tag == "TRLR" || n.Tag == "HEAD" {
 			continue
 		}
@@ -256,4 +267,8 @@ func (d *document) Validate() ([]string, error) {
 
 func (d *document) Len() int {
 	return len(d.records)
+}
+
+func (d *document) Records() []*gedcom.Node {
+	return d.records
 }

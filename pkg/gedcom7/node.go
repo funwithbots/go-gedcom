@@ -9,7 +9,7 @@ import (
 )
 
 /*
-Line = Level D [Xref D] Tag [D LineVal] EOL
+Text = Level D [Xref D] Tag [D LineVal] EOL
 Level = "0" / nonzero *digit
 D = %x20 ; space
 Xref = atsign 1*tagchar atsign ; but not "@VOID@"
@@ -47,26 +47,26 @@ var (
 	regBanned = regexp.MustCompile(fmt.Sprintf("[%s]+", g7Banned))
 )
 
-// node defines the structure of a v7 gedcom line
+// Node defines the structure of a v7 gedcom line
 // Special case if Tag is CONT, then the payload is a continuation of the previous line.
-type node struct {
+type Node struct {
 	Level   int
 	Xref    string
 	Tag     string
 	Payload string
 
-	// Deleted reflects if a node is flagged to be deleted.
+	// Deleted reflects if a Node is flagged to be deleted.
 	Deleted bool
 
-	// Line is the original line of text extracted from the gedcom file.
-	Line string
+	// Text is the original line of text extracted from the gedcom file.
+	Text string
 }
 
-type GTime node
+type GTime Node
 
 // String creates a text row compatible with the Gedcom 7.x specification.
 // If line breaks exist in the payload, continuation lines are also generated.
-func (n *node) String() string {
+func (n *Node) String() string {
 	if n.Tag == "" || n.Level < 0 {
 		return ""
 	}
@@ -96,14 +96,14 @@ func (n *node) String() string {
 }
 
 // ToNode converts a gedcom file line to a Node structure and returns it.
-func ToNode(s string) (*node, error) {
+func ToNode(s string) (*Node, error) {
 	var (
-		nod    node
+		nod    Node
 		err    error
 		marker = 1
 	)
 
-	nod.Line = s
+	nod.Text = s
 
 	// TODO Need to return a warning and still process the line. Let caller decide to throw it away.
 	if regBanned.MatchString(s) {

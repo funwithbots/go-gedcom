@@ -13,15 +13,8 @@ import (
 )
 
 const (
-	abnfDir      = "data/abnf"
-	g7UCLetter   = "A-Z"
-	g7Digit      = "0-9"
-	g7Nonzero    = "1-9"
-	g7Underscore = "_"
-	g7Atsign     = "@"
-	voidXref     = "@VOID@"
-	g7Banned     = `\x{0}-\x{8}\x{B}-\x{C}\x{E}-\x{1F}\x{7F}\x{80}-\x{9F}\x{D800}-\x{DFFF}\x{FFFE}-\x{FFFF}`
-	logFN        = "gedcom7.log"
+	abnfDir = "data/abnf"
+	logFN   = "gedcom7.log"
 )
 
 var (

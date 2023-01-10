@@ -1,7 +1,7 @@
 package gedcom7
 
 type Warning struct {
-	Node    *node
+	Node    *Node
 	Line    string
 	Message string
 }

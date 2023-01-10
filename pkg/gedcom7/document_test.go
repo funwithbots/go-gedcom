@@ -72,7 +72,7 @@ func TestLoadDocument(t *testing.T) {
 			if reflect.DeepEqual(doc.header, gedcom.NewNode(doc.header)) {
 				t.Errorf("NewDocument() = missing header.")
 			}
-			if reflect.DeepEqual(doc.trailer, node{}) {
+			if reflect.DeepEqual(doc.trailer, Node{}) {
 				t.Errorf("NewDocument() = missing header.")
 			}
 			if doc.Len() != tt.rootCount {

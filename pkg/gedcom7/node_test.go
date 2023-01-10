@@ -89,7 +89,7 @@ func TestNode_String(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			l := node{
+			l := Node{
 				Level:   tt.fields.Level,
 				Xref:    tt.fields.Xref,
 				Tag:     tt.fields.Tag,
@@ -106,13 +106,13 @@ func TestToNode(t *testing.T) {
 	tests := []struct {
 		name    string
 		s       string
-		want    *node
+		want    *Node
 		wantErr bool
 	}{
 		{
 			name: "simple",
 			s:    "0 @I1@ INDI John Doe",
-			want: &node{
+			want: &Node{
 				Level:   0,
 				Xref:    "@I1@",
 				Tag:     "INDI",
@@ -123,7 +123,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "underscore",
 			s:    "0 @I1@ _CUSTOM John Doe",
-			want: &node{
+			want: &Node{
 				Level:   0,
 				Xref:    "@I1@",
 				Tag:     "_CUSTOM",
@@ -134,7 +134,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "proper @@",
 			s:    "0 NOTE @@me is John Doe",
-			want: &node{
+			want: &Node{
 				Level:   0,
 				Tag:     "NOTE",
 				Payload: "@@me is John Doe",
@@ -144,7 +144,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "improper @@",
 			s:    "0 NOTE @me is John Doe",
-			want: &node{
+			want: &Node{
 				Level:   0,
 				Tag:     "NOTE",
 				Payload: "@@me is John Doe",
@@ -154,7 +154,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "no xref",
 			s:    "0 INDI John Doe",
-			want: &node{
+			want: &Node{
 				Level:   0,
 				Tag:     "INDI",
 				Payload: "John Doe",
@@ -164,7 +164,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "extra spaces",
 			s:    "0 @I1@ INDI  John  Doe ",
-			want: &node{
+			want: &Node{
 				Level:   0,
 				Xref:    "@I1@",
 				Tag:     "INDI",
@@ -175,7 +175,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "no Payload",
 			s:    "0 @I1@ INDI",
-			want: &node{
+			want: &Node{
 				Level: 0,
 				Xref:  "@I1@",
 				Tag:   "INDI",
@@ -185,7 +185,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "most basic",
 			s:    "1 DATA",
-			want: &node{
+			want: &Node{
 				Level: 1,
 				Tag:   "DATA",
 			},
@@ -231,7 +231,7 @@ func TestToNode(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if tt.want != nil {
-				tt.want.Line = tt.s
+				tt.want.Text = tt.s
 			}
 			got, err := ToNode(tt.s)
 			if (err != nil) != tt.wantErr {
@@ -245,7 +245,7 @@ func TestToNode(t *testing.T) {
 					got.Xref, tt.want.Xref,
 					got.Tag, tt.want.Tag,
 					got.Payload, tt.want.Payload,
-					got.Line, tt.want.Line,
+					got.Text, tt.want.Text,
 					got.Deleted, tt.want.Deleted,
 				)
 			}
