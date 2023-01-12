@@ -1,7 +1,6 @@
 package gedcom
 
 import (
-	"fmt"
 	"sync"
 )
 
@@ -17,20 +16,20 @@ type (
 )
 
 // NewNode creates a new node
-func NewNode(in interface{}) *Node {
+func NewNode(parent *Node, in interface{}) *Node {
 	n := &Node{
 		value:    in,
 		subnodes: make([]*Node, 0),
+		parent:   parent,
 	}
 	return n
 }
 
 // AddSubnode appends a new subnode to the current node.
 func (n *Node) AddSubnode(in interface{}) *Node {
-	nod := NewNode(in)
-	n.subnodes = append(n.subnodes, nod)
-
-	return n
+	node := NewNode(n, in)
+	n.subnodes = append(n.subnodes, node)
+	return node
 }
 
 // RemoveSubnode removes a subnode from the current node.
@@ -44,25 +43,14 @@ func (n *Node) RemoveSubnode(in interface{}) {
 	}
 }
 
-// UpdateSubnode replaces the contents of a subnode with a new value.
+// UpdateNode replaces the contents of a subnode with a new value.
 // It doesn't change the tree structure.
-func (n *Node) UpdateSubnode(old, new interface{}) error {
-	for _, v := range n.subnodes {
-		if v.value == old {
-			v.value = new
-			return nil
-		}
-	}
-
-	return fmt.Errorf("subnode not found")
+func (n *Node) UpdateNode(data interface{}) error {
+	n.value = data
+	return nil
 }
 
-// GetNode returns the current node.
-func (n *Node) GetNode() interface{} {
-	return n.value
-}
-
-func (n *Node) GetParent() interface{} {
+func (n *Node) GetParent() *Node {
 	return n.parent
 }
 

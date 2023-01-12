@@ -2,10 +2,11 @@ package gedcom7
 
 import (
 	"reflect"
+	"strings"
 	"testing"
 )
 
-func TestNode_String(t *testing.T) {
+func TestLine_String(t *testing.T) {
 	type fields struct {
 		Level   int
 		Xref    string
@@ -89,7 +90,7 @@ func TestNode_String(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			l := Node{
+			l := Line{
 				Level:   tt.fields.Level,
 				Xref:    tt.fields.Xref,
 				Tag:     tt.fields.Tag,
@@ -102,17 +103,17 @@ func TestNode_String(t *testing.T) {
 	}
 }
 
-func TestToNode(t *testing.T) {
+func TestToLine(t *testing.T) {
 	tests := []struct {
 		name    string
 		s       string
-		want    *Node
+		want    *Line
 		wantErr bool
 	}{
 		{
 			name: "simple",
 			s:    "0 @I1@ INDI John Doe",
-			want: &Node{
+			want: &Line{
 				Level:   0,
 				Xref:    "@I1@",
 				Tag:     "INDI",
@@ -123,7 +124,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "underscore",
 			s:    "0 @I1@ _CUSTOM John Doe",
-			want: &Node{
+			want: &Line{
 				Level:   0,
 				Xref:    "@I1@",
 				Tag:     "_CUSTOM",
@@ -134,7 +135,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "proper @@",
 			s:    "0 NOTE @@me is John Doe",
-			want: &Node{
+			want: &Line{
 				Level:   0,
 				Tag:     "NOTE",
 				Payload: "@@me is John Doe",
@@ -144,7 +145,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "improper @@",
 			s:    "0 NOTE @me is John Doe",
-			want: &Node{
+			want: &Line{
 				Level:   0,
 				Tag:     "NOTE",
 				Payload: "@@me is John Doe",
@@ -154,7 +155,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "no xref",
 			s:    "0 INDI John Doe",
-			want: &Node{
+			want: &Line{
 				Level:   0,
 				Tag:     "INDI",
 				Payload: "John Doe",
@@ -164,7 +165,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "extra spaces",
 			s:    "0 @I1@ INDI  John  Doe ",
-			want: &Node{
+			want: &Line{
 				Level:   0,
 				Xref:    "@I1@",
 				Tag:     "INDI",
@@ -175,7 +176,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "no Payload",
 			s:    "0 @I1@ INDI",
-			want: &Node{
+			want: &Line{
 				Level: 0,
 				Xref:  "@I1@",
 				Tag:   "INDI",
@@ -185,7 +186,7 @@ func TestToNode(t *testing.T) {
 		{
 			name: "most basic",
 			s:    "1 DATA",
-			want: &Node{
+			want: &Line{
 				Level: 1,
 				Tag:   "DATA",
 			},
@@ -233,7 +234,7 @@ func TestToNode(t *testing.T) {
 			if tt.want != nil {
 				tt.want.Text = tt.s
 			}
-			got, err := ToNode(tt.s)
+			got, err := ToLine(tt.s)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ToLine() error = %v, wantErr %v\n%+v", err, tt.wantErr, got)
 				return
@@ -248,6 +249,63 @@ func TestToNode(t *testing.T) {
 					got.Text, tt.want.Text,
 					got.Deleted, tt.want.Deleted,
 				)
+			}
+		})
+	}
+}
+
+func TestNewlineFromFile(t *testing.T) {
+	tests := []struct {
+		name      string
+		file      string
+		total     int
+		rootCount int
+	}{
+		{
+			name:      "tgc551lf",
+			file:      DocPath + "torture test/TGC551LF.ged",
+			total:     2161,
+			rootCount: 65,
+		},
+		{
+			name:      "tgc551",
+			file:      DocPath + "torture test/TGC551.ged",
+			rootCount: 65,
+			total:     2161,
+		},
+		{
+			name:      "tgc55c",
+			file:      DocPath + "torture test/TGC55C.ged",
+			total:     2197,
+			rootCount: 67,
+		},
+		{
+			name:      "tgc55clf",
+			file:      DocPath + "torture test/TGC55CLF.ged",
+			total:     2197,
+			rootCount: 67,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			lines, err := NewLinesFromFile(tt.file, WithMaxDeprecatedTags("5.5.1"))
+			if err != nil {
+				t.Errorf("NewLines() error opening %s: %v", tt.file, err)
+			}
+
+			if len(*lines) != tt.total {
+				t.Errorf("NewLines() = wrong total number of lines. Wanted %d; got %d", tt.total, len(*lines))
+			}
+
+			var count int
+			for _, v := range *lines {
+
+				if strings.HasPrefix(v.Text, "0 ") {
+					count++
+				}
+			}
+			if count != tt.rootCount {
+				t.Errorf("NewLines() = wrong number of root nodes. Wanted %d; got %d", tt.rootCount, count)
 			}
 		})
 	}

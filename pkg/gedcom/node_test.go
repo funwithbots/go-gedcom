@@ -18,7 +18,7 @@ func TestNode_ProcessSubnodes(t *testing.T) {
 
 	// Return the text of the node.
 	fn := func(n *gedcom.Node) interface{} {
-		if nn, ok := n.GetValue().(*gedcom7.Node); ok {
+		if nn, ok := n.GetValue().(*gedcom7.Line); ok {
 			return nn.String()
 		}
 		return nil
@@ -30,15 +30,15 @@ func TestNode_ProcessSubnodes(t *testing.T) {
 	}
 
 	for _, tt := range doc.Records() {
-		if _, ok := tt.GetValue().(*gedcom7.Node); !ok {
-			t.Errorf("Node value is not a gedcom7.Node")
+		if _, ok := tt.GetValue().(*gedcom7.Line); !ok {
+			t.Errorf("Line value is not a gedcom7.Line")
 			continue
 		}
-		line := tt.GetValue().(*gedcom7.Node).Text
+		line := tt.GetValue().(*gedcom7.Line).Text
 		wg := new(sync.WaitGroup)
 		wg.Add(1)
 		if got := tt.ProcessTree(fn, wg); got == nil {
-			t.Errorf("%s Node.ProcessSubnodes() returned nil", line)
+			t.Errorf("%s Line.ProcessSubnodes() returned nil", line)
 		} else {
 			v := got[0].(string)
 			if v != line {
