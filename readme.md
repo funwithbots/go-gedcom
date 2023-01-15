@@ -6,7 +6,7 @@ simple way to validate, batch edit, and otherwise process genealogical data.
 
 ## Description
 
-This package is currently compatible with GEDCOM v7.0.11. ABNF grammars are imported when the `gedcom7` 
+This package is currently compatible with GEDCOM v7.0.11. ABNF grammars are loaded when the `gedcom7` 
 package is initialized at runtime. So long as there are no breaking changes to the specifications, newer
 versions of the GEDCOM standard should be compatible with this package. Potential breaking changes include
 
@@ -30,8 +30,8 @@ There are a few parts to this repository:
 
 First, get the package:
 
-```
-git clone ...
+```bash
+git clone https://github.com/funwithbots/go-gedcom.git
 ```
 
 Modify the existing cli tool in `/cli` or create your own.
@@ -50,14 +50,21 @@ Modify the existing cli tool in `/cli` or create your own.
 
 To contribute to this project, fork the repository, create a new branch, and submit a pull request.
 
+At a minimum, pull requests must pass the following checks:
+- all tests must pass
+- linting must pass using golangci-lint
+
+Workflows run these checks automatically when branches are pushed.
+
 ## Roadmap
 
 1. Support for GEDCOM v5.5.1
 2. Converter to/from GEDCOM v5.5.1 and v7
 3. Split tool to export a subset of the GEDCOM file.
 4. Graphing tool to allow batch creation of typical genealogical charts.
-5. Validation for documentation structure.
-6. Reporting tool for create reports from GEDCOM files.
+5. Validation for GEDCOM file structures.
+6. Reporting tool for creating reports from GEDCOM files.
+7. Full Record comparison tool
 
 ## Version History
 

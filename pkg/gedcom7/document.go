@@ -16,21 +16,31 @@ import (
 )
 
 const (
-	bom         = "\xef\xbb\xbf" // byte order mark
-	abnfDocPath = "data/"
+	bom = "\xef\xbb\xbf" // byte order mark
 )
 
 type document struct {
 	bom     string // Byte Order Mark
 	header  *gedcom.Node
 	records []*gedcom.Node
-	trailer *node
+	trailer *Line
 
 	Warnings  []Warning
 	XRefCache *sync.Map
 	Validator *gc70val.Specs
 
 	options docOptions
+}
+
+func NewDocumentFromFile(name string, options ...DocOptions) (*document, error) {
+	f, err := os.Open(name)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	s := bufio.NewScanner(f)
+	doc := NewDocument(s, WithMaxDeprecatedTags("5.5.1"))
+	return doc, nil
 }
 
 // NewDocument accepts a buffer and converts it into a structured gedcom document.
@@ -56,7 +66,7 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 		doc.Validator.SetDeprecatedTags(opts.maxDeprecatedTagVersion)
 	}
 
-	doc.XRefCache.Store(voidXref, &node{})
+	doc.XRefCache.Store(voidXref, &Line{})
 	var i int
 
 	for s.Scan() {
@@ -67,57 +77,68 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 			v = strings.TrimLeft(v, bom)
 			doc.bom = bom
 		}
-		nod, err := ToNode(v) // return a pointer to new Node
-		rec := gedcom.NewNode(nod)
+		line, err := ToLine(v) // return a pointer to new Line
 		if err != nil {
-			doc.AddWarning(v, fmt.Sprintf("unable to parse input row %d: %s", i, v))
+			doc.AddWarning(v, fmt.Sprintf("Line %d: unable to parse input row '%s'. Error %s", i, v, err.Error()))
 			continue
 		}
-		if !doc.Validator.IsValidTag(nod.Tag) {
-			doc.AddWarning(nod, fmt.Sprintf("invalid tag %s on line %d", nod.Tag, i))
+		if !doc.Validator.IsValidTag(line.Tag) {
+			doc.AddWarning(line, fmt.Sprintf("Line %d: invalid tag %s", i, line.Tag))
 		}
-		switch nod.Level {
+
+		if !line.Validate() {
+			doc.AddWarning(line, fmt.Sprintf("Line %d: invalid payload %s", i, line.Payload))
+		}
+
+		switch line.Level {
 		case 0:
-			switch nod.Tag {
+			node := gedcom.NewNode(nil, line)
+			switch line.Tag {
 			case "HEAD":
-				doc.header = rec
-				doc.AddRecord(rec)
+				if i != 1 {
+					doc.AddWarning(line, fmt.Sprintf("Line %d: HEAD tag must be first tag in file", i))
+				}
+				// only add the first header to the document
+				if doc.header == nil {
+					doc.header = node
+				}
+				doc.AddRecord(node)
 			case "TRLR":
-				doc.trailer = nod
+				doc.trailer = line
 			default:
-				doc.AddRecord(rec)
+				doc.AddRecord(node)
 			}
-			nodeStack.Push(rec)
-			// parent = nod
+			nodeStack = stack.New()
+			nodeStack.Push(node)
 		default:
-			last := nodeStack.Peek().(*gedcom.Node)
-			parent := last.GetNode().(*node)
-			if nod.Level > parent.Level+1 {
-				doc.AddWarning(v, fmt.Sprintf("Level jumped from %d to %d.", parent.Level, nod.Level))
+			top := nodeStack.Peek().(*gedcom.Node)
+			tLine := top.GetValue().(*Line)
+			if line.Level > tLine.Level+1 {
+				doc.AddWarning(v, fmt.Sprintf("Level jumped from %d to %d.", tLine.Level, line.Level))
 			}
 			switch {
 			// same level. Just add subnode to parent
-			case parent.Level == nod.Level:
-				sn := last.AddSubnode(nod)
-				nodeStack.Push(sn)
-			// deeper level. Add subnode to last subnode
-			// Special case. append to payload if tag is 'CONT'
-			case parent.Level < nod.Level:
-				if nod.Tag == "CONT" {
-					parent.Payload += "\n" + nod.Payload
+			case tLine.Level == line.Level:
+				nodeStack.Pop()
+				top = nodeStack.Peek().(*gedcom.Node)
+				nodeStack.Push(top.AddSubnode(line))
+			// deeper level.
+			case tLine.Level < line.Level:
+				if line.Tag == "CONT" {
+					// Special case. append to payload if tag is 'CONT'
+					tLine.Payload += "\n" + line.Payload
 				} else {
-					sn := last.AddSubnode(nod)
-					nodeStack.Push(sn)
+					// Add subnode to most recent subnode
+					nodeStack.Push(top.AddSubnode(line))
 				}
 			// get to matching level on stack then add node.
-			case parent.Level > nod.Level:
-				for parent.Level >= nod.Level {
+			case tLine.Level > line.Level:
+				for tLine.Level >= line.Level {
 					nodeStack.Pop()
-					last = nodeStack.Peek().(*gedcom.Node)
-					parent = last.GetNode().(*node)
+					tLine = nodeStack.Peek().(*gedcom.Node).GetValue().(*Line)
 				}
-				sn := last.AddSubnode(nod)
-				nodeStack.Push(sn)
+				top = nodeStack.Peek().(*gedcom.Node)
+				nodeStack.Push(top.AddSubnode(line))
 			}
 		}
 	}
@@ -128,9 +149,9 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 // AddRecord adds a primary record to the document.
 func (d *document) AddRecord(n *gedcom.Node) {
 	d.records = append(d.records, n)
-	nod := n.GetNode().(*node)
-	if nod.Xref != "" {
-		d.XRefCache.Store(nod.Xref, n)
+	line := n.GetValue().(*Line)
+	if line.Xref != "" {
+		d.XRefCache.Store(line.Xref, n)
 	}
 }
 
@@ -139,18 +160,18 @@ func (d *document) AddRecord(n *gedcom.Node) {
 // Batch operations should check for warnings after processing.
 func (d *document) AddWarning(src interface{}, msg string) {
 	var row string
-	var n *node
+	var line *Line
 	switch data := src.(type) {
 	case string:
 		row = data
-	case *node:
-		n = data
-		row = n.String()
+	case *Line:
+		line = data
+		row = line.String()
 	default:
 		row = fmt.Sprintf("unknown src type %T", src)
 	}
 	d.Warnings = append(d.Warnings, Warning{
-		Node:    n,
+		Node:    line,
 		Line:    row,
 		Message: msg,
 	})
@@ -161,15 +182,15 @@ func (d *document) GetWarnings() []Warning {
 	return d.Warnings
 }
 
-// GetFamily returns a family node by xref
-func (d *document) GetFamily(xref string) *node {
+// GetFamily returns a family Line by xref
+func (d *document) GetFamily(xref string) *Line {
 	return nil
 }
 
-// GetXRef returns a node by its xref value.
-func (d *document) GetXRef(xref string) *node {
-	if n, ok := d.XRefCache.Load(xref); ok {
-		return n.(*gedcom.Node).GetNode().(*node)
+// GetXRef returns a Line by its xref value.
+func (d *document) GetXRef(xref string) *Line {
+	if line, ok := d.XRefCache.Load(xref); ok {
+		return line.(*gedcom.Node).GetValue().(*Line)
 	}
 
 	return nil
@@ -179,7 +200,7 @@ func (d *document) GetXRef(xref string) *node {
 // Birth and death dates can be inexact +/- the provided durations.
 // Name can be varied to allow looser matches. e.g. Soundex, different given names, etc.
 // Each set of matches are returned in a slice of slices.
-func (d *document) FindDuplicateIndividuals(person node, birthDate, deathDate time.Duration, nameVariations bool) ([][]*node, error) {
+func (d *document) FindDuplicateIndividuals(person Line, birthDate, deathDate time.Duration, nameVariations bool) ([][]*Line, error) {
 	return nil, fmt.Errorf("not implemented")
 }
 
@@ -199,9 +220,9 @@ func (d *document) ExportToFile(filename string) error {
 	return nil
 }
 
-// exportNodeTree recursively writes out a node and its subnodes and returns them as a multi-line string.
+// exportNodeTree recursively writes out a Line and its subnodes and returns them as a multi-line string.
 func exportNodeTree(n *gedcom.Node) string {
-	out := n.GetNode().(*node).String() + "\n"
+	out := n.GetValue().(*Line).String() + "\n"
 
 	for _, v := range n.GetSubnodes() {
 		out += exportNodeTree(v)
@@ -223,8 +244,8 @@ func (d *document) exportGedcom7(w io.Writer) error {
 	}
 
 	for _, v := range d.records {
-		n := v.GetNode().(*node)
-		if n.Tag == "TRLR" || n.Tag == "HEAD" {
+		line := v.GetValue().(*Line)
+		if line.Tag == "TRLR" || line.Tag == "HEAD" {
 			continue
 		}
 		_, err = w.Write([]byte(exportNodeTree(v)))
@@ -250,10 +271,10 @@ func (d *document) String() string {
 	return buf.String()
 }
 
-func (d *document) Validate() ([]string, error) {
-	return nil, fmt.Errorf("not implemented")
-}
-
 func (d *document) Len() int {
 	return len(d.records)
+}
+
+func (d *document) Records() []*gedcom.Node {
+	return d.records
 }

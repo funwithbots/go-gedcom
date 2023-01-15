@@ -1,6 +1,6 @@
 // This file is generated - do not edit.
 // Except where needed. Generator does NOT support Proposed RFC 7405 for handling case-insensitive strings.
-// To process, remove %s from abnf definition and then replace operators.String() with operators.String()
+// To process, remove %s from abnf definition and then replace operators.String() with operators.StringCI()
 // as needed.
 
 package abnf
@@ -572,6 +572,8 @@ func Months() operators.Operator {
 }
 
 // MediaType defines the structure of a media type as `type + "/" + subtype`
+// Per RFC 6838, the type and subtype are case-insensitive
+// https://datatracker.ietf.org/doc/rfc6838/
 func MediaType() operators.Operator {
 	return operators.Concat("type / subtype",
 		MtType(),
@@ -598,7 +600,8 @@ func MtName() operators.Operator {
 func MtFirstChar() operators.Operator {
 	return operators.Alts(
 		"mt-name-first",
-		operators.Range("%x41-5A", []byte{0x41}, []byte{0x5A}),
+		operators.Range("%x41-5a", []byte{0x41}, []byte{0x5A}), // A-Z
+		operators.Range("%x61-7a", []byte{0x61}, []byte{0x7A}), // a-z
 		Digit(),
 	)
 }
@@ -607,7 +610,8 @@ func MtFirstChar() operators.Operator {
 func MtChars() operators.Operator {
 	return operators.Alts(
 		"mt-char",
-		operators.Range("%x41-5a", []byte{0x41}, []byte{0x5A}),
+		operators.Range("%x41-5a", []byte{0x41}, []byte{0x5A}), // A-Z
+		operators.Range("%x61-7a", []byte{0x61}, []byte{0x7A}), // a-z
 		Digit(),
 		operators.String("!", "!"),
 		operators.String("#", "#"),

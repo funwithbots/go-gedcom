@@ -9,7 +9,7 @@ func TestInit(t *testing.T) {
 	tlLen := 183
 	calLen := 4
 	typeLen := 6
-	esLen := 2
+	esLen := 12
 
 	if len(baseline.tags) == 0 {
 		t.Fatal("no tags discovered")
@@ -27,12 +27,12 @@ func TestInit(t *testing.T) {
 		t.Logf("tagList keys: %v", keys)
 	}
 
-	if len(baseline.enumsets) != esLen {
+	if len(baseline.enumSets) != esLen {
 		var keys string
-		for k := range baseline.enumsets {
+		for k := range baseline.enumSets {
 			keys += k + " "
 		}
-		t.Errorf("enumsets length mismatch. Wanted %d; got %d\n%s", esLen, len(baseline.enumsets), keys)
+		t.Errorf("enumSets length mismatch. Wanted %d; got %d\n%s", esLen, len(baseline.enumSets), keys)
 	}
 
 	if len(baseline.calendars) == 0 {
@@ -58,20 +58,9 @@ func TestInit(t *testing.T) {
 	}
 
 	bl := baseline
-	var tag string
-	for k, v := range bl.enumsets {
-		for _, vv := range v.Values {
-			found := false
-			for _, vvv := range bl.tags[vv].ValueOf {
-				tag = extractFullTag(vvv)
-				if k == tag {
-					found = true
-					break
-				}
-			}
-			if !found {
-				t.Errorf("enumset value %s is missing from tag %s", k, tag)
-			}
+	for k, v := range bl.tags {
+		if v.EnumSetName != "" && len(v.EnumSet.Values) == 0 {
+			t.Errorf("enumSet not initialized for %s", k)
 		}
 	}
 }

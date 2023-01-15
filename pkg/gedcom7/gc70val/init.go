@@ -13,25 +13,29 @@ import (
 )
 
 const (
-	abnfDir      = "data/abnf"
-	g7UCLetter   = "A-Z"
-	g7Digit      = "0-9"
-	g7Nonzero    = "1-9"
-	g7Underscore = "_"
-	g7Atsign     = "@"
-	voidXref     = "@VOID@"
-	g7Banned     = `\x{0}-\x{8}\x{B}-\x{C}\x{E}-\x{1F}\x{7F}\x{80}-\x{9F}\x{D800}-\x{DFFF}\x{FFFE}-\x{FFFF}`
-	logFN        = "gedcom7.log"
+	G7UCLetter   = "A-Z"
+	G7Digit      = "0-9"
+	G7Nonzero    = "1-9"
+	G7Underscore = "_"
+	G7Atsign     = "@"
+	G7Banned     = `\x{0}-\x{8}\x{B}-\x{C}\x{E}-\x{1F}\x{7F}\x{80}-\x{9F}\x{D800}-\x{DFFF}\x{FFFE}-\x{FFFF}`
+
+	abnfDir = "data/abnf"
+	logFN   = "gedcom7.log"
 )
 
 var (
 	logFile  *os.File
 	baseline = struct {
-		tags      map[string]tagDef
+		tags      map[string]TagDef
 		calendars map[string]calDef
 		types     map[string]typeDef
-		enumsets  map[string]enumSet
+		enumSets  map[string]enumSet
 	}{}
+)
+
+var (
+// regLevel  = regexp.MustCompile(fmt.Sprintf("[0%s]+", g7Nonzero))
 )
 
 //go:embed data/abnf/*
@@ -42,7 +46,7 @@ func init() {
 		tags      = pseudoTags
 		types     = make(map[string]typeDef)
 		calendars = make(map[string]calDef)
-		enumsets  = make(map[string]enumSet)
+		enumSets  = make(map[string]enumSet)
 
 		err error
 	)
@@ -63,7 +67,6 @@ func init() {
 	if err != nil {
 		log.Fatal("unable to open abnf folder", abnfDir, err)
 	}
-	enums := make([]enumSet, 0)
 
 	for _, fn := range files {
 		data, err := abnfFS.ReadFile(abnfDir + "/" + fn.Name())
@@ -76,16 +79,16 @@ func init() {
 		name := strings.Split(fn.Name(), "-")[0]
 		switch name {
 		case "enum":
-			// These values are extracted from enumsets.
+			// These values are extracted from enumSets.
 			continue
 		case "month":
 			// These values are extracted from calendars.
 			continue
 		case "enumset":
 			if es, err := loadEnumSet(data); err != nil {
-				logger.Printf("Error parsing %s as EnumSet\n%s\n", fn.Name(), err.Error())
+				logger.Printf("Error parsing %s as enumSet\n%s\n", fn.Name(), err.Error())
 			} else {
-				enums = append(enums, es)
+				enumSets[es.URI] = es
 			}
 		case "cal":
 			cm, err := loadCal(data)
@@ -123,22 +126,22 @@ func init() {
 		}
 	}
 
-	for _, es := range enums {
-		if _, ok := tags[es.FullTag]; !ok {
-			logger.Printf("Save enumset to %s.\n", es.FullTag)
-			enumsets[es.FullTag] = es
-			continue
+	for key, tag := range tags {
+		if tag.EnumSetName != "" {
+			if es, ok := enumSets[tag.EnumSetName]; !ok {
+				logger.Printf("No matching tag for %s to %s.\n", key, tag.EnumSetName)
+			} else {
+				tag.EnumSet = es
+				tags[key] = tag
+				logger.Printf("Added enumset %s.\n", es.FullTag)
+			}
 		}
-		t := tags[es.FullTag]
-		t.EnumSet = es
-		tags[es.FullTag] = t
-		logger.Printf("Added enumset %s.\n", es.FullTag)
 	}
 
 	baseline.tags = tags
 	baseline.calendars = calendars
 	baseline.types = types
-	baseline.enumsets = enumsets
+	baseline.enumSets = enumSets
 }
 
 // deserializeYAML populates v with the contents of the first document in the YAML text.

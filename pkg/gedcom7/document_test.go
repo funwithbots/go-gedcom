@@ -13,7 +13,7 @@ import (
 
 var DocPath = "data/"
 
-func TestLoadDocument(t *testing.T) {
+func TestNewDocumentFromFile(t *testing.T) {
 	tests := []struct {
 		name      string
 		file      string
@@ -62,17 +62,14 @@ func TestLoadDocument(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			s, closer, err := readFile(tt.file)
+			doc, err := NewDocumentFromFile(tt.file, WithMaxDeprecatedTags("5.5.1"))
 			if err != nil {
-				t.Fatalf("Error reading file %s: %v", tt.file, err.Error())
+				t.Errorf("NewDocument() error opening %s: %v", tt.file, err)
 			}
-			defer closer()
-
-			doc := NewDocument(s, WithMaxDeprecatedTags("5.5.1"))
-			if reflect.DeepEqual(doc.header, gedcom.NewNode(doc.header)) {
+			if reflect.DeepEqual(doc.header, gedcom.NewNode(nil, doc.header)) {
 				t.Errorf("NewDocument() = missing header.")
 			}
-			if reflect.DeepEqual(doc.trailer, node{}) {
+			if reflect.DeepEqual(doc.trailer, Line{}) {
 				t.Errorf("NewDocument() = missing header.")
 			}
 			if doc.Len() != tt.rootCount {
@@ -88,9 +85,7 @@ func TestLoadDocument(t *testing.T) {
 
 			if len(doc.GetWarnings()) != 0 {
 				t.Errorf("NewDocument() flagged warnings. Got %d, wanted 0.", len(doc.GetWarnings()))
-				for _, w := range doc.GetWarnings() {
-					t.Logf("%s\n", w)
-				}
+				t.Logf("First: %s\n", doc.GetWarnings()[0])
 			}
 
 			doc.XRefCache.Range(func(k, v interface{}) bool {
@@ -125,7 +120,6 @@ func TestLoadDocument(t *testing.T) {
 			if total != tt.nodeCount {
 				t.Errorf("NewDocument() = %d rebuilding lines; want %d lines", total, tt.nodeCount)
 			}
-
 		})
 	}
 }
@@ -177,6 +171,7 @@ func fileDiff(file1, file2 string, max int) (int, int) {
 		t2 := strings.TrimSpace(f2.Text())
 		if t1 != t2 {
 			errorCount++
+
 			log.Printf("1 '%s'\n2 '%s'\nline %d, err # %d\n----\n", t1, t2, total, errorCount)
 		}
 	}

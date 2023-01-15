@@ -7,7 +7,6 @@ new file. This will allow the original file to be preserved in case of errors.
 ********************************************************************************/
 
 import (
-	"bufio"
 	"flag"
 	"fmt"
 	"log"
@@ -62,18 +61,11 @@ func exitWithHelp() {
 func inspect(docPath, fn string) {
 	fn = docPath + fn
 	fmt.Printf("Processing file '%s'\n", fn)
-	f, err := os.Open(fn)
+	doc, err := gedcom7.NewDocumentFromFile(fn, gedcom7.WithMaxDeprecatedTags("5.5.1"))
 	if err != nil {
 		fmt.Println("Error accessing ", fn)
 		log.Fatal(err)
 	}
-	defer func() {
-		if err = f.Close(); err != nil {
-			log.Fatal(err)
-		}
-	}()
-	s := bufio.NewScanner(f)
-	doc := gedcom7.NewDocument(s, gedcom7.WithMaxDeprecatedTags("5.5.1"))
 
 	fmt.Printf("Processed %d records with %d warnings.\n", doc.Len(), len(doc.Warnings))
 	for _, v := range doc.Warnings {

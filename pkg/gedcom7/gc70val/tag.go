@@ -3,6 +3,7 @@ package gc70val
 import (
 	_ "embed"
 	"errors"
+	"fmt"
 	"strings"
 
 	"github.com/funwithbots/go-abnf/operators"
@@ -18,8 +19,7 @@ const (
 	TagTRLR = "TRLR"
 )
 
-var validTags = make(map[string]bool, 0)
-var customTags = make(map[string]bool, 0)
+var validTags = make(map[string]interface{}, 0)
 
 // AddValidTag adds a tag to the list of valid tags.
 // If it already exists, return false, otherwise true.
@@ -32,10 +32,8 @@ func AddValidTag(tag string) bool {
 }
 
 func IsValidTag(tag string) bool {
-	if _, ok := validTags[tag]; ok {
-		return true
-	}
-	return false
+	_, ok := validTags[tag]
+	return ok
 }
 
 // TODO Implement this with validation of gedcom documents
@@ -65,10 +63,10 @@ var (
 	}
 )
 
-var pseudoTags = map[string]tagDef{
-	"HEAD": tagDef{
+var pseudoTags = map[string]TagDef{
+	"HEAD": TagDef{
 		Lang:    "en-US",
-		Type:    "pseudostructure",
+		Type:    tagTypePseudostructure,
 		URI:     "/HEAD",
 		Tag:     "HEAD",
 		FullTag: "HEAD",
@@ -86,20 +84,22 @@ var pseudoTags = map[string]tagDef{
 			"LANG":  "{0:1}",
 			"NOTE":  "{0:1}",
 		},
+		Rule: abnf.Null(),
 	},
 	"TRLR": {
 		Lang:    "en-US",
-		Type:    "pseudostructure",
+		Type:    tagTypePseudostructure,
 		URI:     "/TRLR",
 		Tag:     "TRLR",
 		FullTag: "TRLR",
 		Specification: []string{
 			"The trailer resembles a record, comes last in each document, and cannot contain substructures.",
 		},
+		Rule: abnf.Null(),
 	},
 	"CONT": {
 		Lang:    "en-US",
-		Type:    "pseudostructure",
+		Type:    tagTypePseudostructure,
 		URI:     "/CONT",
 		Tag:     "CONT",
 		FullTag: "CONT",
@@ -112,7 +112,7 @@ var pseudoTags = map[string]tagDef{
 	},
 }
 
-type tagDef struct {
+type TagDef struct {
 	Lang          string `yaml:"lang"`
 	Type          string `yaml:"type"`
 	URI           string `yaml:"uri"`
@@ -126,17 +126,22 @@ type tagDef struct {
 	ValueOf         []string          `yaml:"value of"`
 
 	// Validation func based on ABNF spec
-	Rule    operators.Operator
-	EnumSet enumSet
+	Rule operators.Operator
+
+	EnumSetName string `yaml:"enumeration set"`
+	EnumSet     enumSet
 }
 
-func (t *tagDef) SetRule(rule operators.Operator) {
+func (t *TagDef) SetRule(rule operators.Operator) {
 	t.Rule = rule
 }
 
-func (t *tagDef) InferRule() {
+// InferRule extracts the tag's validation rule from the ABNF Validation map.
+func (t *TagDef) InferRule() {
 	if t.URI != "" {
 		switch {
+		case len(t.Payload) > 0 && t.Payload[0] == '@':
+			t.Rule = abnf.Validation["Xref"]
 		case t.Payload == "null", t.Payload == "":
 			t.Rule = abnf.Validation["Null"]
 		case len(t.Payload) > 2 && t.Payload[0] == '@' && t.Payload[len(t.Payload)-1] == '@':
@@ -153,19 +158,44 @@ func (t *tagDef) InferRule() {
 			parts := strings.Split(t.Payload, "#")
 			uc := toUpperCamel(parts[len(parts)-1])
 			t.Rule = abnf.Validation[uc]
+		default:
+			fmt.Printf(t.Tag)
 		}
+	}
+	if t.Rule == nil {
+		fmt.Printf(t.Tag)
 	}
 }
 
-// Validate checks if the tag's payload conforms to the ABNF definition.
-func (t *tagDef) Validate() bool {
-	v := t.Rule([]byte(t.Payload))
-	return v == nil
+// ValidatePayload checks if the tag's payload conforms to the ABNF definition.
+func (t *TagDef) ValidatePayload(str string) bool {
+	// If it's an enum, check that first
+	if len(t.EnumSet.Values) > 0 {
+		for _, v := range t.EnumSet.Values {
+			if v == str {
+				return true
+			}
+		}
+		return false
+	}
+
+	// If no validation rule exists, return true
+	if t.Rule == nil {
+		return true
+	}
+	v := t.Rule([]byte(str))
+
+	// Check if it's an Xref.
+	if len(v) == 0 {
+		return IsXref(str)
+	}
+
+	return str == v[0].String()
 }
 
-// loadTag returns a tagDef for the provided yaml.
-func loadTag(in []byte) (tagDef, error) {
-	td := tagDef{}
+// loadTag returns a TagDef for the provided yaml.
+func loadTag(in []byte) (TagDef, error) {
+	td := TagDef{}
 
 	if err := deserializeYAML(in, &td); err != nil {
 		return td, err
@@ -173,7 +203,7 @@ func loadTag(in []byte) (tagDef, error) {
 	if td.Tag == "" {
 		ss := strings.Split(td.URI, "/")
 		if len(ss) == 0 {
-			return tagDef{}, errors.New("no standard tag")
+			return TagDef{}, errors.New("no standard tag")
 		}
 		td.Tag = ss[len(ss)-1]
 	}

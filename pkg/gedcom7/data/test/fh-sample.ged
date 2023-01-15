@@ -1,0 +1,3324 @@
+﻿0 HEAD
+1 SOUR FAMILY_HISTORIAN
+2 VERS 7.0.18
+2 NAME Family Historian
+2 CORP Calico Pie Limited
+1 FILE D:\Data\Bill\Projects\go-gedcom\pkg\gedcom7\data\fh-sample.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+2 _VAR DSR
+1 CHAR UTF-8
+1 _UID {13F463F0-5340-4056-AB3F-49972FE733CB}
+1 _ROOT @I6@
+0 @I1@ INDI
+1 NAME Anthony Edward /Munro/
+2 _USED Tony
+2 SOUR @S2@
+3 PAGE Page 79
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE 12 JAN 1922
+2 PLAC Cheltenham, Gloucestershire, England
+2 ADDR The Cottage Hospital, 15 Dalglish Lane, Cheltenham
+2 NOTE Anthony weighed 8lbs and 3ozs at birth.  He was 3 weeks early, born at 12.12am.
+2 SOUR @S2@
+2 SOUR @S13@
+2 FAMC @F3@
+1 BAPM
+2 DATE JUN 1927
+2 PLAC Cheltenham, Gloucestershire, England
+2 ADDR The Priory Church, Tonley, Cheltenham
+2 NOTE Anthony had 4 god-parents.  Two of each sex.  Apparently all 4 attended his baptism, but their names are not known.
+1 RESI
+2 DATE FROM 1927 TO MAY 1941
+2 PLAC Cheltenham, Gloucestershire, England
+2 _SHAR @I1@
+3 ROLE Resident
+2 ADDR 12 Sharps Lane, Cheltenham
+2 NOTE 4 bedroom bungalow.
+2 _SENT {date} {individual} lived {place}< at {address}>< with {role=resident}>, with his parents.
+1 OCCU gardener
+2 DATE FROM 1940 TO 1940
+2 SOUR @S19@
+1 OCCU soldier in the Gloucestershire Regiment
+2 DATE BET JAN 1941 AND 1945
+2 NOTE Tony signed up as soon as he reached 18, and was involved in the D-day landings before going on to serve through France and Germany.
+1 OCCU landscape gardener
+2 DATE FROM 1945 TO 1967
+2 NOTE After demob from the army Anthony returned to Gardening.
+2 SOUR @S19@
+1 RESI
+2 DATE BET NOV 1950 AND 1957
+2 PLAC Lewisham, London, England
+2 _SHAR @I1@
+3 ROLE Resident
+2 _SHAR @I3@
+3 ROLE Resident
+1 RESI
+2 DATE FROM MAY 1957 TO 1965
+2 PLAC Clifton Wood, Bristol, England
+2 _SHAR @I1@
+3 ROLE Resident
+2 _SHAR @I3@
+3 ROLE Resident
+2 _SHAR @I8@
+3 ROLE Resident
+2 _SHAR @I6@
+3 ROLE Resident
+2 _SHAR @I7@
+3 ROLE Resident
+2 _SHAR @I92@
+3 ROLE Resident
+2 ADDR 2 Clifton Wood, Bristol
+2 NOTE Large 5 bedroom terraced house, opposite the docks, with a good view over the warehouses
+1 RESI
+2 DATE FROM MAY 1965 TO 1986
+2 PLAC Clifton Wood, Bristol, England
+2 _SHAR @I1@
+3 ROLE Resident
+2 _SHAR @I3@
+3 ROLE Resident
+2 ADDR 2 Clifton Wood, Bristol
+1 OCCU novelist
+2 DATE FROM 1967 TO 1992
+2 NOTE 2 novels published.  Names not known.
+2 SOUR @S9@
+2 SOUR @S11@
+1 DEAT
+2 DATE DEC 1998
+2 PLAC Bristol, England
+2 ADDR Bristol Royal Infirmary
+2 CAUS a stroke
+1 BURI
+2 DATE DEC 1998
+2 PLAC Bristol, England
+2 ADDR St Mary's Anglican Church
+1 FAMC @F3@
+1 FAMS @F1@
+1 FAMS @F2@
+1 NOTE A lover of the great outdoors, Anthony could never be persuaded to work in an office.  He was a keen gardener and enjoyed many outdoor sports, such as rambling and sailing.  He described himself as a writer, but produced only 2 published novel
+2 CONC s in his life, and occasional pieces for Punch.
+1 NOTE @N1@
+1 OBJE @O10@
+2 _SEQ 2
+2 _AREA {46,267,401,539}
+1 OBJE @O1@
+2 _SEQ 1
+2 _AREA {154,46,243,127}
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I2@ INDI
+1 NAME Julia Amanda /Fish/
+1 SEX F
+1 BIRT
+2 DATE 12 JAN 1925
+2 PLAC Greenwich, London, England
+1 SLGC
+2 DATE 23 DEC 1912
+2 PLAC Rothbury, Northumberland
+1 FAMC @F37@
+1 FAMS @F1@
+1 OBJE @O14@
+2 _SEQ 2
+2 _AREA {154,325,319,472}
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:51:10
+0 @I3@ INDI
+1 NAME Susan Isabel /Dowling/
+1 SEX F
+1 BIRT
+2 DATE 25 JAN 1925
+2 PLAC Orkney, Scotland
+2 SOUR @S19@
+1 DEAT
+2 DATE OCT 2008
+2 PLAC St Pauls, Bristol, England
+2 SOUR @S19@
+1 FAMC @F24@
+1 FAMS @F2@
+1 FAMS @F21@
+1 OBJE @O4@
+2 _SEQ 1
+2 _AREA {93,207,208,332}
+1 OBJE @O7@
+2 _SEQ 2
+2 _AREA {35,384,147,467}
+1 CHAN
+2 DATE 17 SEP 2014
+3 TIME 15:51:31
+0 @I4@ INDI
+1 NAME Michael Pleasance /Munro/
+1 SEX M
+1 BIRT
+2 DATE 1891
+2 PLAC Orlando,  Florida, USA
+2 ADDR 825 N Magnolia Ave
+1 EDUC Harvard Law School
+2 DATE BET 1910 AND 1913
+2 PLAC Cambridge, Massachusetts, USA
+2 SOUR @S33@
+2 _SENT {individual} studied at {value} {date} {place} {age}
+1 OCCU lawyer
+2 DATE BET 1914 AND 1959
+2 SOUR @S8@
+3 QUAY 3
+2 SOUR @S7@
+3 QUAY 3
+1 IMMI
+2 DATE DEC 1920
+2 PLAC Cheltenham, Gloucestershire, England
+2 _SHAR @I9@
+3 ROLE Immigrant
+2 _SHAR @I5@
+3 ROLE Immigrant
+2 NOTE Michael and Catherine,  moved to Cheltenham to be nearer to Catherine's parents, with Peter still a very small child.
+2 _PLAC Florida, USA
+1 EDUC Kings College for a Masters degree in Anglo American Law
+2 DATE 1921
+2 PLAC Cambridge,Cambridgeshire, England
+2 SOUR @S33@
+2 SOUR @S35@
+2 _SENT {individual} studied at {value} {date} {place} {age}
+1 RESI
+2 DATE FROM 1927 TO MAY 1959
+2 PLAC Cheltenham, Gloucestershire, England
+2 _SHAR @I5@
+3 ROLE Resident
+2 ADDR 12 Sharps Lane, Cheltenham
+2 NOTE 4 bedroom bungalow.
+1 RESI
+2 DATE BET 1959 AND 1963
+2 PLAC Lewisham, London, England
+2 _SHAR @I5@
+3 ROLE Resident
+2 ADDR 25 Lee Road
+2 NOTE When Michael retired, he and Catherine moved to Lewisham, doing the opposite of many couples who retire from London to the country.
+2 SOUR @S33@
+1 RESI
+2 DATE BET 1963 AND 1978
+2 PLAC Lewisham, London, England
+2 ADDR 25 Lee Road
+2 SOUR @S33@
+2 _SENT After Catherines death, {individual} continued to live {place}< at {address}>< with {role=resident}>.
+1 NATI both British and American
+2 NOTE Born of both British and American parents,  Michael held dual nationality,  but despite being born in the USA considered himself British.
+1 DEAT
+2 DATE 21 OCT 1978
+2 PLAC Lewisham, London, England
+2 ADDR 25 Lee Road
+2 SOUR @S33@
+1 BURI
+2 DATE 30 OCT 1978
+2 PLAC Lewisham, London, England
+2 ADDR Grove Park Cemetery, Marvels Lane (Plot ZY12)
+2 SOUR @S33@
+1 FAMC @F22@
+1 FAMS @F3@
+1 NOTE A nephew of Ian Scott Munro, a famous railway engineer.  Michael appears to have been a favoured nephew of Ian Scott Munro who was childless.
+1 NOTE @N1@
+1 OBJE @O1@
+2 _SEQ 2
+2 _AREA {132,361,215,427}
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:26:55
+0 @I5@ INDI
+1 NAME Catherine /Reardon/
+1 SEX F
+1 BIRT
+2 DATE BET JAN 1895 AND MAR 1895
+2 PLAC Cheltenham, Gloucestershire, England
+2 SOUR @S16@
+3 PAGE Cheltenham 5B 213
+1 RELI Catholic
+1 IMMI
+2 DATE SEP 1914
+2 PLAC Florida, USA
+2 NOTE Catherine was sent to live with distant cousins in Florida at the start of the first world war.
+2 _PLAC Cheltenham, Gloucestershire, England
+1 DEAT
+2 DATE 18 FEB 1963
+2 PLAC Greenwich, London, England
+2 ADDR Greenwich Hospital
+2 CAUS a heart attack
+2 NOTE Catherine was taken ill suddenly while out shopping and was rushed to the hospital,  but was declared dead on arrival.
+2 _SENT {note} She died <of {cause}> {date} {place} <at {address}> {age}
+1 BURI
+2 DATE 1 MAR 1963
+2 PLAC Lewisham, London, England
+2 ADDR Grove Park Cemetery, Marvels Lane (Plot ZY12)
+2 SOUR @S33@
+2 _SENT She was buried {date} {place} {age}. <The burial was attended by {role=attender}. ><The mourners included {role=mourner}. ><The minister at the burial was {role=minister}. ><The rabbi at the burial was {role=rabbi}. ><The priest at the burial was {role=priest}. >
+1 FAMC @F25@
+1 FAMS @F3@
+1 OBJE @O1@
+2 _SEQ 3
+2 _AREA {112,140,203,217}
+1 OBJE @O35@
+2 _SEQ 3
+2 _AREA {739,757,1083,994}
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I6@ INDI
+1 NAME Ian Stephen /Munro/
+1 SEX M
+1 BIRT
+2 DATE 5 JAN 1953
+2 PLAC Lewisham, London, England
+2 ADDR 31 New Kingsley Road
+2 SOUR @S13@
+1 EDUC Bristol University
+2 DATE BET SEP 1973 AND JUN 1976
+2 PLAC Bristol, England
+2 NOTE Ian was awarded a first class honours degree in Aerospace design and enginnering.
+2 SOUR @S19@
+1 EDUC Rochester Institute of Technology (RIT)
+2 DATE BET 1976 AND 1978
+2 PLAC Rochester, New York State, United States
+2 ADDR 1 Lomb Memorial Dr
+2 NOTE After completing his degree, he spent two years on his Masters n the USA. He was awarded a "Master of Engineering in Industrial & Systems Engineering" in the summer of 1978.
+2 SOUR @S19@
+1 OCCU volunteer with Oxfam
+2 DATE BET 1978 AND 1980
+2 PLAC Lusaka, Zambia
+2 NOTE Working on water and sanitation projects, Ian threw himself into the work in one of the poorest countries in the world.
+2 SOUR @S19@
+1 OCCU engineer
+2 DATE FROM OCT 1980 TO 2013
+2 PLAC Bristol, England
+2 ADDR British Aerospace
+2 SOUR @S19@
+2 _SENT {individual} was {a/an value} {place} <at {address}> {age}
+1 RESI
+2 DATE FROM 1990
+2 PLAC Farmborough, Somerset, England
+2 _SHAR @I6@
+3 ROLE Resident
+2 _SHAR @I25@
+3 ROLE Resident
+2 _SHAR @I26@
+3 ROLE Resident
+2 _SHAR @I49@
+3 ROLE Resident
+2 _SHAR @I50@
+3 ROLE Resident
+2 ADDR Little House,The Batch
+1 RETI
+2 DATE 2013
+2 PLAC Bristol, England
+2 NOTE Having spent his entire working life with British Aerospace.  Ian took early retirement in 2013 to spend more time on his hobbies.
+2 SOUR @S19@
+1 FAMC @F2@
+1 FAMS @F10@
+1 NOTE @N1@
+1 OBJE @O12@
+2 _SEQ 2
+2 _AREA {278,861,491,1024}
+1 OBJE @O6@
+2 _SEQ 1
+2 _AREA {15,232,82,291}
+1 OBJE @O5@
+2 _SEQ 1
+2 _AREA {99,220,272,371}
+1 REFN C1
+1 CHAN
+2 DATE 21 MAY 2020
+3 TIME 18:00:18
+0 @I7@ INDI
+1 NAME Sally Theresa /Munro/
+1 SEX F
+1 BIRT
+2 DATE 27 AUG 1954
+2 PLAC Lewisham, London, England
+2 SOUR @S19@
+1 OCCU shop manager
+2 DATE FROM 1976
+2 PLAC Bristol, England
+2 SOUR @S19@
+1 FAMC @F2@
+1 FAMS @F44@
+1 OBJE @O7@
+2 _SEQ 1
+2 _AREA {220,121,335,225}
+1 OBJE @O6@
+2 _SEQ 2
+2 _AREA {123,323,198,381}
+1 CHAN
+2 DATE 24 JAN 2020
+3 TIME 11:53:53
+0 @I8@ INDI
+1 NAME Judy Susan /Munro/
+1 SEX F
+1 BIRT
+2 DATE 15 SEP 1951
+2 PLAC Lewisham, London, England
+2 SOUR @S19@
+1 EDUC London South Bank University
+2 DATE BET 1970 AND 1973
+2 PLAC London, England
+2 ADDR London Road, SE1 6LN
+2 NOTE Judy studied for 3 years obtaining a BA (Hons) Social Work.
+1 OCCU social worker
+2 DATE FROM 1973 TO 2012
+2 PLAC Lewisham, London, England
+2 ADDR Lewisham Social Services
+2 NOTE Starting with Lewisham Council soon after qualifying. she worked with the social care department specialising in elderly care, until her retirement in 2012.
+2 SOUR @S19@
+1 FAMC @F2@
+1 OBJE @O5@
+2 _SEQ 2
+2 _AREA {3,74,166,229}
+1 CHAN
+2 DATE 24 JAN 2020
+3 TIME 11:53:45
+0 @I9@ INDI
+1 NAME Peter Michael /Munro/
+1 SEX M
+1 BIRT
+2 DATE 18 MAY 1920
+2 PLAC Orlando,  Florida, USA
+2 SOUR @S14@
+1 IMMI
+2 DATE DEC 1920
+2 PLAC Cheltenham, Gloucestershire, England
+2 NOTE Michael and Catherine,  moved to Cheltenham to be nearer to Catherine's parents, with Peter still a very small child.
+2 _PLAC Florida, USA
+1 PROP $1,500
+2 DATE AUG 1927
+2 NOTE This inheritance came from his Uncle Ian Scott Munro. It's not known why the money went to Peter, even though Ian's Father and Brother were still alive and Peter also had a younger brother and sisters by this time.
+2 SOUR @S10@
+2 _SENT {date} {individual} was left {value} {place} {age}
+1 EDUC New College, Oxford
+2 DATE FROM 1939 TO 1941
+2 NOTE Took a 2-year war degree in Law
+2 SOUR @S14@
+1 OCCU solicitor
+2 DATE FROM 1945 TO 1985
+2 SOUR @S14@
+1 DEAT
+2 DATE 1990
+2 PLAC Winchester, Hampshire, England
+2 SOUR @S14@
+1 FAMC @F3@
+1 FAMS @F4@
+1 NOTE 
+2 SOUR @S10@
+3 PAGE Pages 33 and 64-67.
+3 QUAY 3
+1 OBJE @O1@
+2 _SEQ 5
+2 _AREA {11,268,94,333}
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I10@ INDI
+1 NAME Amanda Morag /Munro/
+1 SEX F
+1 BIRT
+2 DATE 15 JUN 1926
+2 PLAC Cheltenham, Gloucestershire, England
+2 SOUR @S14@
+1 EDUC Cheltenham Ladies College
+2 DATE FROM 1936 TO 1942
+2 NOTE Head girl
+2 SOUR @S14@
+1 EDUC Brighton Teacher Training College
+2 DATE BET 1942 AND 1944
+2 PLAC Brighton,Sussex, England
+1 RESI
+2 DATE FROM 1947 TO 1986
+2 PLAC Chelsea, London, England
+2 SOUR @S14@
+1 OCCU teacher
+2 DATE FROM 1947 TO 1985
+2 NOTE Became head mistress at Norbytes School, Chelsea, for last 2 years of her career.
+2 SOUR @S14@
+1 IMMI
+2 DATE MAR 1989
+2 PLAC Florida, USA
+2 NOTE On her retirement from teaching Amanda made the most of her duel nationality to retire to the warmth of Florida.
+2 SOUR @S14@
+2 _PLAC Chelsea, London, England
+1 RESI
+2 DATE BET 1989 AND 2009
+2 PLAC Boynton Beach, Florida, USA
+2 SOUR @S14@
+1 DEAT
+2 DATE 23 DEC 2009
+2 PLAC Florida, USA
+2 SOUR @S15@
+3 NOTE Ancestry.com 2009), examined for any reference to "Amanda Munro," accessed 2009.
+1 FAMC @F3@
+1 OBJE @O1@
+2 _SEQ 4
+2 _AREA {224,217,320,285}
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I11@ INDI
+1 NAME Julia Rosalind /Munro/
+1 SEX F
+1 BIRT
+2 DATE 5 MAY 1924
+2 PLAC Cheltenham, Gloucestershire, England
+1 EDUC Cheltenham Ladies College
+2 DATE FROM 1938 TO 1942
+2 PLAC Cheltenham, Gloucestershire, England
+1 OCCU Women's Royal Air Force (WRAF)
+2 DATE BET 1942 AND 1945
+2 PLAC Bletchley Park, Milton Keynes,  Buckinghamshire, England
+2 ADDR Bletchley Park, Wilton Avenue.
+2 NOTE After basic training Julia was stationed at Bletchley,  although she never talked about what she did there until very late in life and even then it was simply that it was important war work.
+3 CONT 
+3 CONT She did return to her parents when Martin was born,  but returned to Bletchley as soon as Martin was old enough to be left with them.
+2 SOUR @S14@
+1 OCCU librarian
+2 DATE BET 1945 AND 1984
+2 PLAC Cheltenham, Gloucestershire, England
+2 ADDR New College Library
+2 SOUR @S14@
+1 DEAT
+2 DATE 18 MAY 2008
+2 PLAC Cheltenham, Gloucestershire, England
+2 ADDR The Royal United Hospital
+2 CAUS cardiac arrest
+2 SOUR @S14@
+1 FAMC @F3@
+1 FAMS @F12@
+1 NOTE Lifelong campaigner for Women's Rights.
+1 OBJE @O1@
+2 _SEQ 6
+2 _AREA {34,481,162,584}
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I12@ INDI
+1 NAME Helen Mary /Addison/
+1 SEX F
+1 BIRT
+2 DATE 27 JUL 1918
+2 PLAC Liverpool, England
+2 SOUR @S30@
+3 DATA
+4 DATE 12 MAY 1931
+3 QUAY 3
+1 BAPM
+2 DATE 29 JUL 1918
+2 PLAC Liverpool, England
+2 ADDR Brownlow Hall Hospital
+2 NOTE The baptism took place at the hospital, two days after the birth under the auspices of the Roman Catholic Cathedral.
+3 CONT 
+3 CONT This suggests Helen may have been sick as hospital baptisms often take place in those circumstances.
+2 SOUR @S30@
+3 DATA
+4 DATE 12 MAY 1931
+3 NOTE Minister and hospital name are both illegible.
+3 QUAY 3
+1 FAMC @F36@
+1 FAMS @F4@
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 13:19:35
+0 @I25@ INDI
+1 NAME Charlotte /Carrington/
+1 SEX F
+1 BIRT
+2 DATE 13 JUN 1957
+2 PLAC Bath, Somerset, England
+1 EDUC Bristol University
+2 DATE BET 1979 AND 1984
+2 PLAC Bristol, England
+2 NOTE After completing her degree in Chemisty, Charlotte went on to complete a Post Graduate Diploma in Education, allowing her to take up a career teaching sciences.
+2 SOUR @S18@
+1 OCCU school teacher
+2 DATE FROM 1984
+2 PLAC Bristol, England
+2 ADDR Bristol High School
+1 FAMC @F26@
+1 FAMS @F10@
+1 NOTE Sings in a choir and plays the cello.
+1 OBJE @O12@
+2 _SEQ 3
+2 _AREA {330,1190,529,1361}
+1 OBJE @O11@
+2 _SEQ 1
+2 _AREA {124,408,305,544}
+1 OBJE @O7@
+2 _SEQ 3
+2 _AREA {239,552,383,666}
+1 REFN C1
+1 CHAN
+2 DATE 15 APR 2020
+3 TIME 16:43:30
+0 @I26@ INDI
+1 NAME Christopher Ian /Munro/
+1 SEX M
+1 BIRT
+2 DATE 12 JAN 1987
+2 PLAC Bath, Somerset, England
+2 ADDR Royal United Hospital
+2 NOTE He weighted 8lbs, 3ozs.
+2 SOUR @S19@
+1 RESI
+2 DATE JUL 2005
+2 PLAC New Cross, London, England
+2 ADDR 59c High Street
+1 OCCU kitchen worker
+2 DATE BET JUL 2005 AND JAN 2009
+2 PLAC New Cross, London, England
+2 ADDR The Pig and Whistle Inn
+2 NOTE Chris always had a passion for cooking and once his A Levels were complete he headed off to London to try out the life.
+2 SOUR @S19@
+1 OCCU Sous Chef
+2 DATE FROM JAN 2009
+2 PLAC New Cross, London, England
+2 ADDR The Pig and Whistle Inn
+2 NOTE  
+2 SOUR @S19@
+1 FAMC @F10@
+1 FAMS @F11@
+1 OBJE @O12@
+2 _SEQ 4
+2 _AREA {290,401,493,556}
+1 OBJE @O11@
+2 _SEQ 4
+2 _AREA {327,419,492,543}
+1 OBJE @O7@
+2 _SEQ 5
+2 _AREA {351,486,473,582}
+1 CHAN
+2 DATE 13 JAN 2023
+3 TIME 17:08:54
+0 @I27@ INDI
+1 NAME Elizabeth Alice /Munro/
+1 SEX F
+1 BIRT
+2 DATE 11 JAN 2006
+2 PLAC New Cross, London, England
+2 ADDR New Cross Maternity Unit
+2 NOTE Elizabeth was born at five past midnight and weighed in a 7lb 5oz (3.3Kg).
+2 SOUR @S19@
+1 FAMC @F11@
+1 CHAN
+2 DATE 2 APR 2013
+3 TIME 15:59:12
+0 @I28@ INDI
+1 NAME Nicola /Hemmings/
+1 SEX F
+1 FAMS @F11@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:16:48
+0 @I29@ INDI
+1 NAME Patrick Christopher /Munro/
+1 SEX M
+1 BIRT
+2 DATE 17 DEC 2007
+2 PLAC New Cross, London, England
+2 ADDR New Cross Maternity Unit
+2 NOTE He weighed in at 8lb 1oz (3.6Kg) and arrived at 3:15pm.
+2 SOUR @S19@
+1 FAMC @F11@
+1 CHAN
+2 DATE 2 APR 2013
+3 TIME 15:59:12
+0 @I30@ INDI
+1 NAME Jonathan Wesley /Hodges/
+1 SEX M
+1 BIRT
+2 DATE 2 MAY 1921
+2 PLAC Brighton,Sussex, England
+2 SOUR @S14@
+2 SOUR @S24@
+1 OCCU soldier,  Oxford and Bucks Light Infantry 1st Bn.
+2 DATE BET 1940 AND 1944
+2 NOTE Joined the army just after his 18 birthday at the start of the Second World War and was killed during the D Day landings.
+2 SOUR @S24@
+1 DEAT
+2 DATE 9 JUN 1944
+2 PLAC Normandy, France
+2 SOUR @S23@
+2 SOUR @S24@
+1 FAMC @F16@
+1 FAMS @F12@
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:02:40
+0 @I31@ INDI
+1 NAME Martin /Hodges/
+1 SEX M
+1 BIRT
+2 DATE 15 SEP 1944
+2 PLAC Cheltenham, Gloucestershire, England
+2 SOUR @S14@
+1 FAMC @F12@
+1 FAMS @F13@
+1 NOTE Born 3 months after his Fathers death on the beaches of France. He and his mother lived with his Grandparents for the first few years of his life.
+2 SOUR @S14@
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I32@ INDI
+1 NAME Anthony Munro /Hodges/
+1 SEX M
+1 BIRT
+2 DATE 2 JAN 1970
+2 PLAC Cheltenham, Gloucestershire, England
+2 ADDR Cheltenham General Hospital
+2 SOUR @S19@
+1 FAMC @F13@
+1 FAMS @F38@
+1 OBJE @O28@
+2 _SEQ 1
+2 _AREA {37,132,519,469}
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I33@ INDI
+1 NAME Laurie /Cameron/
+1 SEX M
+1 BIRT
+2 DATE 1888
+1 FAMS @F14@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:47:18
+0 @I34@ INDI
+1 NAME Allison /Watson/
+1 SEX F
+1 BIRT
+2 DATE 1887
+1 FAMS @F14@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:47:32
+0 @I35@ INDI
+1 NAME Sheena /Cameron/
+1 SEX F
+1 FAMC @F14@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:40:49
+0 @I36@ INDI
+1 NAME Mary Elizabeth /Cameron/
+1 SEX F
+1 FAMC @F14@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:41:05
+0 @I37@ INDI
+1 NAME Esther /Cameron/
+1 SEX F
+1 FAMC @F14@
+1 FAMS @F15@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:41:18
+0 @I38@ INDI
+1 NAME Iain /Anderson/
+1 SEX M
+1 FAMS @F15@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:41:30
+0 @I39@ INDI
+1 NAME Judith /Anderson/
+1 SEX F
+1 FAMC @F15@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:41:39
+0 @I40@ INDI
+1 NAME Stanley /Hodges/
+1 SEX M
+1 FAMC @F17@
+1 FAMS @F16@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:44:02
+0 @I41@ INDI
+1 NAME Stephen Arthur /Hodges/
+1 SEX M
+1 FAMC @F18@
+1 FAMS @F17@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 21:11:47
+0 @I42@ INDI
+1 NAME Arthur /Hodges/
+1 SEX M
+1 FAMS @F18@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:44:58
+0 @I43@ INDI
+1 NAME Janet Barbara /Hodges/
+1 SEX F
+1 FAMC @F18@
+1 FAMS @F19@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:45:24
+0 @I44@ INDI
+1 NAME Julian /Childs/
+1 SEX M
+1 FAMC @F19@
+1 FAMS @F46@
+1 CHAN
+2 DATE 26 SEP 2015
+3 TIME 15:08:42
+0 @I45@ INDI
+1 NAME Rupert /Childs/
+1 SEX M
+1 FAMS @F19@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:45:53
+0 @I49@ INDI
+1 NAME Janet Elizabeth /Munro/
+1 SEX F
+1 BIRT
+2 DATE 11 MAR 1989
+2 PLAC Bristol, England
+2 ADDR Bristol Royal Infirmary
+2 NOTE She weighted 7lbs, 9ozs.
+2 SOUR @S19@
+1 FAMC @F10@
+1 OBJE @O12@
+2 _SEQ 5
+2 _AREA {280,1401,480,1545}
+1 OBJE @O11@
+2 _SEQ 3
+2 _AREA {259,551,408,675}
+1 OBJE @O7@
+2 _SEQ 4
+2 _AREA {187,395,271,470}
+1 CHAN
+2 DATE 21 SEP 2015
+3 TIME 20:07:14
+0 @I50@ INDI
+1 NAME Paula Charlotte /Munro/
+1 SEX F
+1 BIRT
+2 DATE 3 DEC 1994
+2 PLAC Bristol, England
+2 ADDR Bristol Royal Infirmary
+2 SOUR @S19@
+1 FAMC @F10@
+1 OBJE @O12@
+2 _SEQ 6
+2 _AREA {366,638,533,773}
+1 OBJE @O11@
+2 _SEQ 2
+2 _AREA {185,273,314,380}
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 20:32:52
+0 @I51@ INDI
+1 NAME Nigel /Anderson/
+1 SEX M
+1 BIRT
+2 DATE 1926
+2 PLAC Redland, Bristol, England
+2 SOUR @S19@
+1 DEAT
+2 DATE 2004
+2 PLAC St Pauls, Bristol, England
+1 FAMS @F21@
+1 OBJE @O4@
+2 _SEQ 2
+2 _AREA {74,60,201,176}
+1 OBJE @O7@
+2 _SEQ 6
+2 _AREA {284,271,404,379}
+1 CHAN
+2 DATE 2 APR 2013
+3 TIME 15:59:02
+0 @I52@ INDI
+1 NAME Charles William Smith /Munro/
+1 SEX M
+1 BIRT
+2 DATE ABT 1865
+2 PLAC Glasgow, Lanarkshire, Scotland
+2 ADDR 51a The Backs
+2 SOUR @S20@
+1 CENS
+2 DATE 7 APR 1871
+2 PLAC Glasgow, Lanarkshire, Scotland
+2 ADDR 51a The Backs
+2 SOUR @S20@
+1 IMMI
+2 DATE 21 JAN 1880
+2 PLAC New York City
+2 ADDR Elis Island
+2 NOTE They sailed on the S.S Liverpool.
+2 SOUR @S34@
+2 _PLAC Liverpool, England
+1 DEAT
+2 DATE 1943
+1 FAMC @F23@
+1 FAMS @F22@
+1 NOTE @N1@
+1 OBJE @O16@
+2 _SEQ 1
+2 _AREA {130,391,237,478}
+1 CHAN
+2 DATE 10 OCT 2015
+3 TIME 12:22:23
+0 @I53@ INDI
+1 NAME Margaret /Pleasance/
+1 SEX F
+1 BIRT
+2 DATE 1866
+2 PLAC Florida, USA
+1 DEAT
+2 DATE 1943
+2 PLAC Florida, USA
+1 FAMS @F22@
+1 OBJE @O16@
+2 _SEQ 2
+2 _AREA {155,509,265,605}
+1 CHAN
+2 DATE 17 SEP 2014
+3 TIME 15:10:51
+0 @I54@ INDI
+1 NAME Arthur Michael /Munro/
+1 SEX M
+1 BIRT
+2 DATE ABT 1831
+2 PLAC Glasgow, Lanarkshire, Scotland
+2 SOUR @S20@
+1 CENS
+2 DATE 7 APR 1871
+2 PLAC Glasgow, Lanarkshire, Scotland
+2 _SHAR @I79@
+3 ROLE Resident
+2 _SHAR @I52@
+3 ROLE Resident
+2 _SHAR @I99@
+3 ROLE Resident
+2 _SHAR @I80@
+3 ROLE Resident
+2 ADDR 51a The Backs
+2 SOUR @S20@
+1 FAMS @F23@
+1 NOTE @N1@
+1 CHAN
+2 DATE 10 OCT 2015
+3 TIME 12:22:31
+0 @I55@ INDI
+1 NAME Richard /Dowling/
+1 SEX M
+1 BIRT
+2 DATE CAL MAR 1911
+2 PLAC Kirkwall,Orkney, Scotland
+2 SOUR @S25@
+1 CENS
+2 DATE 2 APR 1911
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Ayre Road
+2 SOUR @S25@
+2 AGE 1m
+1 OCCU merchant seaman
+2 DATE 1943
+2 SOUR @S26@
+1 DEAT
+2 DATE 18 FEB 1943
+2 PLAC the Atlantic Ocean
+2 ADDR MV Seafirth
+2 CAUS U Boat Action
+2 NOTE The M.V Seafirth was sunk off Ireland, all hands were lost.
+2 _SENT {individual} died during <{cause}> {date} <({date:DAY_OF_WEEK})> {place} {age}
+1 BURI
+2 DATE 18 FEB 1943
+2 PLAC the Atlantic Ocean
+2 NOTE He is listed on the Tower Hill Memorial to the 35,748 Merchant seamen killed in both World Wars.
+2 SOUR @S26@
+1 FAMC @F27@
+1 FAMS @F24@
+1 _FLGS
+2 __1911_UK_CENSU 1911 UK Census
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:01:38
+0 @I56@ INDI
+1 NAME James /Reardon/
+1 SEX M
+1 BIRT
+2 DATE 1879
+2 PLAC Cheltenham, Gloucestershire, England
+1 DEAT
+2 DATE 1915
+1 FAMS @F25@
+1 OBJE @O35@
+2 _SEQ 1
+2 _AREA {114,853,621,1254}
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I57@ INDI
+1 NAME Elda Katherine /Cole/
+1 SEX F
+1 BIRT
+2 DATE BET JUL 1878 AND SEP 1878
+2 PLAC Cheltenham, Gloucestershire, England
+2 SOUR @S21@
+1 DEAT
+2 DATE BET JAN 1959 AND MAR 1959
+2 PLAC Cheltenham, Gloucestershire, England
+2 SOUR @S21@
+1 FAMS @F25@
+1 OBJE @O35@
+2 _SEQ 2
+2 _AREA {145,299,612,629}
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I58@ INDI
+1 NAME Alan /Carrington/
+1 SEX M
+1 BIRT
+2 DATE 7 JUN 1924
+2 PLAC Paris, France
+2 SOUR @S12@
+1 BAPM
+2 DATE 1935
+1 CHR
+2 DATE 1936
+1 OCCU Master Baker
+2 DATE FROM 1946 TO 1979
+2 PLAC Midsomer Norton, Somerset, England
+2 SOUR @S11@
+1 DEAT
+2 DATE 12 DEC 1979
+2 PLAC Midsomer Norton, Somerset, England
+2 SOUR @S12@
+1 FAMS @F26@
+1 OBJE @O18@
+2 _SEQ 1
+1 CHAN
+2 DATE 19 SEP 2015
+3 TIME 14:12:05
+0 @I59@ INDI
+1 NAME Elizabeth /Hodges/
+1 SEX F
+1 BIRT
+2 DATE 5 MAY 1936
+2 PLAC Bodmin, Cornwall, England
+2 SOUR @S12@
+1 FAMS @F26@
+1 OBJE @O19@
+2 _SEQ 1
+1 CHAN
+2 DATE 2 APR 2013
+3 TIME 16:00:35
+0 @I60@ INDI
+1 NAME George /Dowling/
+1 SEX M
+1 BIRT
+2 DATE CAL 1890
+2 PLAC Kirkwall,Orkney, Scotland
+2 SOUR @S25@
+1 CENS
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Ayre Road
+2 SOUR @S27@
+2 AGE 10y
+1 CENS
+2 DATE 2 APR 1911
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Ayre Road
+2 SOUR @S25@
+2 AGE 20y
+1 OCCU fisherman
+2 DATE 2 APR 1911
+2 PLAC Kirkwall,Orkney, Scotland
+2 NOTE Industry or Service with which worker is connected: Fishing
+3 CONT Whether Employer, Worker, or Working on Own Account: Worker
+2 SOUR @S25@
+1 NATI Scottish
+2 DATE 2 APR 1911
+2 SOUR @S25@
+1 FAMC @F34@
+1 FAMS @F27@
+1 _FLGS
+2 __1911_UK_CENSU 1911 UK Census
+2 __1901_UK_CENSU 1901 UK Census
+1 CHAN
+2 DATE 15 APR 2020
+3 TIME 16:32:01
+0 @I61@ INDI
+1 NAME Caroline /Wallington/
+1 SEX F
+1 BIRT
+2 DATE CAL 1891
+2 PLAC Kirkwall,Orkney, Scotland
+2 SOUR @S25@
+1 CENS
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Palace Road
+2 SOUR @S28@
+2 AGE 9y
+1 CENS
+2 DATE 2 APR 1911
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Ayre Road
+2 SOUR @S25@
+2 AGE 19y
+1 FAMC @F35@
+1 FAMS @F27@
+1 _FLGS
+2 __1911_UK_CENSU 1911 UK Census
+2 __1901_UK_CENSU 1901 UK Census
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:43:04
+0 @I63@ INDI
+1 NAME Alison /Carp/
+1 SEX F
+1 FAMS @F13@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 09:14:14
+0 @I64@ INDI
+1 NAME Edmund Peter /Munro/
+1 SEX M
+1 BIRT
+2 DATE BET OCT 1942 AND DEC 1942
+2 PLAC Oxford, Oxfordshire, England
+2 SOUR @S14@
+2 SOUR @S16@
+3 PAGE Q4 1940 Oxford 7b 974
+1 FAMC @F4@
+1 FAMS @F29@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 16:51:38
+0 @I65@ INDI
+1 NAME Emily Susan /Munro/
+1 SEX F
+1 BIRT
+2 DATE BET JUL 1944 AND SEP 1944
+2 PLAC Winchester, Hampshire, England
+2 SOUR @S16@
+3 PAGE Q3 1944 Winchester 5B 124
+2 SOUR @S14@
+1 FAMC @F4@
+1 FAMS @F28@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 16:51:38
+0 @I66@ INDI
+1 NAME Graham Anthony /Munro/
+1 SEX M
+1 BIRT
+2 DATE OCT 1961
+2 PLAC Winchester, Hampshire, England
+2 SOUR @S18@
+1 FAMC @F29@
+1 FAMS @F30@
+1 SOUR @S18@
+1 OBJE @O24@
+2 _SEQ 1
+2 _AREA {35,81,262,268}
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 12:59:51
+0 @I67@ INDI
+1 NAME James Miles /Munro/
+1 SEX M
+1 BIRT
+2 DATE 1985
+2 PLAC Winchester, Hampshire, England
+2 SOUR @S18@
+1 FAMC @F30@
+1 FAMS @F31@
+1 SOUR @S18@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 17:23:13
+0 @I68@ INDI
+1 NAME Frederick /Munro/
+1 SEX M
+1 BIRT
+2 DATE 1986
+2 SOUR @S18@
+1 FAMC @F30@
+1 FAMS @F33@
+1 SOUR @S18@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 17:30:30
+0 @I69@ INDI
+1 NAME Carolyn Amy /Munro/
+1 SEX F
+1 BIRT
+2 DATE 2011
+2 SOUR @S18@
+1 FAMC @F31@
+1 SOUR @S18@
+1 CHAN
+2 DATE 12 AUG 2022
+3 TIME 11:40:59
+0 @I70@ INDI
+1 NAME Anna Lesley /Munro/
+1 SEX F
+1 BIRT
+2 DATE 2013
+2 SOUR @S18@
+1 FAMC @F31@
+1 SOUR @S18@
+1 CHAN
+2 DATE 12 AUG 2022
+3 TIME 11:41:15
+0 @I71@ INDI
+1 NAME Edward Ian /Wiley/
+1 SEX M
+1 BIRT
+2 DATE BET JUL 1972 AND SEP 1972
+2 PLAC Fair Oak, Hampshire, England
+2 SOUR @S16@
+3 PAGE Q3 1972 Salisbury 5H 2345
+1 FAMC @F28@
+1 FAMS @F32@
+1 SOUR @S18@
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:11:05
+0 @I72@ INDI
+1 NAME John /Wiley/
+1 SEX M
+1 BIRT
+2 DATE BET APR 1994 AND JUN 1994
+2 PLAC Salisbury, Wiltshire, England
+2 SOUR @S16@
+3 PAGE Q4 1994 Salisbury 5H 2344
+1 FAMC @F32@
+1 SOUR @S18@
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:31:08
+0 @I73@ INDI
+1 NAME Caroline /Wiley/
+1 SEX F
+1 BIRT
+2 DATE BET APR 1994 AND JUN 1994
+2 PLAC Salisbury, Wiltshire, England
+2 SOUR @S16@
+3 PAGE Q4 1994 Salisbury 5H 2345
+1 FAMC @F32@
+1 SOUR @S18@
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:31:08
+0 @I74@ INDI
+1 NAME Virginia /Pearson/
+2 SOUR @S18@
+1 SEX F
+1 FAMS @F29@
+1 SOUR @S18@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 16:56:52
+0 @I75@ INDI
+1 NAME Carrie Ann /Fisher/
+2 SOUR @S18@
+1 SEX F
+1 FAMS @F31@
+1 SOUR @S18@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 17:10:09
+0 @I76@ INDI
+1 NAME Rosemary /Bowdage/
+2 SOUR @S18@
+1 SEX F
+1 BIRT
+2 DATE 1964
+2 PLAC Westernzoyland, Somerset, England
+2 SOUR @S18@
+1 FAMS @F30@
+1 SOUR @S18@
+1 OBJE @O24@
+2 _SEQ 2
+2 _AREA {83,258,319,433}
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 12:59:27
+0 @I77@ INDI
+1 NAME Arthur /James/
+2 SOUR @S18@
+1 SEX M
+1 FAMS @F33@
+1 SOUR @S18@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 17:30:38
+0 @I78@ INDI
+1 NAME Anna /Cole/
+2 SOUR @S18@
+1 SEX F
+1 FAMS @F32@
+1 SOUR @S18@
+1 CHAN
+2 DATE 12 AUG 2022
+3 TIME 11:41:06
+0 @I79@ INDI
+1 NAME Mary /(Munro)/
+2 NOTE 
+3 SOUR @S20@
+2 SOUR @S20@
+1 SEX F
+1 CENS
+2 DATE 7 APR 1861
+2 PLAC Glasgow, Lanarkshire, Scotland
+2 ADDR 51a The Backs
+2 SOUR @S20@
+1 FAMS @F23@
+1 SOUR @S20@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 20:57:01
+0 @I80@ INDI
+1 NAME Thomas Smith /Munro/
+2 SOUR @S20@
+1 SEX M
+1 BIRT
+2 DATE ABT 1869
+2 SOUR @S20@
+1 CENS
+2 DATE 7 APR 1871
+2 PLAC Glasgow, Lanarkshire, Scotland
+2 ADDR 51a The Backs
+2 SOUR @S20@
+1 DEAT
+2 DATE BET OCT 1871 AND DEC 1871
+2 PLAC Glasgow, Lanarkshire, Scotland
+2 SOUR @S22@
+3 PAGE Q4 1871 Glasgow 56 ddcd
+2 AGE 2y
+1 FAMC @F23@
+1 SOUR @S20@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 20:56:04
+0 @I81@ INDI
+1 NAME Charlotte E /(Hodges)/
+1 SEX F
+1 FAMS @F16@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 21:12:37
+0 @I82@ INDI
+1 NAME Helen /(Hodges)/
+1 SEX F
+1 FAMS @F17@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 21:13:22
+0 @I83@ INDI
+1 NAME George /Dowling/
+2 SOUR @S27@
+1 SEX M
+1 BIRT
+2 DATE CAL 1865
+2 PLAC Kirkwall,Orkney, Scotland
+2 SOUR @S27@
+1 CENS
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Ayre Road
+2 SOUR @S27@
+2 AGE 35y
+1 OCCU fisherman
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 NOTE Employer, Worker, or Own account: Worker
+2 SOUR @S27@
+1 FAMS @F34@
+1 _FLGS
+2 __1901_UK_CENSU 1901 UK Census
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:00:18
+0 @I84@ INDI
+1 NAME Mary /(Dowling)/
+2 SOUR @S27@
+1 SEX F
+1 BIRT
+2 DATE CAL 1867
+2 PLAC Kirkwall,Orkney, Scotland
+2 SOUR @S27@
+1 CENS
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Ayre Road
+2 SOUR @S27@
+2 AGE 33y
+1 OCCU fisherwife
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 NOTE Employer, Worker, or Own account: Worker
+2 SOUR @S27@
+1 FAMS @F34@
+1 _FLGS
+2 __1901_UK_CENSU 1901 UK Census
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:00:23
+0 @I85@ INDI
+1 NAME Conner /Wallington/
+2 SOUR @S28@
+1 SEX M
+1 BIRT
+2 DATE CAL 1861
+2 PLAC Kirkwall,Orkney, Scotland
+2 SOUR @S28@
+1 CENS
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Palace Road
+2 SOUR @S28@
+2 AGE 39y
+1 OCCU trawler captain
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 NOTE Employer, Worker, or Own account: Worker
+2 SOUR @S28@
+1 CENS
+2 DATE 2 APR 1911
+2 PLAC Orkney, Scotland
+2 SOUR @S31@
+2 AGE 49y
+1 OCCU trawler captain
+2 DATE 2 APR 1911
+2 PLAC Orkney, Scotland
+2 SOUR @S31@
+1 FAMS @F35@
+1 _FLGS
+2 __1901_UK_CENSU 1901 UK Census
+2 __1911_UK_CENSU 1911 UK Census
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:03:01
+0 @I86@ INDI
+1 NAME Ellen /(Wallington)/
+2 SOUR @S28@
+1 SEX F
+1 BIRT
+2 DATE CAL 1865
+2 PLAC Kirkwall,Orkney, Scotland
+2 SOUR @S28@
+1 CENS
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Palace Road
+2 SOUR @S28@
+2 AGE 35y
+1 CENS
+2 DATE 2 APR 1911
+2 PLAC Orkney, Scotland
+2 SOUR @S31@
+2 AGE 45y
+1 FAMS @F35@
+1 _FLGS
+2 __1901_UK_CENSU 1901 UK Census
+2 __1911_UK_CENSU 1911 UK Census
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:43:09
+0 @I87@ INDI
+1 NAME John /Wallington/
+2 SOUR @S28@
+1 SEX M
+1 BIRT
+2 DATE CAL 1895
+2 PLAC Kirkwall,Orkney, Scotland
+2 SOUR @S28@
+1 CENS
+2 DATE 31 MAR 1901
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR Palace Road
+2 SOUR @S28@
+2 AGE 5y
+1 CENS
+2 DATE 2 APR 1911
+2 PLAC Orkney, Scotland
+2 SOUR @S31@
+2 AGE 15y
+1 OCCU trawler hand
+2 DATE 2 APR 1911
+2 PLAC Orkney, Scotland
+2 SOUR @S31@
+1 FAMC @F35@
+1 _FLGS
+2 __1911_UK_CENSU 1911 UK Census
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:03:09
+0 @I88@ INDI
+1 NAME John /Munro/
+1 SEX M
+1 BIRT
+2 DATE 1887
+2 PLAC Florida, USA
+1 DEAT
+2 DATE 1888
+2 PLAC Florida, USA
+2 SOUR @S29@
+1 FAMC @F22@
+1 CHAN
+2 DATE 2 APR 2013
+3 TIME 16:04:13
+0 @I90@ INDI
+1 NAME John Michael /Addison/
+2 SOUR @S30@
+1 SEX M
+1 FAMS @F36@
+1 SOUR @S30@
+1 CHAN
+2 DATE 26 MAR 2013
+3 TIME 11:53:34
+0 @I91@ INDI
+1 NAME Julia Jane /Coughlan/
+2 SOUR @S30@
+1 SEX F
+1 FAMS @F36@
+1 SOUR @S30@
+1 CHAN
+2 DATE 26 MAR 2013
+3 TIME 11:53:48
+0 @I92@ INDI
+1 NAME Nigel /Munro/
+2 SOUR @S19@
+1 SEX M
+1 BIRT
+2 DATE 7 MAR 1956
+2 PLAC Lewisham, London, England
+2 SOUR @S19@
+1 OCCU Royal Navy Air Service
+2 DATE BET 1974 AND 2004
+2 NOTE Nigel joined the Royal Navy, shortly after his 18th birthday and served for 30 years.  He saw active service in the Falklands and both gulf wars, working mainly as ground crew on his beloved Harrier Jump Jets.  After leaving the service he settl
+3 CONC ed in the west country,  not far from his old stomping ground of Yeovilton Airbase.
+2 SOUR @S19@
+2 _SENT {date} {individual} was in the {value} {place} {age}
+1 RESI
+2 DATE FROM 2004
+2 PLAC Ilchester, Somerset, England
+2 ADDR 15 Base Road
+2 NOTE Nigel lives quietly,  playing golf with his pals and occasionally helping at local horse shows.
+2 SOUR @S19@
+1 FAMC @F2@
+1 FAMS @F45@
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:49:30
+0 @I93@ INDI
+1 NAME Ian Scot /Munro/
+2 SOUR @S10@
+1 SEX M
+1 BIRT
+2 DATE 3 JUN 1885
+2 PLAC Palm Beach, Florida, USA
+2 SOUR @S10@
+1 OCCU railway engineer
+2 DATE BET 1907 AND 1927
+2 NOTE He worked on railways through out North and South America.
+2 SOUR @S10@
+1 RESI
+2 DATE 1907
+2 PLAC San Francisco, California, USA
+2 SOUR @S10@
+1 RESI
+2 DATE 1912
+2 PLAC Jasper, Alberta, Canada
+2 SOUR @S10@
+1 RESI
+2 DATE 1915
+2 PLAC Santiago, Chile
+2 SOUR @S10@
+1 RESI
+2 DATE 1920
+2 PLAC Santiago de Querétaro, Querétaro,Mexico
+2 SOUR @S10@
+1 RESI
+2 DATE 1925
+2 PLAC Merida, Yucatan, Mexico
+2 SOUR @S10@
+1 WILL
+2 DATE 26 FEB 1927
+2 PLAC New Jersey, USA
+2 _SHAN William James Smith
+3 ROLE Executor
+2 SOUR @S10@
+1 DEAT
+2 DATE 18 MAR 1927
+2 PLAC New Jersey, USA
+2 CAUS malaria
+2 NOTE Ian is thought to have caught malaria in Mexico, while working on the west coast railway. He was sent to a specialist clinic in New Jersey where he died.
+2 SOUR @S10@
+1 PROB
+2 DATE 31 AUG 1927
+2 PLAC New Jersey, USA
+2 _SHAR @I9@
+3 ROLE Beneficiary
+2 NOTE When the estate was probated, the entire inhertiance went to his nephew Peter Michael Munro, a total of $1,500, a very large sum, in the 1920s.
+2 SOUR @S10@
+1 FAMC @F22@
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:07:46
+0 @I94@ INDI
+1 NAME Arnold /Fish/
+1 SEX M
+1 OCCU museum curator
+2 SOUR @S32@
+1 FAMS @F37@
+1 SOUR @S32@
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:01:43
+0 @I95@ INDI
+1 NAME Janet /Record/
+1 SEX F
+1 BIRT
+2 DATE 15 JAN 1970
+2 PLAC Keswick, Cumbria
+1 FAMC @F49@
+1 FAMS @F38@
+1 OBJE @O29@
+2 _SEQ 2
+2 _AREA {91,215,816,741}
+1 OBJE @O29@
+2 _SEQ 1
+1 CHAN
+2 DATE 26 SEP 2015
+3 TIME 15:11:22
+0 @I96@ INDI
+1 NAME Alexander /Hodges/
+1 SEX M
+1 BIRT
+2 DATE 14 DEC 2004
+2 PLAC Keswick, Cumbria
+2 SOUR @S16@
+3 PAGE Dec 2004 Keswick 13267
+1 FAMC @F38@
+1 OBJE @O30@
+2 _SEQ 1
+2 _AREA {402,499,2358,1839}
+1 OBJE @O27@
+2 _SEQ 2
+2 _AREA {85,455,376,689}
+1 CHAN
+2 DATE 3 APR 2013
+3 TIME 16:08:46
+0 @I97@ INDI
+1 NAME Calum /Hodges/
+1 SEX M
+1 BIRT
+2 DATE 14 DEC 2004
+2 PLAC Keswick, Cumbria
+2 SOUR @S16@
+3 PAGE Dec 2004 Keswick 13266
+1 FAMC @F38@
+1 OBJE @O30@
+2 _SEQ 2
+2 _AREA {45,1733,1862,3059}
+1 OBJE @O27@
+2 _SEQ 1
+2 _AREA {73,134,355,368}
+1 CHAN
+2 DATE 3 APR 2013
+3 TIME 16:08:41
+0 @I98@ INDI
+1 NAME Mary /Reardon/
+1 SEX F
+1 BIRT
+2 DATE BET JAN 1895 AND MAR 1895
+2 PLAC Cheltenham, Gloucestershire, England
+1 DEAT
+2 DATE ABT 1960
+2 SOUR @S33@
+1 FAMC @F25@
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @I99@ INDI
+1 NAME Michael Smith /Munro/
+1 SEX M
+1 BIRT
+2 DATE BET APR 1867 AND JUN 1867
+2 PLAC Glasgow, Lanarkshire, Scotland
+2 SOUR @S16@
+3 PAGE Q2 1867 Glasgow 6C 1209
+1 FAMC @F23@
+1 CHAN
+2 DATE 18 SEP 2014
+3 TIME 10:02:56
+0 @I100@ INDI
+1 NAME Alexander James /Dowling/
+1 SEX M
+1 BIRT
+2 DATE ABT JUN 1885
+2 PLAC Kirkwall,Orkney, Scotland
+1 BAPM
+2 DATE 21 JUN 1885
+2 PLAC Kirkwall,Orkney, Scotland
+2 ADDR St Magnus Cathedral
+2 SOUR @S37@
+1 EMIG
+2 DATE 25 JAN 1901
+2 PLAC Glasgow, Lanarkshire, Scotland
+2 NOTE Sailing on the SS Assyria, the journey took 2 months.
+2 AGE 15y
+2 _PLAC Adelaide,South Australia, Australia
+1 OCCU ferry man
+2 DATE BET 1901 AND 1914
+2 PLAC Tailem Bend, South Australia, Australia
+2 NOTE Young Alex travelled up to Tailem Bend, family history has it to find his 2nd cousin,  but no one can remember his name.  Alex settled there for several years working on the Murray River ferry.
+2 SOUR @S40@
+1 OCCU Infantry man, 10th Battalion (Australia), Number 561138
+2 DATE BET 25 AUG 1914 AND 27 APR 1915
+2 PLAC Adelaide,South Australia, Australia
+2 SOUR @S38@
+1 DEAT
+2 DATE 27 APR 1915
+2 PLAC Gallipoli, Turkey
+2 ADDR Anzac Beach
+2 CAUS died of wounds
+2 SOUR @S39@
+2 SOUR @S38@
+2 _SENT {individual} died of wounds {date} {place} {age}. <The death was witnessed by {role=witness}. >
+1 BURI
+2 PLAC Gallipoli, Turkey
+2 ADDR Lone Pine Cemetery
+2 NOTE Rank:Private
+3 CONT Service No:561138
+3 CONT Date of Death:27/04/1915
+3 CONT Regiment/Service:Australian Infantry, A.I.F. 10th Bn. 
+3 CONT Grave Reference: I. XY. 36. 
+3 CONT Cemetery: LONE PINE CEMETERY, ANZAC
+3 CONT 
+2 SOUR @S39@
+1 FAMC @F34@
+1 FAMS @F39@
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:07:07
+0 @I101@ INDI
+1 NAME Jenny Katherine /Rowling/
+1 SEX F
+1 BIRT
+2 DATE 1887
+2 PLAC Adelaide,South Australia, Australia
+1 DEAT
+2 DATE 1956
+2 PLAC Tailem Bend, South Australia, Australia
+1 FAMS @F39@
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 16:41:52
+0 @I102@ INDI
+1 NAME Henry /Dowling/
+1 SEX M
+1 BIRT
+2 DATE 15 DEC 1914
+2 PLAC Adelaide,South Australia, Australia
+2 SOUR @S40@
+1 FAMC @F39@
+1 FAMS @F40@
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 15:47:29
+0 @I103@ INDI
+1 NAME Helen /Jones/
+1 SEX F
+1 BIRT
+2 DATE 4 OCT 1921
+2 PLAC Keswick, Cumbria
+2 SOUR @S40@
+1 DEAT
+2 DATE 26 MAY 1999
+2 PLAC Adelaide,South Australia, Australia
+2 SOUR @S40@
+1 FAMS @F40@
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 15:48:20
+0 @I104@ INDI
+1 NAME Alexander /Dowling/
+2 SOUR @S40@
+1 SEX M
+1 BIRT
+2 DATE 21 FEB 1947
+2 PLAC Adelaide,South Australia, Australia
+2 SOUR @S40@
+1 EMIG
+2 DATE OCT 1974
+2 PLAC Adelaide,South Australia, Australia
+2 _SHAR @I105@
+3 ROLE Emigrant
+2 SOUR @S40@
+2 _PLAC Wellington, New Zealand
+1 RESI
+2 DATE FROM OCT 1974
+2 PLAC Whanganui, New Zealand
+2 _SHAR @I105@
+3 ROLE Resident
+2 ADDR College Estate
+2 SOUR @S40@
+1 OCCU accounts administrator
+2 DATE FROM OCT 1974 TO 2012
+2 PLAC Whanganui, New Zealand
+2 ADDR AliArch, Heads Road
+2 SOUR @S40@
+1 FAMC @F40@
+1 FAMS @F41@
+1 CHAN
+2 DATE 28 OCT 2015
+3 TIME 12:00:00
+0 @I105@ INDI
+1 NAME Carrie Ann /Baker/
+2 SOUR @S40@
+1 SEX F
+1 BIRT
+2 DATE 15 JUN 1948
+2 PLAC Croydon, London, England
+2 SOUR @S40@
+1 FAMS @F41@
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 16:35:10
+0 @I106@ INDI
+1 NAME Jenny /Dowling/
+2 SOUR @S40@
+1 SEX F
+1 BIRT
+2 DATE 5 JAN 1976
+2 PLAC Whanganui, New Zealand
+2 ADDR College Estate
+2 SOUR @S40@
+1 EDUC the Victoria University of Wellington
+2 DATE BET 1995 AND 1998
+2 PLAC Wellington, New Zealand
+2 NOTE Jenny studied for a Bachelor of Tourism Management, in which she was awarded a first class degree.
+1 EDUC The University of Auckland
+2 DATE BET 2001 AND 2003
+2 PLAC Auckland, New Zealand
+2 NOTE She obtained a Masters in Tourism. 
+1 FAMC @F41@
+1 CHAN
+2 DATE 9 OCT 2014
+3 TIME 19:39:26
+0 @I107@ INDI
+1 NAME Rosemary /Mills/
+1 SEX F
+1 FAMS @F37@
+1 CHAN
+2 DATE 16 SEP 2015
+3 TIME 10:33:56
+0 @I108@ INDI
+1 NAME Allison /Fish/
+1 SEX F
+1 FAMC @F37@
+1 FAMS @F42@
+1 CHAN
+2 DATE 16 SEP 2015
+3 TIME 10:39:31
+0 @I109@ INDI
+1 NAME Charles /Farrington/
+1 SEX M
+1 FAMS @F42@
+1 CHAN
+2 DATE 16 SEP 2015
+3 TIME 10:41:33
+0 @I110@ INDI
+1 NAME Emma /Farrington/
+1 SEX F
+1 FAMC @F42@
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:51:19
+0 @I111@ INDI
+1 NAME Belinda /Fish/
+1 SEX F
+1 FAMC @F37@
+1 FAMS @F43@
+1 CHAN
+2 DATE 16 SEP 2015
+3 TIME 10:42:00
+0 @I112@ INDI
+1 NAME Norman /Savage/
+1 SEX M
+1 FAMS @F43@
+1 CHAN
+2 DATE 16 SEP 2015
+3 TIME 10:42:08
+0 @I113@ INDI
+1 NAME Helen /Savage/
+1 SEX F
+1 FAMC @F43@
+1 CHAN
+2 DATE 16 SEP 2015
+3 TIME 10:42:18
+0 @I114@ INDI
+1 NAME Alice /Harrison/
+1 SEX F
+1 FAMC @F44@
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:44:09
+0 @I115@ INDI
+1 NAME Emma /Munro/
+1 SEX F
+1 FAMC @F45@
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:44:42
+0 @I116@ INDI
+1 NAME Hugh /Carrington/
+1 SEX M
+1 BIRT
+2 DATE 1960
+2 PLAC Bath, Somerset, England
+1 FAMC @F26@
+1 CHAN
+2 DATE 23 SEP 2015
+3 TIME 15:10:25
+0 @I117@ INDI
+1 NAME Christoper /Childs/
+1 SEX M
+1 BIRT
+2 DATE 22 MAR 1922
+2 PLAC London, England
+1 FAMC @F46@
+1 FAMS @F50@
+1 CHAN
+2 DATE 26 SEP 2015
+3 TIME 15:15:18
+0 @I119@ INDI
+1 NAME Joyce Elizabeth /Childs/
+1 SEX F
+1 BIRT
+2 DATE 14 FEB 1943
+2 PLAC London, England
+1 FAMC @F50@
+1 FAMS @F49@
+1 CHAN
+2 DATE 7 OCT 2015
+3 TIME 17:34:07
+0 @I120@ INDI
+1 NAME Thomas /Record/
+1 SEX M
+1 BIRT
+2 DATE 14 FEB 1945
+1 FAMS @F49@
+1 CHAN
+2 DATE 7 OCT 2015
+3 TIME 17:33:46
+0 @I121@ INDI
+1 NAME Elizabeth /Morley/
+1 SEX F
+1 BIRT
+2 DATE 3 JUL 1926
+2 PLAC Brighton,Sussex, England
+1 FAMS @F50@
+1 CHAN
+2 DATE 26 SEP 2015
+3 TIME 15:15:29
+0 @I122@ INDI
+1 NAME Dennis Julian /Childs/
+1 SEX M
+1 BIRT
+2 DATE 1941
+2 PLAC London, England
+1 FAMC @F50@
+1 CHAN
+2 DATE 26 SEP 2015
+3 TIME 15:16:52
+0 @I123@ INDI
+1 NAME Adopted /Munro/
+1 SEX M
+1 BIRT
+2 DATE 1 JAN 2001
+1 ADOP
+2 DATE 1 JAN 2008
+2 NOTE 
+3 CONT 
+2 FAMC @F11@
+3 ADOP HUSB
+1 FAMC @F11@
+2 PEDI Adopted
+1 CHAN
+2 DATE 13 JAN 2023
+3 TIME 20:01:58
+0 @F1@ FAM
+1 MARR
+2 _SHAR @I9@
+3 ROLE Best man
+2 _SHAR @I110@
+3 ROLE Bridesmaid
+2 _SHAR @I113@
+3 ROLE Bridesmaid
+2 _SHAN Rev Peter Evans
+3 ROLE Minister
+3 NOTE Old family friend
+2 _SHAR @I9@
+3 ROLE Witness
+2 DATE 14 FEB 1947
+2 PLAC Clifton, Bristol, England
+2 ADDR Christ Church Parish Church
+2 NOTE This was a large affair with approximately 100 guests.
+2 SOUR @S32@
+2 SOUR @S17@
+3 PAGE 1947 Q1 Bristol 5a 1240 
+1 DIV
+2 DATE 27 FEB 1948
+2 NOTE The divorce was acrimonious at the time, but later Anthony and Julia were reconciled and became quite good friends again.
+2 SOUR @S18@
+1 HUSB @I1@
+1 WIFE @I2@
+1 NOTE The marriage lasted less than a year.  Julia Munro when asked why the marriage had failed said that it had been a mistake, and that the couple were completely unsuited to one another.
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:51:19
+0 @F2@ FAM
+1 MARR
+2 DATE OCT 1950
+2 PLAC Redland, Bristol, England
+2 ADDR Bristol Registry Office
+2 SOUR @S17@
+3 PAGE 1950 Oct Bristol 5A 1234
+2 SOUR @S33@
+1 HUSB @I1@
+1 WIFE @I3@
+1 CHIL @I8@
+1 CHIL @I6@
+1 CHIL @I7@
+1 CHIL @I92@
+1 NOTE Susan and Anthony were, on the whole, very happy together.  But Susan never had a job, and Anthony earned little from his writing.
+1 CHAN
+2 DATE 13 SEP 2014
+3 TIME 09:59:40
+0 @F3@ FAM
+1 MARR
+2 DATE 15 JAN 1915
+2 PLAC Florida, USA
+1 HUSB @I4@
+1 WIFE @I5@
+1 CHIL @I9@
+1 CHIL @I1@
+1 CHIL @I11@
+1 CHIL @I10@
+1 OBJE @O1@
+2 _SEQ 7
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:43:09
+0 @F4@ FAM
+1 MARR
+2 DATE 1945
+2 SOUR @S14@
+1 HUSB @I9@
+1 WIFE @I12@
+1 CHIL @I64@
+1 CHIL @I65@
+1 CHAN
+2 DATE 26 MAR 2013
+3 TIME 11:46:39
+0 @F10@ FAM
+1 MARR
+2 _SHAR @I92@
+3 ROLE Best man
+2 _SHAR @I114@
+3 ROLE Bridesmaid
+2 _SHAR @I115@
+3 ROLE Bridesmaid
+2 _SHAN Rev Ian Turnbull
+3 ROLE Minister
+3 SOUR @S11@
+4 NOTE Signed himself as "Ian Turnbull, Minister"
+4 QUAY 3
+3 NOTE Friend of the family
+2 _SHAR @I1@
+3 ROLE Witness
+3 SOUR @S11@
+4 NOTE Signed marriage certificate
+4 QUAY 3
+2 _SHAR @I59@
+3 ROLE Witness
+3 SOUR @S11@
+4 NOTE Signed marriage certificate
+4 QUAY 3
+2 DATE 12 JAN 1986
+2 PLAC Midsomer Norton, Somerset, England
+2 ADDR Church of St John the Baptist
+2 SOUR @S11@
+2 OBJE @O33@
+3 _SEQ 2
+2 HUSB
+3 AGE 33y
+2 WIFE
+3 AGE 28y
+1 HUSB @I6@
+1 WIFE @I25@
+1 CHIL @I26@
+1 CHIL @I49@
+1 CHIL @I50@
+1 NOTE Ian and Charlotte met in Bristol.  She was a student at the university, and he was working for British Aerospace.  They lived together for two years before marrying in 1986.
+1 OBJE @O12@
+2 _SEQ 7
+1 CHAN
+2 DATE 2 OCT 2015
+3 TIME 15:41:19
+0 @F11@ FAM
+1 ENGA
+2 DATE 25 DEC 2005
+2 PLAC Farmborough, Somerset, England
+2 ADDR Little House,The Batch
+2 NOTE Christopher finally proposed to Nicola at the Family Christmas Party, between the Turkey and the Christmas pudding.
+3 SOUR @S18@
+2 SOUR @S19@
+1 HUSB @I26@
+1 WIFE @I28@
+1 CHIL @I27@
+1 CHIL @I29@
+1 CHIL @I123@
+1 CHAN
+2 DATE 13 JAN 2023
+3 TIME 17:07:02
+0 @F12@ FAM
+1 MARR
+2 DATE BET JUL 1943 AND SEP 1943
+2 PLAC Farnborough, Hampshire, England
+2 NOTE After a wartime whirlwind romance John and Julia were married with in 3 weeks of first meeting. None of the family attended.
+2 SOUR @S17@
+3 PAGE 1943 Q3 Farnbrough 7B 1265
+1 HUSB @I30@
+1 WIFE @I11@
+1 CHIL @I31@
+1 CHAN
+2 DATE 27 MAR 2013
+3 TIME 16:27:26
+0 @F13@ FAM
+1 MARR
+2 DATE 21 SEP 1967
+2 PLAC Cheltenham, Gloucestershire, England
+2 ADDR St Mary's Anglican Church
+2 SOUR @S14@
+1 HUSB @I31@
+1 WIFE @I63@
+1 CHIL @I32@
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:19
+0 @F14@ FAM
+1 HUSB @I33@
+1 WIFE @I34@
+1 CHIL @I35@
+1 CHIL @I36@
+1 CHIL @I37@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:41:09
+0 @F15@ FAM
+1 HUSB @I38@
+1 WIFE @I37@
+1 CHIL @I39@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:41:35
+0 @F16@ FAM
+1 HUSB @I40@
+1 WIFE @I81@
+1 CHIL @I30@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 21:12:30
+0 @F17@ FAM
+1 HUSB @I41@
+1 WIFE @I82@
+1 CHIL @I40@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 21:13:07
+0 @F18@ FAM
+1 HUSB @I42@
+1 CHIL @I43@
+1 CHIL @I41@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:45:05
+0 @F19@ FAM
+1 HUSB @I45@
+1 WIFE @I43@
+1 CHIL @I44@
+1 CHAN
+2 DATE 3 FEB 2006
+3 TIME 11:45:24
+0 @F21@ FAM
+1 MARR
+2 DATE MAY 2001
+2 PLAC St Pauls, Bristol, England
+2 SOUR @S19@
+1 HUSB @I51@
+1 WIFE @I3@
+1 CHAN
+2 DATE 2 APR 2013
+3 TIME 15:58:54
+0 @F22@ FAM
+1 MARR
+2 DATE ABT 1884
+2 PLAC Florida, USA
+1 HUSB @I52@
+1 WIFE @I53@
+1 CHIL @I93@
+1 CHIL @I88@
+1 CHIL @I4@
+1 CHAN
+2 DATE 18 SEP 2014
+3 TIME 10:47:47
+0 @F23@ FAM
+1 HUSB @I54@
+1 WIFE @I79@
+1 CHIL @I52@
+1 CHIL @I99@
+1 CHIL @I80@
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:43:09
+0 @F24@ FAM
+1 HUSB @I55@
+1 CHIL @I3@
+1 CHAN
+2 DATE 5 FEB 2009
+3 TIME 12:17:32
+0 @F25@ FAM
+1 HUSB @I56@
+1 WIFE @I57@
+1 CHIL @I5@
+1 CHIL @I98@
+1 CHAN
+2 DATE 15 SEP 2014
+3 TIME 11:29:35
+0 @F26@ FAM
+1 MARR
+2 DATE 21 JUL 1956
+2 PLAC Ealing, London, England
+2 SOUR @S12@
+1 HUSB @I58@
+1 WIFE @I59@
+1 CHIL @I25@
+1 CHIL @I116@
+1 CHAN
+2 DATE 23 SEP 2015
+3 TIME 15:09:34
+0 @F27@ FAM
+1 HUSB @I60@
+1 WIFE @I61@
+1 CHIL @I55@
+1 CHAN
+2 DATE 5 FEB 2009
+3 TIME 12:44:59
+0 @F28@ FAM
+1 MARR
+2 DATE BET JUL 1970 AND SEP 1970
+2 PLAC Fair Oak, Hampshire, England
+2 SOUR @S17@
+3 PAGE Q3 1970 Salisbury 7b 135
+1 WIFE @I65@
+1 CHIL @I71@
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:11:05
+0 @F29@ FAM
+1 MARR
+2 DATE BET JUL 1960 AND SEP 1960
+2 PLAC Winchester, Hampshire, England
+2 SOUR @S17@
+3 PAGE Q3 1960 Winchester 9B 742
+1 HUSB @I64@
+1 WIFE @I74@
+1 CHIL @I66@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 17:21:30
+0 @F30@ FAM
+1 MARR
+2 DATE 15 MAY 1983
+2 PLAC Taunton, Somerset, England
+2 SOUR @S18@
+1 HUSB @I66@
+1 WIFE @I76@
+1 CHIL @I67@
+1 CHIL @I68@
+1 OBJE @O24@
+2 _SEQ 3
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 12:58:39
+0 @F31@ FAM
+1 HUSB @I67@
+1 WIFE @I75@
+1 CHIL @I69@
+1 CHIL @I70@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 17:10:23
+0 @F32@ FAM
+1 MARR
+2 DATE BET JAN 1993 AND MAR 1993
+2 PLAC Salisbury, Wiltshire, England
+2 SOUR @S17@
+3 PAGE Q1 1993 Salisbury 563 gf
+1 HUSB @I71@
+1 WIFE @I78@
+1 CHIL @I72@
+1 CHIL @I73@
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:31:08
+0 @F33@ FAM
+1 HUSB @I68@
+1 WIFE @I77@
+1 SOUR @S18@
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 17:30:38
+0 @F34@ FAM
+1 HUSB @I83@
+1 WIFE @I84@
+1 CHIL @I100@
+1 CHIL @I60@
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 14:34:17
+0 @F35@ FAM
+1 HUSB @I85@
+1 WIFE @I86@
+1 CHIL @I61@
+1 CHIL @I87@
+1 CHAN
+2 DATE 21 MAR 2013
+3 TIME 15:15:23
+0 @F36@ FAM
+1 HUSB @I90@
+1 WIFE @I91@
+1 CHIL @I12@
+1 SOUR @S30@
+1 CHAN
+2 DATE 26 MAR 2013
+3 TIME 11:53:40
+0 @F37@ FAM
+1 HUSB @I94@
+1 WIFE @I107@
+1 CHIL @I2@
+1 CHIL @I108@
+1 CHIL @I111@
+1 CHAN
+2 DATE 16 SEP 2015
+3 TIME 10:41:51
+0 @F38@ FAM
+1 HUSB @I32@
+1 WIFE @I95@
+1 CHIL @I97@
+1 CHIL @I96@
+1 CHAN
+2 DATE 2 APR 2013
+3 TIME 16:13:18
+0 @F39@ FAM
+1 MARR
+2 DATE 15 JUN 1911
+2 PLAC Tailem Bend, South Australia, Australia
+2 ADDR 6 Jacob Street
+2 SOUR @S40@
+1 HUSB @I100@
+1 WIFE @I101@
+1 CHIL @I102@
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 16:41:52
+0 @F40@ FAM
+1 MARR
+2 DATE 18 JUL 1945
+2 PLAC Adelaide,South Australia, Australia
+1 HUSB @I102@
+1 WIFE @I103@
+1 CHIL @I104@
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 15:48:42
+0 @F41@ FAM
+1 HUSB @I104@
+1 WIFE @I105@
+1 CHIL @I106@
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 16:34:17
+0 @F42@ FAM
+1 HUSB @I109@
+1 WIFE @I108@
+1 CHIL @I110@
+1 CHAN
+2 DATE 16 SEP 2015
+3 TIME 10:41:39
+0 @F43@ FAM
+1 HUSB @I112@
+1 WIFE @I111@
+1 CHIL @I113@
+1 CHAN
+2 DATE 16 SEP 2015
+3 TIME 10:42:13
+0 @F44@ FAM
+1 WIFE @I7@
+1 CHIL @I114@
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:43:35
+0 @F45@ FAM
+1 HUSB @I92@
+1 CHIL @I115@
+1 CHAN
+2 DATE 17 SEP 2015
+3 TIME 16:44:26
+0 @F46@ FAM
+1 HUSB @I44@
+1 CHIL @I117@
+1 CHAN
+2 DATE 26 SEP 2015
+3 TIME 15:08:42
+0 @F49@ FAM
+1 HUSB @I120@
+1 WIFE @I119@
+1 CHIL @I95@
+1 CHAN
+2 DATE 26 SEP 2015
+3 TIME 15:11:22
+0 @F50@ FAM
+1 HUSB @I117@
+1 WIFE @I121@
+1 CHIL @I122@
+1 CHIL @I119@
+1 CHAN
+2 DATE 26 SEP 2015
+3 TIME 15:15:59
+0 @O1@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O1_The_Munros.jpg
+2 FORM jpg
+2 TITL The Munros
+1 _DATE APR 1949
+1 _KEYS Picture, Monochrome
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O4@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O4_Nigel_and_Susan_Dowling.jpg
+2 FORM jpg
+2 TITL Nigel and Susan Dowling
+1 _DATE 1993
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O5@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O5_Ian_and_Judy_in_the_garden_at_Nantwich.JPG
+2 FORM jpg
+2 TITL Ian and Judy in the garden at Nantwich
+1 _DATE 1960
+1 _KEYS Picture, Monochrome
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O6@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O6_Ian_Munro.JPG
+2 FORM jpg
+2 TITL Ian Munro
+1 _DATE 1962
+1 _KEYS Picture, Monochrome
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O7@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O7_Nigel_s_Birthday.jpg
+2 FORM jpg
+2 TITL Nigel's Birthday
+1 _DATE JUN 1991
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O10@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O10_Anthony_Munro.JPG
+2 FORM jpg
+2 TITL Anthony Munro
+1 _NOTA Taken using a sepia effect on a digital camera
+1 _DATE 2001
+1 _KEYS Picture, Monochrome
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O11@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O11_Charlotte_Paula_Janet_and_Christopher.jpg
+2 FORM jpg
+2 TITL Charlotte, Paula, Janet and Christopher
+1 _DATE 1998
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O12@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O12_Ian_and_Charlotte_and_family.JPG
+2 FORM jpg
+2 TITL Ian and Charlotte and family
+1 _NOTA At home in Ireland
+1 _DATE 1 MAY 2005
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O14@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O14_Julia_Fish.jpg
+2 FORM jpg
+2 TITL Julia Fish
+1 _NOTA On holiday in south of France
+1 _DATE 2 AUG 1985
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O16@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O16_Charles_and_Margaret_Munro.jpg
+2 FORM jpg
+2 TITL Charles and Margaret Munro
+1 _DATE 1940
+1 _KEYS Picture, Monochrome
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O18@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O18_Alan_Carrington.jpg
+2 FORM jpg
+2 TITL Alan Carrington
+1 _DATE 1948
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O19@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O19_Elizabeth_Hodges.jpg
+2 FORM jpg
+2 TITL Elizabeth Hodges
+1 _DATE 1956
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O20@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\Certs\Birth - IS Munro.png
+2 FORM png
+2 TITL Birth Certificate Ian Stephen Munro
+1 _KEYS Picture
+1 CHAN
+2 DATE 12 AUG 2022
+3 TIME 12:18:47
+0 @O24@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O24_Wedding_Graham_Munro.jpg
+2 FORM jpg
+2 TITL Wedding-Graham Munro
+1 _DATE 30 AUG 1982
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O26@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\Certs\BAC - HM Addison.jpg
+2 FORM jpg
+2 TITL BAC-Helen-Mary-Addison
+1 _KEYS Picture
+1 CHAN
+2 DATE 12 AUG 2022
+3 TIME 12:18:12
+0 @O27@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O27_Calum_and_Alex_Hodges_.jpg
+2 FORM jpg
+2 TITL Calum and Alex Hodges 
+1 _DATE JUN 2006
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O28@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O28_Anthony_Munro_Hodges.jpg
+2 FORM jpg
+2 TITL Anthony Munro Hodges
+1 _DATE AUG 2006
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O29@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O29_Janet_Record.jpg
+2 FORM jpg
+2 TITL Janet Record
+1 _DATE 14 JUN 2003
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O30@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O30_Calum_and_Alex_Hodges_.jpg
+2 FORM jpg
+2 TITL Calum and Alex Hodges 
+1 _DATE MAR 2013
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O32@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\Certs\O32 MP Pleasance.gif
+2 FORM gif
+2 TITL King Cambridge Certificate M P  Pleasance
+1 CHAN
+2 DATE 12 AUG 2022
+3 TIME 12:21:07
+0 @O33@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\Places\O33 Midsomer Norton Church.jpg
+2 FORM jpg
+2 TITL  Midsomer Norton parish church
+1 _NOTA 
+1 CHAN
+2 DATE 12 AUG 2022
+3 TIME 12:22:28
+0 @O34@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\Census\1871Scotland-RG9123.tif
+2 FORM tif
+2 TITL 1871 Census RG99 123 12345
+1 _NOTA 
+1 _KEYS Picture
+1 CHAN
+2 DATE 12 AUG 2022
+3 TIME 12:15:44
+0 @O35@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\O35_James_Reardon_and_Edna_Cole.jpg
+2 FORM jpg
+2 TITL James Reardon and Edna Cole
+1 _KEYS Picture
+1 CHAN
+2 DATE 26 SEP 2014
+3 TIME 15:16:31
+0 @O37@ OBJE
+1 FILE C:\Users\Bill Shaw\Documents\Family Historian Projects\Family Historian Sample Project\Family Historian Sample Project.fh_data\Media\Certs\Marr - I.Munro, C.Carrington.png
+2 FORM png
+2 TITL Marriage Certificate - Ian Munro and C. Carrington
+1 _KEYS Picture
+1 CHAN
+2 DATE 12 AUG 2022
+3 TIME 12:40:04
+0 @N1@ NOTE The Munro family comes from Scotland.  The Munros are a Scottish highland clan.  The clan was involved in numerous clan feuds in the fifteenth and sixteenth centuries.  They supported the Glorious Revolution of 1688, and consequently, durin
+1 CONC g the Jacobite risings of the eighteenth century, they were staunchly anti-Jacobite.  The seat of the clan chiefs was Foulis Castle in Ross and Cromarty.
+1 CHAN
+2 DATE 10 OCT 2015
+3 TIME 12:20:13
+0 @R4@ REPO
+1 NAME Collection of Nigel Munro
+1 CHAN
+2 DATE 10 FEB 2003
+3 TIME 15:27:47
+0 @R5@ REPO
+1 NAME Social Security Death Index
+1 CHAN
+2 DATE 19 MAR 2013
+3 TIME 16:15:31
+0 @R6@ REPO
+1 NAME National Archives of Scotland (Scotlands People)
+1 CHAN
+2 DATE 21 MAR 2013
+3 TIME 14:07:54
+0 @S2@ SOUR
+1 TITL Parish Records: All Saints, Bristol Parish Register
+1 _TYPE Parish Records
+1 REFN LK12
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:02:05
+0 @S7@ SOUR
+1 TITL Birth Certificate: Anthony Munro
+1 _TYPE Birth Certificate
+1 REPO @R4@
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:02:33
+0 @S8@ SOUR
+1 TITL Birth Certificate: Amanda Munro
+1 _TYPE Birth Certificate
+1 REPO @R4@
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:02:22
+0 @S9@ SOUR
+1 TITL Passport: Anthony Munro
+1 _TYPE Passport
+1 REPO @R4@
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:04:40
+0 @S10@ SOUR
+1 AUTH Judith Anderson
+1 TITL Book: The Life of Ian Scott Munro
+1 _TYPE Book
+1 PUBL Rydell House
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:05:00
+0 @S11@ SOUR
+1 TITL Marriage Certificate: Munro Ian, Carrington Charlotte
+1 _TYPE Marriage Certificate
+1 REPO @R4@
+1 OBJE @O37@
+2 _SEQ 1
+1 CHAN
+2 DATE 3 OCT 2015
+3 TIME 16:20:12
+0 @S12@ SOUR
+1 TITL Verbal Interview:  Charlotte Carrington
+1 _TYPE Verbal
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 10:59:01
+0 @S13@ SOUR
+1 AUTH General Record Office
+1 TITL Birth Certificate: Ian Stephen Munro
+1 _TYPE Birth Certificate
+1 TEXT See Image
+1 REPO @R4@
+1 OBJE @O20@
+2 _SEQ 1
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:01:36
+0 @S14@ SOUR
+1 AUTH Ian Munro
+1 TITL Verbal Interview: Amanda Munro
+1 _TYPE Verbal
+1 TEXT See Handwritten Transcription
+1 NOTE Interview conducted by telephone 12th June 2009
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 10:59:14
+0 @S15@ SOUR
+1 TITL Social Security Death Index (USA)
+1 _TYPE Index
+1 REPO @R5@
+1 CHAN
+2 DATE 26 MAR 2013
+3 TIME 16:02:47
+0 @S16@ SOUR
+1 TITL GRO Birth Index
+1 _TYPE Index
+1 CHAN
+2 DATE 26 MAR 2013
+3 TIME 16:02:20
+0 @S17@ SOUR
+1 TITL GRO Marriage Index
+1 _TYPE Index
+1 CHAN
+2 DATE 18 SEP 2014
+3 TIME 10:47:02
+0 @S18@ SOUR
+1 TITL Verbal Interview: Graham Munro
+1 _TYPE Verbal
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 10:59:08
+0 @S19@ SOUR
+1 TITL Verbal Interview:  Ian Stephen Munro
+1 _TYPE Verbal
+1 CHAN
+2 DATE 21 MAY 2020
+3 TIME 18:00:18
+0 @S20@ SOUR
+1 AUTH General Record Office,  UK
+1 TITL Census: 1871 Scotland RG99-12345-342 - Munro
+1 _TYPE 1871 Census Scotland
+1 TEXT Address 51 The Backs,  Glasgow
+2 CONT 
+2 CONT Head  Arthur Munro Age 30 Occupation Shipwright    Born Glasgow
+2 CONT Wife   Mary Smith    Age 29  Occupation  Cordwainer Born Glasgow
+2 CONT Son   Charles        Age     6
+2 CONT Son    Michael S     Age    4
+2 CONT Son    Thomas        Age    2
+1 OBJE @O34@
+2 _SEQ 2
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:03:41
+0 @S21@ SOUR
+1 TITL GRO Death Index
+1 _TYPE Index
+1 CHAN
+2 DATE 26 MAR 2013
+3 TIME 16:02:26
+0 @S22@ SOUR
+1 TITL Statutory Deaths Index Scoland
+1 _TYPE Index
+1 CHAN
+2 DATE 26 MAR 2013
+3 TIME 16:02:39
+0 @S23@ SOUR
+1 TITL Commonweath War Grave:  J W Hodges
+1 _TYPE CWGC
+1 TEXT HODGES, John Wesley
+2 CONT 
+2 CONT Rank: Private
+2 CONT Service No: 5392328
+2 CONT Date of Death: 09/06/1944
+2 CONT Age: 25
+2 CONT Regiment/Service: Oxford and Bucks Light Infantry 1st Bn.
+2 CONT Grave Reference: IIX. G. 12.
+2 CONT Cemetery : BROUAY WAR CEMETERY
+2 CONT Additional Information:
+2 CONT Husband of Julia Hodges, son of Stanley. and Charlotte E. Hodges.
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:00:53
+0 @S24@ SOUR
+1 TITL Army Service Records:  J W Hodges
+1 _TYPE Service Records
+1 CHAN
+2 DATE 24 SEP 2014
+3 TIME 09:24:08
+0 @S25@ SOUR
+1 TITL Census: 1911 Kirkwall,Orkney, Scotland RG14 1235 4674
+1 _TYPE Census
+1 PUBL RG14 1235 4674
+1 TEXT Dowling, George
+2 CONT Kirkwall,Orkney, Scotland
+1 REPO @R6@
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:04:06
+0 @S26@ SOUR
+1 TITL Commonwealth War Grave:   Richard Dowling
+1 _TYPE CWGC
+1 TEXT DOWLING,  Richard
+2 CONT 
+2 CONT Rank:
+2 CONT Third Radio Officer
+2 CONT Date of Death:
+2 CONT 18/02/1943
+2 CONT Age: 32
+2 CONT Regiment/Service: Merchant Navy
+2 CONT 
+2 CONT M.V. Seafirth (Liverpool)
+2 CONT Panel Reference Panel 94.
+2 CONT Memorial TOWER HILL MEMORIAL
+2 CONT Additional Information:
+2 CONT Son of Mr. and Mrs. G. Dowling, of Kirkwall, Orkney.
+1 CHAN
+2 DATE 24 SEP 2014
+3 TIME 09:24:00
+0 @S27@ SOUR
+1 TITL Census: 1901 Kirkwall,Orkney, Scotland RG13 1234 535
+1 _TYPE Census
+1 PUBL RG13 1234 535
+1 TEXT Dowling, George
+2 CONT Kirkwall,Orkney, Scotland
+1 REPO @R6@
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:03:55
+0 @S28@ SOUR
+1 TITL Census: 1901 Kirkwall,Orkney, Scotland RG13 245 4457
+1 _TYPE Census
+1 PUBL RG13 245  4457
+1 TEXT Wallington,Conner
+2 CONT Kirkwall,Orkney, Scotland
+1 REPO @R6@
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:04:03
+0 @S29@ SOUR
+1 TITL Burial Record: John Munro
+1 _TYPE Burial Record
+1 REPO @R4@
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:02:46
+0 @S30@ SOUR
+1 TITL Baptism Certificate:  Helen Mary Addison
+1 _TYPE Baptism Certificate
+1 REPO @R4@
+1 OBJE @O26@
+2 _SEQ 1
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:01:30
+0 @S31@ SOUR
+1 TITL Census: 1911 Orkney, Scotland RG14 1234 5678
+1 _TYPE Census
+1 PUBL RG14 1234 5678
+1 TEXT Wallington, Conner
+2 CONT Orkney, Scotland
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:04:11
+0 @S32@ SOUR
+1 TITL Marriage Certificate:  Julia Fish and Anthony Munro
+1 _TYPE Marriage Certificate
+1 CHAN
+2 DATE 2 OCT 2015
+3 TIME 16:13:46
+0 @S33@ SOUR
+1 TITL Verbal Interview: Anthony Edward Munro
+1 _TYPE Verbal
+1 PUBL 21 April 1994
+1 NOTE Full transcription still to be done.
+1 CHAN
+2 DATE 24 SEP 2014
+3 TIME 09:23:27
+0 @S34@ SOUR
+1 TITL New York, Passenger Lists, 1820-1957 M.P, Smith S.S Liverpool 1885
+1 _TYPE Passenger List
+1 CHAN
+2 DATE 24 SEP 2014
+3 TIME 09:23:22
+0 @S35@ SOUR
+1 TITL Kings College Cambridge Certificate M P  Pleasance
+1 _TYPE Certificate
+1 OBJE @O32@
+1 CHAN
+2 DATE 17 SEP 2014
+3 TIME 15:34:28
+0 @S37@ SOUR
+1 TITL Parish Records: St Magnus Cathedral Baptisms
+1 _TYPE Parish Records
+1 PUBL Scotland People Website
+1 REPO @R6@
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 10:59:22
+0 @S38@ SOUR
+1 TITL Army Service Records: Alexander James Dowling
+1 _TYPE Army Service Records
+1 TEXT See Images (need scanning)
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:02:11
+0 @S39@ SOUR
+1 TITL Commonwealth War Grave : Alexander Dowling
+1 _TYPE CWGC
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 11:04:21
+0 @S40@ SOUR
+1 TITL Verbal Interview: Henry Dowling
+1 _TYPE Verbal
+1 TEXT Telephone interview May 2000
+1 CHAN
+2 DATE 30 SEP 2015
+3 TIME 10:59:54
+0 @P1@ _PLAC Salisbury, Wiltshire, England
+1 MAP
+2 LATI N51.0737
+2 LONG W1.79512
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:31:17
+0 @P2@ _PLAC Taunton, Somerset, England
+1 MAP
+2 LATI N51.0178681
+2 LONG W3.1016688
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:03
+0 @P3@ _PLAC Winchester, Hampshire, England
+1 MAP
+2 LATI N51.0629566
+2 LONG W1.3227958
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:03
+0 @P4@ _PLAC Fair Oak, Hampshire, England
+1 MAP
+2 LATI N50.9653
+2 LONG W1.29982
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:11:11
+0 @P5@ _PLAC Ealing, London, England
+1 MAP
+2 LATI N51.5135272
+2 LONG W0.3057059
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:09:29
+0 @P6@ _PLAC St Pauls, Bristol, England
+1 MAP
+2 LATI N51.4644
+2 LONG W2.58194
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:33:30
+0 @P7@ _PLAC Cheltenham, Gloucestershire, England
+1 MAP
+2 LATI N51.897
+2 LONG W2.07403
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:26
+0 @P8@ _PLAC Farnborough, Hampshire, England
+1 MAP
+2 LATI N51.2824038
+2 LONG W0.7452474
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:03
+0 @P10@ _PLAC Midsomer Norton, Somerset, England
+1 MAP
+2 LATI N51.2867326
+2 LONG W2.4613768
+1 CHAN
+2 DATE 18 SEP 2014
+3 TIME 09:55:09
+0 @P11@ _PLAC Redland, Bristol, England
+1 MAP
+2 LATI N51.4764507
+2 LONG W2.597625
+1 CHAN
+2 DATE 17 SEP 2014
+3 TIME 10:18:32
+0 @P12@ _PLAC Clifton, Bristol, England
+1 MAP
+2 LATI N51.4635
+2 LONG W2.61491
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:07:33
+0 @P13@ _PLAC Keswick, Cumbria
+1 MAP
+2 LATI N54.6016004
+2 LONG W3.1253667
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:03
+0 @P14@ _PLAC New Jersey, USA
+1 MAP
+2 LATI N40.4601
+2 LONG W74.3985
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:23:35
+0 @P15@ _PLAC Palm Beach, Florida, USA
+1 MAP
+2 LATI N26.7056206
+2 LONG W80.0364297
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:27:55
+0 @P16@ _PLAC Ilchester, Somerset, England
+1 MAP
+2 LATI N51.004774
+2 LONG W2.682366
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:15:04
+0 @P17@ _PLAC Lewisham, London, England
+1 MAP
+2 LATI N51.4610195
+2 LONG W0.0061077
+1 CHAN
+2 DATE 17 SEP 2014
+3 TIME 10:48:06
+0 @P18@ _PLAC Florida, USA
+1 MAP
+2 LATI N28.7505408
+2 LONG W82.5000976
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:03
+0 @P19@ _PLAC Orkney, Scotland
+1 MAP
+2 LATI N59
+2 LONG W3
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:03
+0 @P20@ _PLAC Kirkwall,Orkney, Scotland
+1 MAP
+2 LATI N58.9795212
+2 LONG W2.9556011
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:03
+0 @P21@ _PLAC Glasgow, Lanarkshire, Scotland
+1 MAP
+2 LATI N55.8631323
+2 LONG W4.322939
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:03
+0 @P22@ _PLAC Oxford, Oxfordshire, England
+1 MAP
+2 LATI N51.7472607
+2 LONG W1.2101032
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P23@ _PLAC Bodmin, Cornwall, England
+1 MAP
+2 LATI N50.4655432
+2 LONG W4.7184024
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P24@ _PLAC Paris, France
+1 MAP
+2 LATI N48.85341
+2 LONG E2.3488
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P25@ _PLAC the Atlantic Ocean
+1 STAT not found
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P26@ _PLAC Bristol, England
+1 MAP
+2 LATI N51.4552043
+2 LONG W2.5975093
+1 CHAN
+2 DATE 21 MAY 2020
+3 TIME 18:00:18
+0 @P27@ _PLAC Normandy, France
+1 MAP
+2 LATI N49.1263957
+2 LONG E0.1257316
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:25:48
+0 @P28@ _PLAC Brighton,Sussex, England
+1 MAP
+2 LATI N50.8429133
+2 LONG W0.1832906
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P29@ _PLAC New Cross, London, England
+1 MAP
+2 LATI N51.4746
+2 LONG W0.0453
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:21:20
+0 @P30@ _PLAC Bath, Somerset, England
+1 MAP
+2 LATI N51.3814
+2 LONG W2.3597
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:03:44
+0 @P31@ _PLAC Liverpool, England
+1 MAP
+2 LATI N53.4219196
+2 LONG W2.9316116
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P32@ _PLAC Bletchley Park, Milton Keynes,  Buckinghamshire, England
+1 MAP
+2 LATI N51.9922029
+2 LONG W0.7384074
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 16:49:13
+0 @P33@ _PLAC Boynton Beach, Florida, USA
+1 MAP
+2 LATI N26.5253491
+2 LONG W80.0664309
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P34@ _PLAC Chelsea, London, England
+1 MAP
+2 LATI N51.4875
+2 LONG W0.1683
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:05:49
+0 @P35@ _PLAC Orlando,  Florida, USA
+1 MAP
+2 LATI N28.41458
+2 LONG W81.29926
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P36@ _PLAC London, England
+1 MAP
+2 LATI N51.5073
+2 LONG W0.1277
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:19:03
+0 @P37@ _PLAC Greenwich, London, England
+1 MAP
+2 LATI N51.4787479
+2 LONG E0.0090687
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P38@ _PLAC Rothbury, Northumberland
+1 MAP
+2 LATI N55.30944
+2 LONG W1.91519
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:04
+0 @P39@ _PLAC Clifton Wood, Bristol, England
+1 MAP
+2 LATI N51.4569158
+2 LONG W2.6143321
+1 CHAN
+2 DATE 17 SEP 2014
+3 TIME 15:51:31
+0 @P40@ _PLAC Rochester, New York State, United States
+1 MAP
+2 LATI N37.20973
+2 LONG W86.89156
+1 CHAN
+2 DATE 18 SEP 2014
+3 TIME 09:55:01
+0 @P42@ _PLAC Lusaka, Zambia
+1 MAP
+2 LATI S15.4345098
+2 LONG E28.33148
+1 CHAN
+2 DATE 18 SEP 2014
+3 TIME 09:55:02
+0 @P45@ _PLAC Cambridge, Massachusetts, USA
+1 MAP
+2 LATI N42.3750997
+2 LONG W71.1056157
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:04:01
+0 @P47@ _PLAC Cambridge,Cambridgeshire, England
+1 MAP
+2 LATI N52.1893254
+2 LONG E0.13118
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:05
+0 @P48@ _PLAC New York City
+1 MAP
+2 LATI N40.7142691
+2 LONG W74.0059729
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 10:26:05
+0 @P50@ _PLAC Farmborough, Somerset, England
+1 MAP
+2 LATI N51.342362
+2 LONG W2.4875262
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 16:41:26
+0 @P52@ _PLAC Westernzoyland, Somerset, England
+1 MAP
+2 LATI N51.1086675
+2 LONG W2.9292326
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:36:13
+0 @P54@ _PLAC Adelaide,South Australia, Australia
+1 MAP
+2 LATI S34.9720592
+2 LONG E138.603302
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 16:35:49
+0 @P55@ _PLAC Tailem Bend, South Australia, Australia
+1 MAP
+2 LATI S35.2525442
+2 LONG E139.457089
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 16:50:31
+0 @P57@ _PLAC Gallipoli, Turkey
+1 MAP
+2 LATI N40.414
+2 LONG E26.6695
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:13:13
+0 @P58@ _PLAC Wellington, New Zealand
+1 MAP
+2 LATI S41.28664
+2 LONG E174.77557
+1 CHAN
+2 DATE 23 SEP 2014
+3 TIME 16:35:51
+0 @P60@ _PLAC Croydon, London, England
+1 MAP
+2 LATI N51.3553
+2 LONG W0.0871562
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:08:05
+0 @P61@ _PLAC Whanganui, New Zealand
+1 MAP
+2 LATI S39.9341542
+2 LONG E175.0365887
+1 CHAN
+2 DATE 24 SEP 2014
+3 TIME 08:44:26
+0 @P62@ _PLAC Auckland, New Zealand
+1 MAP
+2 LATI S36.85
+2 LONG E174.7833333
+1 CHAN
+2 DATE 24 SEP 2014
+3 TIME 08:54:36
+0 @P64@ _PLAC Santiago de Querétaro, Querétaro,Mexico
+1 MAP
+2 LATI N20.6127399
+2 LONG W100.3990549
+1 CHAN
+2 DATE 24 SEP 2014
+3 TIME 09:15:29
+0 @P65@ _PLAC Merida, Yucatan, Mexico
+1 MAP
+2 LATI N20.9946489
+2 LONG W89.6166039
+1 CHAN
+2 DATE 24 SEP 2014
+3 TIME 09:13:46
+0 @P66@ _PLAC San Francisco, California, USA
+1 MAP
+2 LATI N37.7665967
+2 LONG W122.4510824
+1 CHAN
+2 DATE 24 SEP 2014
+3 TIME 09:13:43
+0 @P68@ _PLAC Jasper, Alberta, Canada
+1 MAP
+2 LATI N52.8748922
+2 LONG W118.0822256
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:17:03
+0 @P69@ _PLAC Santiago, Chile
+1 MAP
+2 LATI S33.45
+2 LONG W70.666667
+1 CHAN
+2 DATE 22 AUG 2022
+3 TIME 16:32:10
+0 TRLR

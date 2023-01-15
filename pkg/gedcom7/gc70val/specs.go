@@ -7,12 +7,9 @@ import (
 )
 
 type Specs struct {
-	StdTags   map[string]tagDef
-	ExtTags   map[string]tagDef
+	Tags      map[string]TagDef
 	Calendars map[string]calDef
 	Types     map[string]typeDef
-
-	LineValidator operators.Operator
 
 	// deprecated tags from previous gedcom versions
 	depTags map[string]bool
@@ -20,8 +17,7 @@ type Specs struct {
 
 func New() *Specs {
 	return &Specs{
-		StdTags:   baseline.tags,
-		ExtTags:   make(map[string]tagDef),
+		Tags:      baseline.tags,
 		Calendars: baseline.calendars,
 		Types:     baseline.types,
 		depTags:   make(map[string]bool),
@@ -29,26 +25,43 @@ func New() *Specs {
 }
 
 // AddExtTag adds a tag to the list of extension tags
-func (g *Specs) AddExtTag(in []byte) error {
+func (s *Specs) AddExtTag(in []byte) error {
 	tag, err := loadTag(in)
 	if err != nil {
 		return err
 	}
-	if _, ok := g.ExtTags[tag.Tag]; ok {
-		return fmt.Errorf("tag already exists as an extension tag")
+	if _, ok := s.Tags[tag.Tag]; ok {
+		return fmt.Errorf("tag already exists: %s", tag.Tag)
 	}
-	if _, ok := g.StdTags[tag.Tag]; ok {
-		return fmt.Errorf("tag already exists as standard tag")
-	}
-	g.ExtTags[tag.Tag] = tag
+	tag.Type = tagTypeExtended
+	s.Tags[tag.Tag] = tag
 
 	return nil
 }
 
-func (g *Specs) SetDeprecatedTags(v string) {
+// SetDeprecatedTags sets the list of deprecated tags based on the provided GEDCOM version.
+func (s *Specs) SetDeprecatedTags(v string) {
 	for tag, ver := range deprecatedTags {
 		if ver <= v {
-			g.depTags[tag] = true
+			s.depTags[tag] = true
 		}
 	}
+}
+
+// GetRule gets the rule definition for this tag.
+func (s *Specs) GetRule(k string) operators.Operator {
+	if tag, ok := s.Tags[k]; ok {
+		return tag.Rule
+	}
+
+	return nil
+}
+
+// GetEnums gets the list of Enums for this tag.
+func (s *Specs) GetEnums(k string) []string {
+	if tag, ok := s.Tags[k]; ok {
+		return tag.EnumSet.Values
+	}
+
+	return nil
 }
