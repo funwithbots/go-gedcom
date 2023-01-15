@@ -8,6 +8,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	"go-gedcom/pkg/gedcom7/gc70val"
 )
 
 /*
@@ -29,22 +31,21 @@ lineStr = (nonAt / atsign atsign) *nonEOL ; leading @ doubled
 */
 
 const (
-	g7UCLetter   = "A-Z"
-	g7Digit      = "0-9"
-	g7Nonzero    = "1-9"
-	g7Underscore = "_"
-	g7Atsign     = "@"
-	g7Banned     = `\x{0}-\x{8}\x{B}-\x{C}\x{E}-\x{1F}\x{7F}\x{80}-\x{9F}\x{D800}-\x{DFFF}\x{FFFE}-\x{FFFF}`
-
-	voidXref = "@VOID@"
-
 	setFixAtsignStartLineVal = true
 	setFixAtsignAllLineVal   = false // no longer standard. @@ should not be used
 )
 
+// TODO Move these to gc70val package
 var (
-	regXref = regexp.MustCompile(fmt.Sprintf("%s[%s%s%s]+%s", g7Atsign, g7Underscore, g7UCLetter, g7Digit, g7Atsign))
-	// regLevel  = regexp.MustCompile(fmt.Sprintf("[0%s]+", g7Nonzero))
+	g7UCLetter   = gc70val.G7UCLetter
+	g7Digit      = gc70val.G7Digit
+	g7Underscore = gc70val.G7Underscore
+	g7Banned     = gc70val.G7Banned
+
+	voidXref = "@VOID@"
+)
+
+var (
 	regTag    = regexp.MustCompile(fmt.Sprintf("^%s?[%s%s]{1,}$", g7Underscore, g7UCLetter, g7Digit))
 	regBanned = regexp.MustCompile(fmt.Sprintf("[%s]+", g7Banned))
 )
@@ -62,9 +63,6 @@ type Line struct {
 
 	// Text is the original line of text extracted from the gedcom file.
 	Text string
-
-	// Parent points to the parent Line.
-	Parent *Line
 }
 
 type GTime Line
@@ -102,6 +100,7 @@ func (l *Line) String() string {
 	return out
 }
 
+// Validate checks the Line elements for technical errors.
 func (l *Line) Validate() bool {
 	if l.Level < 0 {
 		return false
@@ -109,7 +108,7 @@ func (l *Line) Validate() bool {
 	if !regTag.MatchString(l.Tag) {
 		return false
 	}
-	if l.Xref != "" && !regXref.MatchString(l.Xref) {
+	if l.Xref != "" && !gc70val.IsXref(l.Xref) {
 		return false
 	}
 	if regBanned.MatchString(l.Payload) {
@@ -159,7 +158,7 @@ func ToLine(s string) (*Line, error) {
 	// must be Xref or Tag
 	t := tokens[marker]
 	switch {
-	case regXref.MatchString(t):
+	case gc70val.IsXref(t):
 		if t == voidXref {
 			return nil, errors.New("xref cannot be void")
 		}
@@ -180,10 +179,10 @@ func ToLine(s string) (*Line, error) {
 	}
 
 	skip := len(node.Xref) + 2
-	n := strings.Index(s[skip:], node.Tag) + len(node.Tag) + 1 + skip
+	n := strings.Index(s[skip:], string(node.Tag)) + len(node.Tag) + 1 + skip
 	if len(s) > n {
 		lv := s[n:]
-		if setFixAtsignStartLineVal && lv[0:1] == "@" && !isXref(lv) {
+		if setFixAtsignStartLineVal && lv[0:1] == "@" && !gc70val.IsXref(lv) {
 			if len(lv) > 1 && lv[:2] != "@@" {
 				lv = fmt.Sprintf("@%s", lv)
 			}
@@ -234,9 +233,4 @@ func NewLines(s *bufio.Scanner) *Lines {
 	}
 
 	return &lines
-}
-
-// isXref validates that string segment is a validly formatted XRef.
-func isXref(v string) bool {
-	return regXref.MatchString(v)
 }

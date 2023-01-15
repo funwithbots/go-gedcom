@@ -11,7 +11,6 @@ import (
 	"golang.org/x/text/language"
 
 	"go-gedcom/pkg/abnf"
-	"go-gedcom/pkg/domain/gedcom"
 )
 
 const (
@@ -188,11 +187,7 @@ func (t *TagDef) ValidatePayload(str string) bool {
 
 	// Check if it's an Xref.
 	if len(v) == 0 {
-		// Is it an XREF "@XXXXX@"?
-		if strings.HasSuffix(t.Payload, "@") && strings.HasPrefix(t.Payload, "@") && gedcom.RegXref.MatchString(str) {
-			return true
-		}
-		return false
+		return IsXref(str)
 	}
 
 	return str == v[0].String()

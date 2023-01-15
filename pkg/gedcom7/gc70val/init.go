@@ -13,6 +13,13 @@ import (
 )
 
 const (
+	G7UCLetter   = "A-Z"
+	G7Digit      = "0-9"
+	G7Nonzero    = "1-9"
+	G7Underscore = "_"
+	G7Atsign     = "@"
+	G7Banned     = `\x{0}-\x{8}\x{B}-\x{C}\x{E}-\x{1F}\x{7F}\x{80}-\x{9F}\x{D800}-\x{DFFF}\x{FFFE}-\x{FFFF}`
+
 	abnfDir = "data/abnf"
 	logFN   = "gedcom7.log"
 )
@@ -25,6 +32,10 @@ var (
 		types     map[string]typeDef
 		enumSets  map[string]enumSet
 	}{}
+)
+
+var (
+// regLevel  = regexp.MustCompile(fmt.Sprintf("[0%s]+", g7Nonzero))
 )
 
 //go:embed data/abnf/*
