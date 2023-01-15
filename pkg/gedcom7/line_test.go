@@ -285,6 +285,12 @@ func TestNewlineFromFile(t *testing.T) {
 			total:     2197,
 			rootCount: 67,
 		},
+		{
+			name:      "Family Historian",
+			file:      DocPath + "test/valid.ged",
+			total:     93,
+			rootCount: 10,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

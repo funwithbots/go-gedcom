@@ -1,9 +1,5 @@
 package gc70val
 
-import (
-	"go-gedcom/pkg/gedcom"
-)
-
 /*
 https://gedcom.io/specifications/FamilySearchGEDCOMv7.pdf
 p. 27
@@ -27,28 +23,6 @@ year = Integer
 month = stdTag / extTag ; constrained by calendar
 epoch = %s"BCE" / extTag ; constrained by calendar
 */
-
-type GDate gedcom.Node
-
-// DateValue is defined by g7:DATE
-type DateValue gedcom.Node
-
-// DateExact is defined by g7:DATE-exact
-type DateExact gedcom.Node
-
-// DatePeriod is defined by g7:DATE-EVEN-DATE?
-type DatePeriod gedcom.Node
-
-// type ChangeDate struct {
-// 	DATE DateExact
-// 	TIME node.Node
-// 	Note []Note
-// }
-//
-// type CreationDate struct {
-// 	DATE DateExact
-// 	TIME node.Node
-// }
 
 type calDef struct {
 	Lang          string   `yaml:"lang"`

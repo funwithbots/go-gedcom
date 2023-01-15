@@ -20,10 +20,10 @@ const (
 var (
 	logFile  *os.File
 	baseline = struct {
-		tags      map[string]tagDef
+		tags      map[string]TagDef
 		calendars map[string]calDef
 		types     map[string]typeDef
-		enumsets  map[string]enumSet
+		enumSets  map[string]enumSet
 	}{}
 )
 
@@ -35,7 +35,7 @@ func init() {
 		tags      = pseudoTags
 		types     = make(map[string]typeDef)
 		calendars = make(map[string]calDef)
-		enumsets  = make(map[string]enumSet)
+		enumSets  = make(map[string]enumSet)
 
 		err error
 	)
@@ -56,7 +56,6 @@ func init() {
 	if err != nil {
 		log.Fatal("unable to open abnf folder", abnfDir, err)
 	}
-	enums := make([]enumSet, 0)
 
 	for _, fn := range files {
 		data, err := abnfFS.ReadFile(abnfDir + "/" + fn.Name())
@@ -69,16 +68,16 @@ func init() {
 		name := strings.Split(fn.Name(), "-")[0]
 		switch name {
 		case "enum":
-			// These values are extracted from enumsets.
+			// These values are extracted from enumSets.
 			continue
 		case "month":
 			// These values are extracted from calendars.
 			continue
 		case "enumset":
 			if es, err := loadEnumSet(data); err != nil {
-				logger.Printf("Error parsing %s as EnumSet\n%s\n", fn.Name(), err.Error())
+				logger.Printf("Error parsing %s as enumSet\n%s\n", fn.Name(), err.Error())
 			} else {
-				enums = append(enums, es)
+				enumSets[es.URI] = es
 			}
 		case "cal":
 			cm, err := loadCal(data)
@@ -116,22 +115,22 @@ func init() {
 		}
 	}
 
-	for _, es := range enums {
-		if _, ok := tags[es.FullTag]; !ok {
-			logger.Printf("Save enumset to %s.\n", es.FullTag)
-			enumsets[es.FullTag] = es
-			continue
+	for key, tag := range tags {
+		if tag.EnumSetName != "" {
+			if es, ok := enumSets[tag.EnumSetName]; !ok {
+				logger.Printf("No matching tag for %s to %s.\n", key, tag.EnumSetName)
+			} else {
+				tag.EnumSet = es
+				tags[key] = tag
+				logger.Printf("Added enumset %s.\n", es.FullTag)
+			}
 		}
-		t := tags[es.FullTag]
-		t.EnumSet = es
-		tags[es.FullTag] = t
-		logger.Printf("Added enumset %s.\n", es.FullTag)
 	}
 
 	baseline.tags = tags
 	baseline.calendars = calendars
 	baseline.types = types
-	baseline.enumsets = enumsets
+	baseline.enumSets = enumSets
 }
 
 // deserializeYAML populates v with the contents of the first document in the YAML text.

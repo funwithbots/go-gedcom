@@ -62,6 +62,9 @@ type Line struct {
 
 	// Text is the original line of text extracted from the gedcom file.
 	Text string
+
+	// Parent points to the parent Line.
+	Parent *Line
 }
 
 type GTime Line
@@ -97,6 +100,22 @@ func (l *Line) String() string {
 	}
 
 	return out
+}
+
+func (l *Line) Validate() bool {
+	if l.Level < 0 {
+		return false
+	}
+	if !regTag.MatchString(l.Tag) {
+		return false
+	}
+	if l.Xref != "" && !regXref.MatchString(l.Xref) {
+		return false
+	}
+	if regBanned.MatchString(l.Payload) {
+		return false
+	}
+	return true
 }
 
 // Matches evaluates each line.Text using fn() with `pattern` and returns a slice of matching lines.
@@ -161,7 +180,7 @@ func ToLine(s string) (*Line, error) {
 	}
 
 	skip := len(node.Xref) + 2
-	n := strings.Index(s[skip:], string(node.Tag)) + len(node.Tag) + 1 + skip
+	n := strings.Index(s[skip:], node.Tag) + len(node.Tag) + 1 + skip
 	if len(s) > n {
 		lv := s[n:]
 		if setFixAtsignStartLineVal && lv[0:1] == "@" && !isXref(lv) {

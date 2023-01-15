@@ -79,11 +79,15 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 		}
 		line, err := ToLine(v) // return a pointer to new Line
 		if err != nil {
-			doc.AddWarning(v, fmt.Sprintf("unable to parse input row %d: %s", i, v))
+			doc.AddWarning(v, fmt.Sprintf("Line %d: unable to parse input row '%s'. Error %s", i, v, err.Error()))
 			continue
 		}
 		if !doc.Validator.IsValidTag(line.Tag) {
-			doc.AddWarning(line, fmt.Sprintf("invalid tag %s on line %d", line.Tag, i))
+			doc.AddWarning(line, fmt.Sprintf("Line %d: invalid tag %s", i, line.Tag))
+		}
+
+		if !line.Validate() {
+			doc.AddWarning(line, fmt.Sprintf("Line %d: invalid payload %s", i, line.Payload))
 		}
 
 		switch line.Level {
@@ -91,7 +95,13 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 			node := gedcom.NewNode(nil, line)
 			switch line.Tag {
 			case "HEAD":
-				doc.header = node
+				if i != 1 {
+					doc.AddWarning(line, fmt.Sprintf("Line %d: HEAD tag must be first tag in file", i))
+				}
+				// only add the first header to the document
+				if doc.header == nil {
+					doc.header = node
+				}
 				doc.AddRecord(node)
 			case "TRLR":
 				doc.trailer = line
@@ -139,9 +149,9 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 // AddRecord adds a primary record to the document.
 func (d *document) AddRecord(n *gedcom.Node) {
 	d.records = append(d.records, n)
-	node := n.GetValue().(*Line)
-	if node.Xref != "" {
-		d.XRefCache.Store(node.Xref, n)
+	line := n.GetValue().(*Line)
+	if line.Xref != "" {
+		d.XRefCache.Store(line.Xref, n)
 	}
 }
 
@@ -150,18 +160,18 @@ func (d *document) AddRecord(n *gedcom.Node) {
 // Batch operations should check for warnings after processing.
 func (d *document) AddWarning(src interface{}, msg string) {
 	var row string
-	var n *Line
+	var line *Line
 	switch data := src.(type) {
 	case string:
 		row = data
 	case *Line:
-		n = data
-		row = n.String()
+		line = data
+		row = line.String()
 	default:
 		row = fmt.Sprintf("unknown src type %T", src)
 	}
 	d.Warnings = append(d.Warnings, Warning{
-		Node:    n,
+		Node:    line,
 		Line:    row,
 		Message: msg,
 	})
@@ -179,8 +189,8 @@ func (d *document) GetFamily(xref string) *Line {
 
 // GetXRef returns a Line by its xref value.
 func (d *document) GetXRef(xref string) *Line {
-	if n, ok := d.XRefCache.Load(xref); ok {
-		return n.(*gedcom.Node).GetValue().(*Line)
+	if line, ok := d.XRefCache.Load(xref); ok {
+		return line.(*gedcom.Node).GetValue().(*Line)
 	}
 
 	return nil
@@ -234,8 +244,8 @@ func (d *document) exportGedcom7(w io.Writer) error {
 	}
 
 	for _, v := range d.records {
-		n := v.GetValue().(*Line)
-		if n.Tag == "TRLR" || n.Tag == "HEAD" {
+		line := v.GetValue().(*Line)
+		if line.Tag == "TRLR" || line.Tag == "HEAD" {
 			continue
 		}
 		_, err = w.Write([]byte(exportNodeTree(v)))
@@ -259,10 +269,6 @@ func (d *document) String() string {
 	}
 
 	return buf.String()
-}
-
-func (d *document) Validate() ([]string, error) {
-	return nil, fmt.Errorf("not implemented")
 }
 
 func (d *document) Len() int {

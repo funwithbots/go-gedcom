@@ -4,12 +4,12 @@ import "github.com/funwithbots/go-abnf/operators"
 
 // Null
 func Null() operators.Operator {
-	return operators.Terminal("Null", []byte{0})
+	return operators.Terminal("null", []byte{})
 }
 
 // YOrNull validates [Y|<NULL>]
 func YOrNull() operators.Operator {
-	return operators.Optional("Y|Null",
+	return operators.Optional("Y|<NULL>",
 		operators.String("Y", "Y"),
 	)
 }

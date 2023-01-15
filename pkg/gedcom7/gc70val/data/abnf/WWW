@@ -22,7 +22,7 @@ payload: http://www.w3.org/2001/XMLSchema#string
 substructures: {}
 
 superstructures:
-  "https://gedcom.io/terms/v7/ADOP": "{0:M}"
+  "https://gedcom.io/terms/v7/MADOP": "{0:M}"
   "https://gedcom.io/terms/v7/ANUL": "{0:M}"
   "https://gedcom.io/terms/v7/BAPM": "{0:M}"
   "https://gedcom.io/terms/v7/BARM": "{0:M}"

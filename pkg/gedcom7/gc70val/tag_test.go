@@ -2,8 +2,10 @@ package gc70val
 
 import (
 	"log"
+	"math/rand"
 	"strings"
 	"testing"
+	"time"
 
 	"go-gedcom/pkg/abnf"
 )
@@ -46,39 +48,26 @@ superstructures:
 	}
 }
 
-func TestListTags(t *testing.T) {
-	var tags string
-	for k := range validTags {
-		tags += string(k) + " "
-	}
-	t.Logf("standard %s", tags)
-
-	for k := range customTags {
-		tags += string(k) + " "
-	}
-	t.Logf("custom %s", tags)
-}
-
 func Test_tagMeta_InferRule(t *testing.T) {
 	for k := range validTags {
 		if tag, ok := baseline.tags[string(k)]; ok {
 			tag.InferRule()
 			if tag.Rule == nil {
 				t.Errorf("Unknown validation rule for %s:%s:%s.\n", tag.Type, tag.Payload, tag.URI)
-				debugInferRule(baseline.tags[string(k)])
+				debugInferRule(t, baseline.tags[string(k)])
 			}
 		}
 	}
 }
 
-func debugInferRule(tm tagDef) {
+func debugInferRule(t *testing.T, tm TagDef) {
 	if tm.URI != "" {
 		switch {
 		case tm.Payload == "null", tm.Payload == "":
-			log.Printf("%v: Null payload.\n", tm.Tag)
+			t.Logf("%v: Null payload.\n", tm.Tag)
 			tm.Rule = abnf.Validation["Null"]
 		case len(tm.Payload) > 2 && tm.Payload[0] == '@' && tm.Payload[len(tm.Payload)-1] == '@':
-			log.Printf("%v: Tag via @*@ pattern.\n", tm.Tag)
+			t.Logf("%v: Tag via @*@ pattern.\n", tm.Tag)
 			tm.Rule = abnf.Validation["Tag"]
 		case strings.HasPrefix(tm.Payload, URIPrefixes["g7"]):
 			k := tm.Payload[len(URIPrefixes["g7"]):]
@@ -86,15 +75,15 @@ func debugInferRule(tm tagDef) {
 				k = k[5:]
 			}
 			tm.Rule = abnf.Validation[k]
-			log.Printf("%v: g7 prefix. %s '%s'\n", tm.Tag, tm.Payload, k)
+			t.Logf("%v: g7 prefix. %s '%s'\n", tm.Tag, tm.Payload, k)
 		case strings.HasPrefix(tm.Payload, URIPrefixes["xsd"]),
 			strings.HasPrefix(tm.Payload, URIPrefixes["w3"]):
 			parts := strings.Split(tm.Payload, "#")
 			uc := toUpperCamel(parts[len(parts)-1])
 			tm.Rule = abnf.Validation[uc]
-			log.Printf("%v: xsd or w3 prefix. %s '%s'\n", tm.Tag, tm.Payload, uc)
+			t.Logf("%v: xsd or w3 prefix. %s '%s'\n", tm.Tag, tm.Payload, uc)
 		default:
-			log.Printf("%v: No matching case.\n", tm.Tag)
+			t.Logf("%v: No matching case.\n", tm.Tag)
 
 		}
 	} else {
@@ -102,41 +91,6 @@ func debugInferRule(tm tagDef) {
 	}
 	log.Println("=======================================")
 }
-
-// func Test_tagMeta_Validate(t *testing.T) {
-// 	fn := DocPath + "shaw.ged"
-//
-// 	s, closer, err := readFile(fn)
-// 	if err != nil {
-// 		t.Fatalf("Error reading file %s: %v", fn, err.Error())
-// 	}
-// 	defer closer()
-//
-// 	nodes, err := Load(s)
-// 	if err != nil {
-// 		t.Fatalf("Error loading nodes from file %s: %v", fn, err.Error())
-// 	}
-//
-// 	var errorCount int
-// 	for i, tt := range nodes {
-// 		tm, ok := tagList[tt.Tag]
-// 		if !ok {
-// 			t.Errorf("Unknown tag %s at index %d\nLine: %s\n", tt.Tag, i, tt.String())
-// 			continue
-// 		}
-// 		payloadVal := tm.Rule([]byte(tt.Payload))
-// 		if payloadVal == nil {
-// 			continue
-// 		}
-// 		if len(payloadVal[0].Value) != len(tt.Payload) {
-// 			errorCount++
-// 			t.Errorf("Invalid payload for tag %s at index %d\n:Payload: '%s' : '%s'\nLine: %s\n", tt.Tag, i, tt.Payload, payloadVal[0].Value, tt.String())
-// 		}
-// 		if errorCount > 10 {
-// 			break
-// 		}
-// 	}
-// }
 
 func Test_toUpperCamel(t *testing.T) {
 	tests := []struct {
@@ -170,6 +124,63 @@ func Test_toUpperCamel(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := toUpperCamel(tt.in); got != tt.want {
 				t.Errorf("toUpperCamel() = %s, want %s", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_tagDef_ValidatePayload(t *testing.T) {
+	defs := New()
+	rand.Seed(time.Now().UnixNano())
+
+	// TODO Add more strings to exercise the validation rules.
+	for _, tt := range defs.Tags {
+		t.Run(tt.FullTag, func(t *testing.T) {
+			var str []string
+			payload := strings.Split(tt.Payload, "/")[len(strings.Split(tt.Payload, "/"))-1]
+			switch {
+			case payload == "null", payload == "":
+				str = []string{""}
+			case payload == "Y|<NULL>":
+				str = []string{"Y"}
+			case payload == "Y|N":
+				str = []string{"Y", "N"}
+			case payload == "type-Date#period":
+				str = []string{"TO 1992"}
+			case payload == "type-Date#exact":
+				str = []string{"12 DEC 1992"}
+			case payload == "type-Date":
+				str = []string{"TO 1992"}
+			case strings.HasSuffix(payload, ">@"):
+				str = []string{"@I1@"}
+			case strings.HasSuffix(payload, "Enum"):
+				l := len(tt.EnumSet.Values)
+				if l != 0 {
+					str = tt.EnumSet.Values
+				} else {
+					if set, ok := baseline.enumSets[tt.URI]; ok {
+						str = set.Values
+					} else {
+						str = []string{"unknown"}
+					}
+				}
+			case payload == "XMLSchema#Language":
+				str = []string{"en-US"}
+			case payload == "XMLSchema#nonNegativeInteger":
+				str = []string{"14"}
+			case payload == "type-Age":
+				str = []string{"14y"}
+			case payload == "dcat#mediaType":
+				str = []string{"text/plain"}
+			case payload == "type-Time":
+				str = []string{"12:00"}
+			default:
+				str = []string{"test value"}
+			}
+			for _, s := range str {
+				if got := tt.ValidatePayload(s); !got {
+					t.Errorf("FAIL Validate(%s), tag: %s, payload: %s", s, tt.FullTag, tt.Payload)
+				}
 			}
 		})
 	}
