@@ -24,8 +24,8 @@ func (d *document) Validate() error {
 // TODO Still need to verify the node is validly placed in the document tree.
 func (d *document) ValidateNode(node gedcom.Node) error {
 	line := node.GetValue().(*Line)
-	if ok := line.Validate(); !ok {
-		return fmt.Errorf("line validation failed sanity check")
+	if v := line.Validate(); len(v) > 0 {
+		return fmt.Errorf("line validator logged %d errors", len(v))
 	}
 	enums := d.Validator.GetEnums(line.Tag)
 	if enums != nil {

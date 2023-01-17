@@ -101,20 +101,22 @@ func (l *Line) String() string {
 }
 
 // Validate checks the Line elements for technical errors.
-func (l *Line) Validate() bool {
+func (l *Line) Validate() []string {
+	errors := make([]string, 0)
 	if l.Level < 0 {
-		return false
+		errors = append(errors, fmt.Sprintf("Level %d must be positive", l.Level))
 	}
 	if !regTag.MatchString(l.Tag) {
-		return false
+		errors = append(errors, fmt.Sprintf("Tag %s contains invalid characters", l.Tag))
 	}
 	if l.Xref != "" && !gc70val.IsXref(l.Xref) {
-		return false
+		errors = append(errors, fmt.Sprintf("Xref %s not properly formatted", l.Xref))
 	}
-	if regBanned.MatchString(l.Payload) {
-		return false
+	if regBanned.MatchString(l.Text) {
+		errors = append(errors, fmt.Sprintf("Line %s contains banned characters", l.Text))
 	}
-	return true
+
+	return errors
 }
 
 // Matches evaluates each line.Text using fn() with `pattern` and returns a slice of matching lines.
