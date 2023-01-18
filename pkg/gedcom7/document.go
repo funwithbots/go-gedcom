@@ -86,8 +86,10 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 			doc.AddWarning(line, fmt.Sprintf("Line %d: invalid tag %s", i, line.Tag))
 		}
 
-		if !line.Validate() {
-			doc.AddWarning(line, fmt.Sprintf("Line %d: invalid payload %s", i, line.Payload))
+		if errors := line.Validate(); len(errors) > 0 {
+			for _, e := range errors {
+				doc.AddWarning(e, fmt.Sprintf("Line %d: %s", i, line.Payload))
+			}
 		}
 
 		switch line.Level {

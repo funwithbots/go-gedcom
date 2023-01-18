@@ -254,7 +254,7 @@ func TestToLine(t *testing.T) {
 	}
 }
 
-func TestNewlineFromFile(t *testing.T) {
+func TestNewlinesFromFile(t *testing.T) {
 	tests := []struct {
 		name      string
 		file      string
