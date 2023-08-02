@@ -67,8 +67,9 @@ func inspect(docPath, fn string) {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("Processed %d records with %d warnings.\n", doc.Len(), len(doc.Warnings))
-	for _, v := range doc.Warnings {
+	warnings := doc.GetWarnings()
+	fmt.Printf("Processed %d records with %d warnings.\n", doc.Len(), len(warnings))
+	for _, v := range warnings {
 		fmt.Printf("%s\t%s\n", v.Line, v.Message)
 	}
 }

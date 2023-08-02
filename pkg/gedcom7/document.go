@@ -19,6 +19,14 @@ const (
 	bom = "\xef\xbb\xbf" // byte order mark
 )
 
+type Document interface {
+	gedcom.Document
+	AddWarning(src interface{}, msg string)
+	GetWarnings() []Warning
+	GetFamily(xref string) *Line
+	GetXRef(xref string) *Line
+}
+
 type document struct {
 	bom     string // Byte Order Mark
 	header  *gedcom.Node
@@ -32,7 +40,7 @@ type document struct {
 	options docOptions
 }
 
-func NewDocumentFromFile(name string, options ...DocOptions) (*document, error) {
+func NewDocumentFromFile(name string, options ...DocOptions) (Document, error) {
 	f, err := os.Open(name)
 	if err != nil {
 		return nil, err
@@ -44,7 +52,7 @@ func NewDocumentFromFile(name string, options ...DocOptions) (*document, error) 
 }
 
 // NewDocument accepts a buffer and converts it into a structured gedcom document.
-func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
+func NewDocument(s *bufio.Scanner, options ...DocOptions) Document {
 	s.Split(scanLines)
 
 	nodeStack := stack.New()

@@ -16,7 +16,7 @@ func Test_document_ValidateNode(t *testing.T) {
 	}
 
 	go func() {
-		for _, node := range doc.records {
+		for _, node := range doc.Records() {
 			if node == nil {
 				continue
 			}
