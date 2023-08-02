@@ -36,6 +36,24 @@ git clone https://github.com/funwithbots/go-gedcom.git
 
 Modify the existing cli tool in `/cli` or create your own.
 
+Download dependencies to your local module cache and build the cli.
+```bash
+make get
+make cli
+```
+
+Run some development-related tasks.
+```bash
+make vet
+make test
+
+# Pass flags to the underlying golang command.
+make test ARGS='-v -failfast'
+
+# Run tests on specific packages
+make test PKGS=./pkg/gedcom7/...
+```
+
 ### Dependencies
 
 * go 1.18+
