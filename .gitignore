@@ -3,3 +3,4 @@ data/*
 *.exe
 bin/
 *.log
+vendor
