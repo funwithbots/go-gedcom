@@ -1,4 +1,4 @@
-module go-gedcom
+module github.com/funwithbots/go-gedcom
 
 go 1.19
 

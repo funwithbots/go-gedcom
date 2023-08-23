@@ -12,7 +12,7 @@ import (
 	"log"
 	"os"
 
-	"go-gedcom/pkg/gedcom7"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom7"
 )
 
 func main() {
