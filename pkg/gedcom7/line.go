@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"go-gedcom/pkg/gedcom7/gc70val"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom7/gc70val"
 )
 
 /*

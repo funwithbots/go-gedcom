@@ -10,9 +10,9 @@ import (
 	"sync"
 	"time"
 
-	"go-gedcom/pkg/gedcom"
-	"go-gedcom/pkg/gedcom7/gc70val"
-	"go-gedcom/pkg/stack"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom7/gc70val"
+	"github.com/funwithbots/go-gedcom/pkg/stack"
 )
 
 const (

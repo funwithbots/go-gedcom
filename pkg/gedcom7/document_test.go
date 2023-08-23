@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"go-gedcom/pkg/gedcom"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom"
 )
 
 var DocPath = "data/"

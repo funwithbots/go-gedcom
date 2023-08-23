@@ -5,8 +5,8 @@ import (
 
 	"github.com/funwithbots/go-abnf/operators"
 
-	"go-gedcom/pkg/gedcom"
-	"go-gedcom/pkg/gedcom7/gc70val"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom7/gc70val"
 )
 
 // Validate checks the entire GEDCOM document for technical validity

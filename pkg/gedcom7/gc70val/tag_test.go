@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"go-gedcom/pkg/abnf"
+	"github.com/funwithbots/go-gedcom/pkg/abnf"
 )
 
 func Test_loadTags(t *testing.T) {

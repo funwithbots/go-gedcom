@@ -3,7 +3,7 @@ package gedcom7
 import (
 	"testing"
 
-	"go-gedcom/pkg/gedcom"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom"
 )
 
 func Test_document_ValidateNode(t *testing.T) {

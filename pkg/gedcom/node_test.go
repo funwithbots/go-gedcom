@@ -5,8 +5,8 @@ import (
 	"sync"
 	"testing"
 
-	"go-gedcom/pkg/gedcom"
-	"go-gedcom/pkg/gedcom7"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom"
+	"github.com/funwithbots/go-gedcom/pkg/gedcom7"
 )
 
 const (

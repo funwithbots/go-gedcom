@@ -10,7 +10,7 @@ import (
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 
-	"go-gedcom/pkg/abnf"
+	"github.com/funwithbots/go-gedcom/pkg/abnf"
 )
 
 const (
