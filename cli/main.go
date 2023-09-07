@@ -12,6 +12,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/funwithbots/go-gedcom/pkg/gedcom"
 	"github.com/funwithbots/go-gedcom/pkg/gedcom7"
 )
 
@@ -68,8 +69,8 @@ func inspect(docPath, fn string) {
 	}
 
 	fmt.Printf("Processed %d records with %d warnings.\n", doc.Len(), len(doc.Warnings))
-	for _, v := range doc.Warnings {
-		fmt.Printf("%s\t%s\n", v.Line, v.Message)
+	for _, v := range doc.GetWarnings(gedcom.LevelInfo) {
+		fmt.Println(v.String())
 	}
 }
 

@@ -83,9 +83,10 @@ func TestNewDocumentFromFile(t *testing.T) {
 				}
 			}
 
-			if len(doc.GetWarnings()) != 0 {
-				t.Errorf("NewDocument() flagged warnings. Got %d, wanted 0.", len(doc.GetWarnings()))
-				t.Logf("First: %s\n", doc.GetWarnings()[0])
+			numWarnings := len(doc.GetWarnings(gedcom.LevelInfo))
+			if numWarnings != 0 {
+				t.Errorf("NewDocument() flagged warnings. Got %d, wanted 0.", numWarnings)
+				t.Logf("First: %s\n", doc.GetWarnings(gedcom.LevelInfo)[0])
 			}
 
 			doc.XRefCache.Range(func(k, v interface{}) bool {
@@ -104,8 +105,8 @@ func TestNewDocumentFromFile(t *testing.T) {
 				t.Fatalf("Error creating file for %s: %s", tt.name, err.Error())
 			}
 			out := f.Name()
-			defer os.Remove(out)
-			defer f.Close()
+			defer func() { _ = os.Remove(out) }()
+			defer func() { _ = f.Close() }()
 
 			w := bufio.NewWriter(f)
 			if err = doc.exportGedcom7(w); err != nil {

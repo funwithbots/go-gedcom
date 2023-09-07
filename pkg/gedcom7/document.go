@@ -25,7 +25,7 @@ type document struct {
 	records []*gedcom.Node
 	trailer *Line
 
-	Warnings  []Warning
+	gedcom.Warnings
 	XRefCache *sync.Map
 	Validator *gc70val.Specs
 
@@ -51,7 +51,7 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 
 	doc := &document{
 		records:   make([]*gedcom.Node, 0),
-		Warnings:  make([]Warning, 0),
+		Warnings:  make(gedcom.Warnings, 0),
 		XRefCache: &sync.Map{},
 		Validator: gc70val.New(),
 		options: docOptions{
@@ -79,16 +79,16 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 		}
 		line, err := ToLine(v) // return a pointer to new Line
 		if err != nil {
-			doc.AddWarning(v, fmt.Sprintf("Line %d: unable to parse input row '%s'. Error %s", i, v, err.Error()))
+			doc.AddWarning(gedcom.LevelError, v, fmt.Sprintf("Line %d: unable to parse input. Error %s", i, err.Error()))
 			continue
 		}
 		if !doc.Validator.IsValidTag(line.Tag) {
-			doc.AddWarning(line, fmt.Sprintf("Line %d: invalid tag %s", i, line.Tag))
+			doc.AddWarning(gedcom.LevelError, line, fmt.Sprintf("Line %d: invalid tag %s", i, line.Tag))
 		}
 
 		if errors := line.Validate(); len(errors) > 0 {
 			for _, e := range errors {
-				doc.AddWarning(e, fmt.Sprintf("Line %d: %s", i, line.Payload))
+				doc.AddWarning(gedcom.LevelError, e, fmt.Sprintf("Line %d: %s", i, line.Payload))
 			}
 		}
 
@@ -98,7 +98,7 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 			switch line.Tag {
 			case "HEAD":
 				if i != 1 {
-					doc.AddWarning(line, fmt.Sprintf("Line %d: HEAD tag must be first tag in file", i))
+					doc.AddWarning(gedcom.LevelError, line, fmt.Sprintf("Line %d: HEAD tag must be first tag in file", i))
 				}
 				// only add the first header to the document
 				if doc.header == nil {
@@ -116,7 +116,7 @@ func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
 			top := nodeStack.Peek().(*gedcom.Node)
 			tLine := top.GetValue().(*Line)
 			if line.Level > tLine.Level+1 {
-				doc.AddWarning(v, fmt.Sprintf("Level jumped from %d to %d.", tLine.Level, line.Level))
+				doc.AddWarning(gedcom.LevelError, v, fmt.Sprintf("Level jumped from %d to %d.", tLine.Level, line.Level))
 			}
 			switch {
 			// same level. Just add subnode to parent
@@ -160,28 +160,21 @@ func (d *document) AddRecord(n *gedcom.Node) {
 // AddWarning adds a warning to the document.
 // It is generally populated by the parser.
 // Batch operations should check for warnings after processing.
-func (d *document) AddWarning(src interface{}, msg string) {
-	var row string
+func (d *document) AddWarning(level gedcom.Level, src interface{}, msg string) {
 	var line *Line
 	switch data := src.(type) {
-	case string:
-		row = data
 	case *Line:
 		line = data
-		row = line.String()
 	default:
-		row = fmt.Sprintf("unknown src type %T", src)
+		msg = fmt.Sprintf("unknown src type %T", src) + " " + msg
 	}
-	d.Warnings = append(d.Warnings, Warning{
-		Node:    line,
-		Line:    row,
+	warning := Warning{
+		Line:    line,
 		Message: msg,
-	})
-}
+		Level:   level,
+	}
 
-// GetWarnings returns a slice of warnings.
-func (d *document) GetWarnings() []Warning {
-	return d.Warnings
+	d.Warnings.AddWarning(level, warning)
 }
 
 // GetFamily returns a family Line by xref
