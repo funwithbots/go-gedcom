@@ -4,6 +4,8 @@ import (
 	"fmt"
 
 	"github.com/funwithbots/go-abnf/operators"
+
+	"github.com/funwithbots/go-gedcom/pkg/gedcom"
 )
 
 type Specs struct {
@@ -15,7 +17,7 @@ type Specs struct {
 	depTags map[string]bool
 }
 
-func New() *Specs {
+func New() gedcom.Validator {
 	return &Specs{
 		Tags:      baseline.tags,
 		Calendars: baseline.calendars,
@@ -49,9 +51,9 @@ func (s *Specs) SetDeprecatedTags(v string) {
 }
 
 // GetRule gets the rule definition for this tag.
-func (s *Specs) GetRule(k string) operators.Operator {
-	if tag, ok := s.Tags[k]; ok {
-		return tag.Rule
+func (s *Specs) GetRule(tag string) operators.Operator {
+	if v, ok := s.Tags[tag]; ok {
+		return v.Rule
 	}
 
 	return nil

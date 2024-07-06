@@ -2,10 +2,8 @@ package gc70val
 
 import (
 	"log"
-	"math/rand"
 	"strings"
 	"testing"
-	"time"
 
 	"github.com/funwithbots/go-gedcom/pkg/abnf"
 )
@@ -130,8 +128,7 @@ func Test_toUpperCamel(t *testing.T) {
 }
 
 func Test_tagDef_ValidatePayload(t *testing.T) {
-	defs := New()
-	rand.Seed(time.Now().UnixNano())
+	defs := New().(*Specs)
 
 	// TODO Add more strings to exercise the validation rules.
 	for _, tt := range defs.Tags {
