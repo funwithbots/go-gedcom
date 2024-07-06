@@ -54,8 +54,8 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer logFile.Close()
-	logger := log.New(logFile, "GEDCOM Logger", log.LstdFlags)
+	defer func() { _ = logFile.Close() }()
+	logger := log.New(logFile, "GEDCOM Logger ", log.LstdFlags)
 	logger.Println("Importing Gedcom 7 configs.")
 
 	AddValidTag(TagHEAD)
@@ -96,16 +96,16 @@ func init() {
 				logger.Printf("Error parsing %s as calendar: %s\n", fn.Name(), err.Error())
 			} else {
 				calendars[cm.Cal] = cm
+				logger.Printf("Added calendar %s.\n", cm.Cal)
 			}
-			logger.Printf("Added calendar %s.\n", cm.Cal)
 		case "type":
 			tm, err := loadType(data)
 			if err != nil {
 				logger.Printf("Error parsing %s as type: %s\n", fn.Name(), err.Error())
 			} else {
 				types[tm.Type] = tm
+				logger.Printf("Added type %s.\n", tm.Type)
 			}
-			logger.Printf("Added type %s.\n", tm.Type)
 		default:
 			t, err := loadTag(data)
 			if err != nil {
@@ -121,8 +121,8 @@ func init() {
 					t.FullTag = "record-" + t.FullTag
 				}
 				tags[t.FullTag] = t
+				logger.Printf("Loaded tag %s.\n", t.FullTag)
 			}
-			logger.Printf("Loaded tag %s.\n", t.FullTag)
 		}
 	}
 
@@ -158,7 +158,7 @@ func deserializeYAML[T any](data []byte, v *T) error {
 			if err == io.EOF {
 				break
 			}
-			return fmt.Errorf("Document decode failed: %w", err)
+			return fmt.Errorf("document decode failed: %w", err)
 		}
 	}
 	return nil

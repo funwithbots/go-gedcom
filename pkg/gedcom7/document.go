@@ -37,7 +37,7 @@ func NewDocumentFromFile(name string, options ...DocOptions) (gedcom.Document, e
 	if err != nil {
 		return nil, err
 	}
-	defer f.Close()
+	defer func() { _ = f.Close() }()
 	s := bufio.NewScanner(f)
 	doc := NewDocument(s, WithMaxDeprecatedTags("5.5.1"))
 	return doc, nil
@@ -206,15 +206,14 @@ func (d *document) ExportToFile(filename string) error {
 	if err != nil {
 		return err
 	}
-	defer f.Close()
+	defer func() { _ = f.Close() }()
 
 	w := bufio.NewWriter(f)
 	if err = d.exportGedcom7(w); err != nil {
 		return err
 	}
 
-	w.Flush()
-	return nil
+	return w.Flush()
 }
 
 // exportNodeTree recursively writes out a Line and its subnodes and returns them as a multi-line string.
