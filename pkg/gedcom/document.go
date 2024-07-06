@@ -6,4 +6,5 @@ type Document interface {
 	String() string
 	Warnings() []string
 	Len() int
+	Records() []*Node
 }

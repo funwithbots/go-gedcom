@@ -19,7 +19,7 @@ const (
 	TagTRLR = "TRLR"
 )
 
-var validTags = make(map[string]interface{}, 0)
+var validTags = make(map[string]interface{})
 
 // AddValidTag adds a tag to the list of valid tags.
 // If it already exists, return false, otherwise true.
@@ -64,7 +64,7 @@ var (
 )
 
 var pseudoTags = map[string]TagDef{
-	"HEAD": TagDef{
+	"HEAD": {
 		Lang:    "en-US",
 		Type:    tagTypePseudostructure,
 		URI:     "/HEAD",
@@ -218,7 +218,7 @@ func loadTag(in []byte) (TagDef, error) {
 
 // remapStructures removes the URI prefix from the structure keys
 func remapStructures(structs map[string]string) map[string]string {
-	s := make(map[string]string, 0)
+	s := make(map[string]string)
 	for k, v := range structs {
 		key := extractFullTag(k)
 		s[key] = v

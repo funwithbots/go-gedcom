@@ -10,7 +10,8 @@ func Test_document_ValidateNode(t *testing.T) {
 	name := "data/test/valid.ged"
 	nodeCh := make(chan *gedcom.Node)
 
-	doc, err := NewDocumentFromFile(name)
+	d, err := NewDocumentFromFile(name)
+	doc := d.(*document)
 	if err != nil {
 		t.Fatalf("couldn't load document %s", err.Error())
 	}

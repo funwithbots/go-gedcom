@@ -27,7 +27,7 @@ type document struct {
 
 	warnings  []warning
 	XRefCache *sync.Map
-	Validator *gc70val.Specs
+	Validator gedcom.Validator
 
 	options docOptions
 }

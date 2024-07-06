@@ -62,7 +62,8 @@ func TestNewDocumentFromFile(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			doc, err := NewDocumentFromFile(tt.file, WithMaxDeprecatedTags("5.5.1"))
+			d, err := NewDocumentFromFile(tt.file, WithMaxDeprecatedTags("5.5.1"))
+			doc := d.(*document)
 			if err != nil {
 				t.Errorf("NewDocument() error opening %s: %v", tt.file, err)
 			}
@@ -83,9 +84,9 @@ func TestNewDocumentFromFile(t *testing.T) {
 				}
 			}
 
-			if len(doc.GetWarnings()) != 0 {
-				t.Errorf("NewDocument() flagged warnings. Got %d, wanted 0.", len(doc.GetWarnings()))
-				t.Logf("First: %s\n", doc.GetWarnings()[0])
+			if len(doc.Warnings()) != 0 {
+				t.Errorf("NewDocument() flagged warnings. Got %d, wanted 0.", len(doc.Warnings()))
+				t.Logf("First: %s\n", doc.Warnings()[0])
 			}
 
 			doc.XRefCache.Range(func(k, v interface{}) bool {
@@ -104,14 +105,16 @@ func TestNewDocumentFromFile(t *testing.T) {
 				t.Fatalf("Error creating file for %s: %s", tt.name, err.Error())
 			}
 			out := f.Name()
-			defer os.Remove(out)
-			defer f.Close()
+			defer func() { _ = os.Remove(out) }()
+			defer func() { _ = f.Close() }()
 
 			w := bufio.NewWriter(f)
 			if err = doc.exportGedcom7(w); err != nil {
 				t.Fatalf("Error writing file %s", out)
 			}
-			w.Flush()
+			if err = w.Flush(); err != nil {
+				t.Fatalf("Error flushing file %s", out)
+			}
 
 			errCount, total := fileDiff(tt.file, out, 10)
 			if errCount != 0 {
