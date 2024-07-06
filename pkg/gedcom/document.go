@@ -4,5 +4,6 @@ package gedcom
 type Document interface {
 	Validate() ([]string, error)
 	String() string
+	Warnings() []string
 	Len() int
 }

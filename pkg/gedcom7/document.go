@@ -25,14 +25,14 @@ type document struct {
 	records []*gedcom.Node
 	trailer *Line
 
-	Warnings  []Warning
+	warnings  []warning
 	XRefCache *sync.Map
 	Validator *gc70val.Specs
 
 	options docOptions
 }
 
-func NewDocumentFromFile(name string, options ...DocOptions) (*document, error) {
+func NewDocumentFromFile(name string, options ...DocOptions) (gedcom.Document, error) {
 	f, err := os.Open(name)
 	if err != nil {
 		return nil, err
@@ -44,14 +44,14 @@ func NewDocumentFromFile(name string, options ...DocOptions) (*document, error) 
 }
 
 // NewDocument accepts a buffer and converts it into a structured gedcom document.
-func NewDocument(s *bufio.Scanner, options ...DocOptions) *document {
+func NewDocument(s *bufio.Scanner, options ...DocOptions) gedcom.Document {
 	s.Split(scanLines)
 
 	nodeStack := stack.New()
 
 	doc := &document{
 		records:   make([]*gedcom.Node, 0),
-		Warnings:  make([]Warning, 0),
+		warnings:  make([]warning, 0),
 		XRefCache: &sync.Map{},
 		Validator: gc70val.New(),
 		options: docOptions{
@@ -172,16 +172,11 @@ func (d *document) AddWarning(src interface{}, msg string) {
 	default:
 		row = fmt.Sprintf("unknown src type %T", src)
 	}
-	d.Warnings = append(d.Warnings, Warning{
+	d.warnings = append(d.warnings, warning{
 		Node:    line,
 		Line:    row,
 		Message: msg,
 	})
-}
-
-// GetWarnings returns a slice of warnings.
-func (d *document) GetWarnings() []Warning {
-	return d.Warnings
 }
 
 // GetFamily returns a family Line by xref

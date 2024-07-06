@@ -10,14 +10,14 @@ import (
 )
 
 // Validate checks the entire GEDCOM document for technical validity
-func (d *document) Validate() error {
+func (d *document) Validate() ([]string, error) {
 	// TODO Verify HEAD and TRLR are present
 
 	// TODO Check for warnings
 
 	// TODO Traverse records and validate nodes
 
-	return fmt.Errorf("not implemented")
+	return nil, fmt.Errorf("not implemented")
 }
 
 // ValidateNode checks the node and ensures it passes validation rules

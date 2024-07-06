@@ -12,6 +12,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/funwithbots/go-gedcom/pkg/gedcom"
 	"github.com/funwithbots/go-gedcom/pkg/gedcom7"
 )
 
@@ -61,15 +62,16 @@ func exitWithHelp() {
 func inspect(docPath, fn string) {
 	fn = docPath + fn
 	fmt.Printf("Processing file '%s'\n", fn)
-	doc, err := gedcom7.NewDocumentFromFile(fn, gedcom7.WithMaxDeprecatedTags("5.5.1"))
+	doc, err := loadGedcom7FromFile(fn)
 	if err != nil {
 		fmt.Println("Error accessing ", fn)
 		log.Fatal(err)
 	}
 
-	fmt.Printf("Processed %d records with %d warnings.\n", doc.Len(), len(doc.Warnings))
-	for _, v := range doc.Warnings {
-		fmt.Printf("%s\t%s\n", v.Line, v.Message)
+	warnings := doc.Warnings()
+	fmt.Printf("Processed %d records with %d warnings.\n", doc.Len(), len(warnings))
+	for _, v := range warnings {
+		fmt.Println(v)
 	}
 }
 
@@ -77,4 +79,9 @@ func recordCount(docPath, fn string) {
 	fn = docPath + fn
 	fmt.Printf("Processing file '%s'\n", fn)
 	exitWithHelp()
+}
+
+func loadGedcom7FromFile(file string) (gedcom.Document, error) {
+	fmt.Println("Loading file ", file)
+	return gedcom7.NewDocumentFromFile(file, gedcom7.WithMaxDeprecatedTags("5.5.1"))
 }
